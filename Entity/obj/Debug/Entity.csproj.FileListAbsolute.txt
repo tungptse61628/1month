@@ -9,3 +9,14 @@ E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManag
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.dll
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.pdb
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.dll.config
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.dll
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.pdb
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.dll
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.SqlServer.dll
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.xml
+D:\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.SqlServer.xml
+D:\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+D:\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+D:\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.dll
+D:\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.pdb

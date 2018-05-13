@@ -11,3 +11,16 @@ E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManag
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.dll
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.pdb
 E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\EntityFramework.dll
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Service.dll
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Service.pdb
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Entity.dll
+D:\Agency\AgencyProject\1month\Service\bin\Debug\EntityFramework.dll
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Newtonsoft.Json.dll
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Entity.pdb
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Entity.dll.config
+D:\Agency\AgencyProject\1month\Service\bin\Debug\EntityFramework.xml
+D:\Agency\AgencyProject\1month\Service\bin\Debug\Newtonsoft.Json.xml
+D:\Agency\AgencyProject\1month\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+D:\Agency\AgencyProject\1month\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+D:\Agency\AgencyProject\1month\Service\obj\Debug\Service.dll
+D:\Agency\AgencyProject\1month\Service\obj\Debug\Service.pdb
