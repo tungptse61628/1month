@@ -1,0 +1,11 @@
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\Entity.dll.config
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\Entity.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\Entity.pdb
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\EntityFramework.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\EntityFramework.SqlServer.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\EntityFramework.xml
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\bin\Debug\EntityFramework.SqlServer.xml
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Entity\obj\Debug\Entity.pdb

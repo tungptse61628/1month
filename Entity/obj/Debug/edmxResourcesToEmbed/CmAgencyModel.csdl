@@ -1,0 +1,577 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CmAgencyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CmAgencyEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Attachments" EntityType="CmAgencyModel.Attachment" />
+    <EntitySet Name="CheckLists" EntityType="CmAgencyModel.CheckList" />
+    <EntitySet Name="CheckListItems" EntityType="CmAgencyModel.CheckListItem" />
+    <EntitySet Name="Comments" EntityType="CmAgencyModel.Comment" />
+    <EntitySet Name="Lists" EntityType="CmAgencyModel.List" />
+    <EntitySet Name="Notifications" EntityType="CmAgencyModel.Notification" />
+    <EntitySet Name="NotificationUsers" EntityType="CmAgencyModel.NotificationUser" />
+    <EntitySet Name="Projects" EntityType="CmAgencyModel.Project" />
+    <EntitySet Name="Tasks" EntityType="CmAgencyModel.Task" />
+    <EntitySet Name="TaskDependencies" EntityType="CmAgencyModel.TaskDependency" />
+    <EntitySet Name="Teams" EntityType="CmAgencyModel.Team" />
+    <EntitySet Name="TeamProjects" EntityType="CmAgencyModel.TeamProject" />
+    <EntitySet Name="Users" EntityType="CmAgencyModel.User" />
+    <EntitySet Name="UserProjects" EntityType="CmAgencyModel.UserProject" />
+    <EntitySet Name="UserTasks" EntityType="CmAgencyModel.UserTask" />
+    <AssociationSet Name="FK_Attachment_Task" Association="CmAgencyModel.FK_Attachment_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="Attachment" EntitySet="Attachments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckList_Task" Association="CmAgencyModel.FK_CheckList_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="CheckList" EntitySet="CheckLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CheckListItem_CheckList" Association="CmAgencyModel.FK_CheckListItem_CheckList">
+      <End Role="CheckList" EntitySet="CheckLists" />
+      <End Role="CheckListItem" EntitySet="CheckListItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Task" Association="CmAgencyModel.FK_Comment_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Stage_Project" Association="CmAgencyModel.FK_Stage_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="List" EntitySet="Lists" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_List" Association="CmAgencyModel.FK_Task_List">
+      <End Role="List" EntitySet="Lists" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationUser_Notification" Association="CmAgencyModel.FK_NotificationUser_Notification">
+      <End Role="Notification" EntitySet="Notifications" />
+      <End Role="NotificationUser" EntitySet="NotificationUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NotificationUser_User" Association="CmAgencyModel.FK_NotificationUser_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="NotificationUser" EntitySet="NotificationUsers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User" Association="CmAgencyModel.FK_Project_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Project_User1" Association="CmAgencyModel.FK_Project_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Project" EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamProject_Project" Association="CmAgencyModel.FK_TeamProject_Project">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="TeamProject" EntitySet="TeamProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProject_Project1" Association="CmAgencyModel.FK_UserProject_Project1">
+      <End Role="Project" EntitySet="Projects" />
+      <End Role="UserProject" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Task_User" Association="CmAgencyModel.FK_Task_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Task" EntitySet="Tasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskDependency_Task" Association="CmAgencyModel.FK_TaskDependency_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskDependency" EntitySet="TaskDependencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TaskDependency_Task1" Association="CmAgencyModel.FK_TaskDependency_Task1">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="TaskDependency" EntitySet="TaskDependencies" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTask_Task" Association="CmAgencyModel.FK_UserTask_Task">
+      <End Role="Task" EntitySet="Tasks" />
+      <End Role="UserTask" EntitySet="UserTasks" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_User" Association="CmAgencyModel.FK_Team_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Team" EntitySet="Teams" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamProject_Team" Association="CmAgencyModel.FK_TeamProject_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="TeamProject" EntitySet="TeamProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Team" Association="CmAgencyModel.FK_User_Team">
+      <End Role="Team" EntitySet="Teams" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserProject_User" Association="CmAgencyModel.FK_UserProject_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserProject" EntitySet="UserProjects" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTask_User" Association="CmAgencyModel.FK_UserTask_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserTask" EntitySet="UserTasks" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Attachment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskID" Type="Int32" Nullable="false" />
+    <Property Name="Path" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Task" Relationship="CmAgencyModel.FK_Attachment_Task" FromRole="Attachment" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="CheckList">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="TaskID" Type="Int32" Nullable="false" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Task" Relationship="CmAgencyModel.FK_CheckList_Task" FromRole="CheckList" ToRole="Task" />
+    <NavigationProperty Name="CheckListItems" Relationship="CmAgencyModel.FK_CheckListItem_CheckList" FromRole="CheckList" ToRole="CheckListItem" />
+  </EntityType>
+  <EntityType Name="CheckListItem">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsChecked" Type="Boolean" Nullable="false" />
+    <Property Name="CheckListID" Type="Int32" Nullable="false" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="CheckList" Relationship="CmAgencyModel.FK_CheckListItem_CheckList" FromRole="CheckListItem" ToRole="CheckList" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Body" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="TaskID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Task" Relationship="CmAgencyModel.FK_Comment_Task" FromRole="Comment" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="List">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Project" Relationship="CmAgencyModel.FK_Stage_Project" FromRole="List" ToRole="Project" />
+    <NavigationProperty Name="Tasks" Relationship="CmAgencyModel.FK_Task_List" FromRole="List" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Notification">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="NotificationUsers" Relationship="CmAgencyModel.FK_NotificationUser_Notification" FromRole="Notification" ToRole="NotificationUser" />
+  </EntityType>
+  <EntityType Name="NotificationUser">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="NotificationID" Type="Int32" Nullable="false" />
+    <Property Name="IsRead" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Notification" Relationship="CmAgencyModel.FK_NotificationUser_Notification" FromRole="NotificationUser" ToRole="Notification" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_NotificationUser_User" FromRole="NotificationUser" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Project">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Deadline" Type="DateTime" Precision="0" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="StartDate" Type="DateTime" Precision="0" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="LessionLearnt" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CustomerFeedback" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="FinishedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Lists" Relationship="CmAgencyModel.FK_Stage_Project" FromRole="Project" ToRole="List" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_Project_User" FromRole="Project" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CmAgencyModel.FK_Project_User1" FromRole="Project" ToRole="User" />
+    <NavigationProperty Name="TeamProjects" Relationship="CmAgencyModel.FK_TeamProject_Project" FromRole="Project" ToRole="TeamProject" />
+    <NavigationProperty Name="UserProjects" Relationship="CmAgencyModel.FK_UserProject_Project1" FromRole="Project" ToRole="UserProject" />
+  </EntityType>
+  <EntityType Name="Task">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" Nullable="false" />
+    <Property Name="Duration" Type="Int32" Nullable="false" />
+    <Property Name="ListID" Type="Int32" Nullable="false" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="FinishedDate" Type="DateTime" Precision="3" />
+    <Property Name="Effort" Type="Int32" Nullable="false" />
+    <Property Name="IsArchived" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Attachments" Relationship="CmAgencyModel.FK_Attachment_Task" FromRole="Task" ToRole="Attachment" />
+    <NavigationProperty Name="CheckLists" Relationship="CmAgencyModel.FK_CheckList_Task" FromRole="Task" ToRole="CheckList" />
+    <NavigationProperty Name="Comments" Relationship="CmAgencyModel.FK_Comment_Task" FromRole="Task" ToRole="Comment" />
+    <NavigationProperty Name="List" Relationship="CmAgencyModel.FK_Task_List" FromRole="Task" ToRole="List" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_Task_User" FromRole="Task" ToRole="User" />
+    <NavigationProperty Name="TaskDependencies" Relationship="CmAgencyModel.FK_TaskDependency_Task" FromRole="Task" ToRole="TaskDependency" />
+    <NavigationProperty Name="TaskDependencies1" Relationship="CmAgencyModel.FK_TaskDependency_Task1" FromRole="Task" ToRole="TaskDependency" />
+    <NavigationProperty Name="UserTasks" Relationship="CmAgencyModel.FK_UserTask_Task" FromRole="Task" ToRole="UserTask" />
+  </EntityType>
+  <EntityType Name="TaskDependency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="SourceTaskID" Type="Int32" Nullable="false" />
+    <Property Name="DestinationTaskID" Type="Int32" Nullable="false" />
+    <Property Name="DependencyType" Type="Int32" Nullable="false" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="CreatedTime" Type="DateTime" Precision="3" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Task" Relationship="CmAgencyModel.FK_TaskDependency_Task" FromRole="TaskDependency" ToRole="Task" />
+    <NavigationProperty Name="Task1" Relationship="CmAgencyModel.FK_TaskDependency_Task1" FromRole="TaskDependency" ToRole="Task" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_Team_User" FromRole="Team" ToRole="User" />
+    <NavigationProperty Name="TeamProjects" Relationship="CmAgencyModel.FK_TeamProject_Team" FromRole="Team" ToRole="TeamProject" />
+    <NavigationProperty Name="Users" Relationship="CmAgencyModel.FK_User_Team" FromRole="Team" ToRole="User" />
+  </EntityType>
+  <EntityType Name="TeamProject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TeamID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="CmAgencyModel.FK_TeamProject_Project" FromRole="TeamProject" ToRole="Project" />
+    <NavigationProperty Name="Team" Relationship="CmAgencyModel.FK_TeamProject_Team" FromRole="TeamProject" ToRole="Team" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Birthdate" Type="DateTime" Precision="0" />
+    <Property Name="Email" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="Avatar" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Name="IsAdmin" Type="Boolean" Nullable="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="IsManager" Type="Boolean" Nullable="false" />
+    <Property Name="TeamID" Type="Int32" />
+    <NavigationProperty Name="NotificationUsers" Relationship="CmAgencyModel.FK_NotificationUser_User" FromRole="User" ToRole="NotificationUser" />
+    <NavigationProperty Name="Projects" Relationship="CmAgencyModel.FK_Project_User" FromRole="User" ToRole="Project" />
+    <NavigationProperty Name="Projects1" Relationship="CmAgencyModel.FK_Project_User1" FromRole="User" ToRole="Project" />
+    <NavigationProperty Name="Tasks" Relationship="CmAgencyModel.FK_Task_User" FromRole="User" ToRole="Task" />
+    <NavigationProperty Name="Teams" Relationship="CmAgencyModel.FK_Team_User" FromRole="User" ToRole="Team" />
+    <NavigationProperty Name="Team" Relationship="CmAgencyModel.FK_User_Team" FromRole="User" ToRole="Team" />
+    <NavigationProperty Name="UserProjects" Relationship="CmAgencyModel.FK_UserProject_User" FromRole="User" ToRole="UserProject" />
+    <NavigationProperty Name="UserTasks" Relationship="CmAgencyModel.FK_UserTask_User" FromRole="User" ToRole="UserTask" />
+  </EntityType>
+  <EntityType Name="UserProject">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="ProjectID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Project" Relationship="CmAgencyModel.FK_UserProject_Project1" FromRole="UserProject" ToRole="Project" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_UserProject_User" FromRole="UserProject" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserTask">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TaskID" Type="Int32" Nullable="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="IsFollow" Type="Boolean" Nullable="false" />
+    <Property Name="IsAssigned" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Task" Relationship="CmAgencyModel.FK_UserTask_Task" FromRole="UserTask" ToRole="Task" />
+    <NavigationProperty Name="User" Relationship="CmAgencyModel.FK_UserTask_User" FromRole="UserTask" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Attachment_Task">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.Attachment" Role="Attachment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Attachment">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckList_Task">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.CheckList" Role="CheckList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckList">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CheckListItem_CheckList">
+    <End Type="CmAgencyModel.CheckList" Role="CheckList" Multiplicity="1" />
+    <End Type="CmAgencyModel.CheckListItem" Role="CheckListItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CheckList">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CheckListItem">
+        <PropertyRef Name="CheckListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Task">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Stage_Project">
+    <End Type="CmAgencyModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="CmAgencyModel.List" Role="List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="List">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_List">
+    <End Type="CmAgencyModel.List" Role="List" Multiplicity="1" />
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="List">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="ListID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationUser_Notification">
+    <End Type="CmAgencyModel.Notification" Role="Notification" Multiplicity="1" />
+    <End Type="CmAgencyModel.NotificationUser" Role="NotificationUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Notification">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NotificationUser">
+        <PropertyRef Name="NotificationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NotificationUser_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.NotificationUser" Role="NotificationUser" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="NotificationUser">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Project_User1">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="0..1" />
+    <End Type="CmAgencyModel.Project" Role="Project" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Project">
+        <PropertyRef Name="ChangedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamProject_Project">
+    <End Type="CmAgencyModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="CmAgencyModel.TeamProject" Role="TeamProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TeamProject">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProject_Project1">
+    <End Type="CmAgencyModel.Project" Role="Project" Multiplicity="1" />
+    <End Type="CmAgencyModel.UserProject" Role="UserProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserProject">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Task_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Task">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskDependency_Task">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.TaskDependency" Role="TaskDependency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskDependency">
+        <PropertyRef Name="SourceTaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TaskDependency_Task1">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.TaskDependency" Role="TaskDependency" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TaskDependency">
+        <PropertyRef Name="DestinationTaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTask_Task">
+    <End Type="CmAgencyModel.Task" Role="Task" Multiplicity="1" />
+    <End Type="CmAgencyModel.UserTask" Role="UserTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Task">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserTask">
+        <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.Team" Role="Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamProject_Team">
+    <End Type="CmAgencyModel.Team" Role="Team" Multiplicity="1" />
+    <End Type="CmAgencyModel.TeamProject" Role="TeamProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TeamProject">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Team">
+    <End Type="CmAgencyModel.Team" Role="Team" Multiplicity="0..1" />
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="TeamID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserProject_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.UserProject" Role="UserProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserProject">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTask_User">
+    <End Type="CmAgencyModel.User" Role="User" Multiplicity="1" />
+    <End Type="CmAgencyModel.UserTask" Role="UserTask" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="UserTask">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

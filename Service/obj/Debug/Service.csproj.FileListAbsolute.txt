@@ -1,0 +1,13 @@
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Service.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Service.pdb
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Entity.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Newtonsoft.Json.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Entity.pdb
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Entity.dll.config
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\EntityFramework.xml
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\Newtonsoft.Json.xml
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.dll
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\obj\Debug\Service.pdb
+E:\destop\nop thay\file backup\AgencyProjectManagement-master\AgencyProjectManagement-master\Service\bin\Debug\EntityFramework.dll
