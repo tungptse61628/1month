@@ -1,0 +1,14 @@
+// Here you can add other styles
+.no-padding {
+  padding: 0 !important;
+}
+
+.form-control-mydatepicker input {
+  @extend .form-control
+}
+
+.dataTable-container.hide-search {
+  .dataTables_filter{
+    display: none;
+  }
+}

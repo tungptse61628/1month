@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Update department</strong>
+      </div>
+      <app-spinner *ngIf="loading.page"></app-spinner>
+      
+
+      <div *ngIf="!loading.page" class="card-body">
+        <app-assign-members-card
+          [title]="foundTeam.name"
+          [leftTableName]="'Free user'"
+          [rightTableName]="'Team member'"
+          [leftUser]="freeUsers"
+          [rightUser]="teamUsers"
+          [assignLoading]="loading.assign"
+          [unAssignLoading]="loading.unAssign"
+          (onAssign)="assign($event)"
+          (onUnAssign)="unAssign($event)"
+          (onSetRole)="setRole($event)">
+        </app-assign-members-card>
+      </div>
+    </div>
+  </div>
+</div>

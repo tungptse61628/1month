@@ -1,0 +1,24 @@
+<ul class="icons-list">
+  <li *ngFor="let user of users">
+    <i>
+      <img *ngIf="user.avatar" src="{{user.avatar}}" class="avatar img-avatar">
+      <img *ngIf="!user.avatar" src="/assets/img/100x100_avatar.png" class="avatar img-avatar">
+    </i>
+    <div class="desc">
+      <div class="title">
+        <a href="#/account/{{user.id}}/detail">
+          {{user.name}}
+        </a>
+      </div>
+      <small *ngIf="user.isManager && !user.isAdmin" class="text-dark">{{user.teamText}} | Manager</small>
+      <small *ngIf="!user.isManager && !user.isAdmin">{{user.teamText}}</small>
+      <small *ngIf="!user.isManager && user.isAdmin">{{user.teamText}}</small>
+    </div>
+    <!--<div class="value">-->
+      <!--<small>{{user.phone}}</small>-->
+    <!--</div>-->
+    <!--<div class="actions">-->
+      <!--<i *ngIf="user.phone" class="fa fa-phone text-muted"></i>-->
+    <!--</div>-->
+  </li>
+</ul>

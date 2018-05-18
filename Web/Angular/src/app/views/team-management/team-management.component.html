@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>View departments</strong>
+      </div>
+      <app-spinner *ngIf="isPageLoading"></app-spinner>
+      <div *ngIf="!isPageLoading" class="card-body">
+        <table datatable [dtOptions]="datatableOptions" class="table table-bordered">
+          <thead>
+            <tr>
+              <th style="text-align: center">Name</th>
+              <th style="text-align: center">Department Leader</th>
+              <th style="text-align: center">Created date</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let team of teams;let i = index">
+              <td>
+                <a routerLink="/department/{{team.id}}/detail">{{team.name}}</a>
+              </td>
+              <td>
+                <span *ngIf="team.manager">{{team.manager.name}}</span>
+                <span *ngIf="!team.manager">N/A</span>
+              </td>
+              <td>
+                <p>{{team.createdDate}}</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

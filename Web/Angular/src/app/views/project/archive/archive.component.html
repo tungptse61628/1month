@@ -1,0 +1,57 @@
+<!--<app-task-table [tasks]="tasks"></app-task-table>-->
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <ng-container *ngIf="foundProject">
+          <a routerLink="/project/{{foundProject.id}}/detail">
+            <strong>{{foundProject.name}}</strong>
+          </a>'s archived task
+        </ng-container>
+        <ng-container *ngIf="!foundProject">
+          <strong>project's archived task</strong>
+        </ng-container>
+      </div>
+      <app-spinner *ngIf="isLoading.page"></app-spinner>
+      <div *ngIf="!isLoading.page" class="card-body">
+        <div class="button-section">
+
+        </div>
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="search(searchField.value)">
+              <i class="fa fa-search"></i> Search
+            </button>
+          </span>
+          <input class="form-control" type="text" (input)="search(searchField.value)" #searchField>
+        </div>
+        <div class="dataTable-container hide-search mt-3">
+          <table id="allProjectsTable" datatable [dtOptions]="datatableOptions" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Start date</th>
+                <th>Deadline</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let task of tasks;">
+                <td>
+                  {{task.name}}
+                </td>
+                <td>{{task.statusText}}</td>
+                <td>{{task.priorityText}}</td>
+                <td>{{task.startDate | date:'dd/MM/yyyy'}}</td>
+                <td>{{task.deadline | date:'dd/MM/yyyy'}}</td>
+                <td class="text-center"><button type="button" class="btn btn-primary" (click)="handleUnArchiveBtnClick(task.id)">Unarchive</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

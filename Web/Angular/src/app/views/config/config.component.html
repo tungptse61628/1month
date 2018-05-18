@@ -1,0 +1,138 @@
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>Config</strong>
+      </div>
+      <app-spinner *ngIf="isLoading"></app-spinner>
+      <div class="card-body " *ngIf="!isLoading">
+        <div [formGroup]="updateForm" class="form-horizontal col-6">
+
+          <h3 class="col-12 text-center">Leader board config</h3>
+
+          <div class="form-group row">
+            <!--Low Priority-->
+            <label class="col-6 col-form-label text-right" for="low-priority-input">
+              Low Priority
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="lowpriority-input" name="lowpriority-input" [ngClass]="{'form-control': true, 'is-invalid': errors.mediumpriority}"
+                  formControlName="lowPriority"  class="form-control" >
+                <span class="input-group-addon">Point(s)</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.lowPriority" style="display: block">{{errors.lowPriority}}</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <!--Medium Priority-->
+            <label class="col-6 col-form-label text-right" for="medium-priority-input">
+              Medium Priority
+
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="mediumpriority-input" name="mediumpriority-input" [ngClass]="{'form-control': true, 'is-invalid': errors.mediumpriority}"
+                  formControlName="mediumPriority">
+                <span class="input-group-addon">Point(s)</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.mediumPriority" style="display: block">{{errors.mediumPriority}}</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!--Hight Priority-->
+            <label class="col-6 col-form-label text-right" for="hight-priority-input">
+              Hight Priority
+
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="hightpriority-input" name="hightpriority-input" [ngClass]="{'form-control': true, 'is-invalid': errors.hightpriority}"
+                  formControlName="hightPriority">
+                <span class="input-group-addon">Point(s)</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.hightPriority" style="display: block">{{errors.hightPriority}}</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!--Duration max-->
+            <label class="col-6 col-form-label text-right" for="task-max-duration-input">
+              Task's max duration
+
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="taskmaxduration-input" name="taskmaxduration-input" [ngClass]="{'form-control': true, 'is-invalid': errors.taskmaxduration}"
+                  formControlName="taskMaxDuration">
+                <span class="input-group-addon">Day(s)</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.taskMaxDuration" style="display: block">{{errors.taskMaxDuration}}</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!--Penalty-->
+            <label class="col-6 col-form-label text-right" for="late-task-penalty-input">
+              Late task's penalty
+
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="latetaskpenalty-input" name="latetaskpenalty-input" [ngClass]="{'form-control': true, 'is-invalid': errors.latetaskpenalty}"
+                  formControlName="lateTaskPenalty">
+                <span class="input-group-addon">%</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.lateTaskPenalty" style="display: block">{{errors.lateTaskPenalty}}</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!--Min age-->
+            <label class="col-6 col-form-label text-right" for="minimum-working-age-input">
+              Minimum working age
+
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <input type="number" id="minimumworkingage-input" name="minimumworkingage-input" [ngClass]="{'form-control': true, 'is-invalid': errors.minimumworkingage}"
+                  formControlName="minimumWorkingAge">
+                <span class="input-group-addon">Year(s) old</span>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.minimumWorkingAge" style="display: block">{{errors.minimumWorkingAge}}</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <!--Allow admin participant age-->
+            <label class="col-6 col-form-label text-right">
+              Allow admin to join department
+            </label>
+            <div class="col-6">
+              <div class="input-group">
+                <label class="switch switch-default switch-primary">
+                  <input class="switch-input" checked="" type="checkbox" formControlName="allowAdminParticipant">
+                  <span class="switch-label"></span>
+                  <span class="switch-handle"></span>
+                </label>
+              </div>
+              <div class="invalid-feedback" *ngIf="errors.allowAdminParticipant" style="display: block">
+                {{errors.allowAdminParticipant}}
+              </div>
+            </div>
+          </div>
+
+          <!--BUTTONS-->
+          <div class="col-6 col-form-label text-right">
+            <button class="btn btn-primary" (click)="handleUpdate()">
+              Save changes
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

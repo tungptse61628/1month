@@ -1,0 +1,103 @@
+<div class="card">
+  <div class="card-header">
+    <ng-container *ngIf="project">
+      <a routerLink="/project/{{project.id}}/detail">
+        <strong>{{project.name}}</strong>
+      </a>'s tasks
+    </ng-container>
+    <ng-container *ngIf="!project">
+      <strong>project's task</strong>
+    </ng-container>
+  </div>
+  <app-spinner *ngIf=!project></app-spinner>
+  <div *ngIf=project>
+    <div class="card-body" *ngIf="project">
+      <div class="row" style="margin-bottom: 1rem;">
+        <div class="input-group col-12">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="search(searchField.value)">
+              <i class="fa fa-search"></i> Search
+            </button>
+            <button class="btn btn-secondary" type="button" (click)="clear()">
+              <i class="fa fa-times"></i>
+            </button>
+          </span>
+          <input class="form-control" type="text" (change)="search(searchField.value)" #searchField>
+        </div>
+      </div>
+      <!-- -->
+      <div class="well mb-4" *ngIf="foundTasks.length > 0" style="font-size: 18px">
+        Found tasks:
+        <ul class="list-group" *ngFor="let task of foundTasks;let i=index">
+          <li class="list-group-item" style="background-color: #f0f3f5">
+            <a routerLink="/task/{{task.id}}/view" style="font-size: 17px;color: black">
+              {{task.name}}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <!-- -->
+      <div class="row task-row">
+        <div>
+          <ng-container *ngFor="let lists of project.lists;let i = index">
+            <div class="card cardstyle" style="margin-left: 15px;">
+              <div class="card-header cardheadertext" style="font-size: 18px">
+                <div class="form-group row">
+                  <div class="col-9">
+                    {{lists.name}}
+                  </div>
+                  <div class="col-3" *ngIf="currentUser.isManager">
+                    <div class="btn-group" dropdown>
+                      <button dropdownToggle type="button" class="btn btn-secondary dropdown-toggle">
+                        <span class="caret"></span>
+                      </button>
+                      <ul *dropdownMenu class="dropdown-menu" role="menu">
+                        <li role="menuitem">
+                          <a class="dropdown-item" style="cursor: pointer"
+                             href="#/task/create?project={{project.id}}&list={{lists.id}}">Add task</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-item" style="cursor: pointer"
+                             (click)="handleOnRenameListClick(lists.id, lists.name)">Rename</a>
+                        </li>
+                        <li role="menuitem">
+                          <a class="dropdown-item" style="cursor: pointer" (click)="handleOnRemoveListClick(lists.id)">Remove
+                            list</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card-body cardbodytext" *ngIf="lists.tasks">
+                <ng-container *ngFor="let task of lists.tasks">
+                  <div class="card task-card" *ngIf="!task.isArchived" data-toggle="modal" style="cursor: pointer"
+                       data-toggle="modal"
+                       id="task">
+                    <a routerLink="/task/{{task.id}}/view" style="text-decoration: none; color: black">
+                      <div class="card-body">
+                        {{task.name}}
+                      </div>
+                      <div class="card-footer p-0" style="height: 30px;">
+                        <app-task-status class="float-right" [taskStatusNumber]="task.status"></app-task-status>
+
+                      </div>
+                    </a>
+                  </div>
+                </ng-container>
+              </div>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="currentUser.isManager">
+            <div style="margin-left: 15px;">
+              <button type="button" class="btn btn-primary" style="width: 300px;height: 56px;
+              font-size: 17px;" (click)="handleOnAddListClick()">
+                <b>Add List</b>
+              </button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

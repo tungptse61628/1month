@@ -1,0 +1,30 @@
+button{
+    padding: 1rem 2rem;
+    position: relative;
+}
+.task-card:hover{
+    cursor: pointer;
+    background-color: #f2f2f2;
+}
+textarea:disabled{
+    background-color: white;
+    width: 95%;
+}
+.div-text{
+    height: 300px;
+    overflow-y: auto;
+    border:1px solid black;
+}
+.blackwhitebutton{
+    color: black;
+                background-color: white;
+                border-color: black;
+}
+
+
+.hover-bg{
+    &:hover {
+        cursor: pointer;
+        background-color: #F4F5F7;
+    }
+  }

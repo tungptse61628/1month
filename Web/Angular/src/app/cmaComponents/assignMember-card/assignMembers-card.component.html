@@ -1,0 +1,53 @@
+<div class="col-12 text-center margin-down">
+  <h1>{{title }}</h1>
+</div>
+<div class="col-12">
+  <table class="table">
+    <thead>
+    <tr>
+      <th class="text-center">
+        <h5>{{leftTableName}}</h5>
+      </th>
+      <th></th>
+      <th class="text-center">
+        <h5>{{rightTableName}}</h5>
+      </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td colspan="3">
+        <div class="row" style="margin-top: 1em">
+          <div class="col-5">
+            <app-mini-users-table
+              [users]="leftUser"
+              (onSelectedChange)="handleLeftTableSelect($event)"
+              [showRole]="false"></app-mini-users-table>
+          </div>
+          <div class="col-1 center-section">
+            <button class="btn btn-primary btn-block"
+                    (click)="unAssign()"
+                    [ladda]="unAssignLoading">
+              <i class="fa fa-angle-double-left"></i>
+            </button>
+            <button class="btn btn-primary btn-block"
+                    (click)="assign()"
+                    [ladda]="assignLoading">
+              <i class="fa fa-angle-double-right"></i>
+            </button>
+          </div>
+          <div class="col-6">
+            <app-mini-users-table
+              [users]="rightUser"
+              [showRole]="true"
+              [changeRoleable]="false"
+              (onSelectedChange)="handleRightTableSelect($event)"
+              (onRoleChange)="setRole($event)">
+            </app-mini-users-table>
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
