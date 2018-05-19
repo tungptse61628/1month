@@ -6,7 +6,7 @@
 Web/Web.config
 Web/Web.csproj.user
 Web/Angular/node_modules
-
+Web/Angular/dist
 /dist/
 bazel-*
 e2e_test.*
