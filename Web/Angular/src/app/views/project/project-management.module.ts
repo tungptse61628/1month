@@ -19,6 +19,8 @@ import {ReportComponent} from './report/report.component';
 import {LaddaModule} from 'angular2-ladda';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ArchiveComponent } from './archive/archive.component';
+import { NewCampaignComponent } from './new-campaign/new-campaign.component';
+
 
 
 @NgModule({
@@ -48,6 +50,8 @@ import { ArchiveComponent } from './archive/archive.component';
     ProjectTaskComponent,
     ReportComponent,
     ArchiveComponent,
+    NewCampaignComponent,
+
   ]
 })
 export class ProjectManagementModule {

@@ -80,26 +80,32 @@ const admin_navigation = [
     icon: 'icon-speedometer'
   },
   {
-    name: 'Projects',
+    name: 'Projects campaign',
     url: '/project',
     icon: 'icon-calendar',
     children: [
+      {
+        name: 'Create new campaign',
+        url: '/project/newCampaign',
+        icon: 'icon-calendar',
+      },
       {
         name: 'View projects',
         url: '/project',
         icon: 'icon-calendar',
       },
       {
-        name: 'Create project',
+        name: 'Create project customize',
         url: '/project/add',
         icon: 'icon-calendar',
       },
+
 
       
     ]
   },
   {
-    name: 'Departments',
+    name: 'Team',
     url: '/department/view',
     icon: 'icon-people',
   },

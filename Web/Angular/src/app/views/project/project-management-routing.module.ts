@@ -8,6 +8,7 @@ import { ProjectUpdateComponent } from './project-update/project-update.componen
 import { ProjectTaskComponent } from './project-task/project-task.component';
 import { ReportComponent } from './report/report.component';
 import { ArchiveComponent } from './archive/archive.component';
+import {NewCampaignComponent} from './new-campaign/new-campaign.component';
 
 const routes: Routes = [
   {
@@ -42,6 +43,13 @@ const routes: Routes = [
         component: AddProjectComponent,
         data: {
           title: 'Create project'
+        }
+      },
+      {
+        path: 'newCampaign',
+        component: NewCampaignComponent,
+        data: {
+          title: 'Add new campaign'
         }
       },
       {
