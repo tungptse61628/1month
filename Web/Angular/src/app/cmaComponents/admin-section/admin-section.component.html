@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <h4 class="card-title">
+    Recent projects
+  </h4>
+  <table datatable [dtOptions]="recentProjectOptions" class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Changed date</th>
+      <th>Status</th>
+      <th>Start date</th>
+      <th>Deadline</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let project of projects">
+      <td>
+        <a routerLink="/project/{{project.id}}/detail">{{project.name}}</a>
+      </td>
+      <td>
+        <ng-container *ngIf="project.changedTime">
+          <span [hidden]="true">{{project.changedTime | date:'yyyy/MM/dd'}}</span>
+          {{project.changedTime | date:'dd/MM/yyyy'}}
+        </ng-container>
+
+        <ng-container *ngIf="!project.changedTime">
+          N/A
+        </ng-container>
+
+      </td>
+      <td>
+        {{project.statusText}}
+      </td>
+      <td>
+        <span [hidden]="true">{{project.startDate | date:'yyyy/MM/dd'}}</span>
+        {{project.startDate | date:'dd/MM/yyyy'}}
+      </td>
+      <td>
+        <span [hidden]="true">{{project.deadline | date:'yyyy/MM/dd'}}</span>
+        {{project.deadline | date:'dd/MM/yyyy'}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

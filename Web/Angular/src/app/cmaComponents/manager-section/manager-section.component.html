@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <h4 class="card-title">
+    Late tasks
+  </h4>
+  <table datatable [dtOptions]="lateTableOptions" class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Deadline</th>
+      <th>Project</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of lateTasks">
+      <td>
+        <a routerLink="/task/{{task.id}}/view">{{task.name}}</a>
+      </td>
+      <td>{{task.priorityText}}</td>
+      <td>
+        {{task.statusText}}
+        <!--<span [hidden]="true">{{task.statusText}}</span>-->
+        <!--<app-task-status [taskStatusNumber]="task.status"></app-task-status>-->
+      </td>
+      <td>
+        <!--<span [hidden]="true">{{task.deadline | date:'yyyy/MM/dd'}}</span>-->
+        {{task.deadline | date:'dd/MM/yyyy'}}
+      </td>
+      <td>
+        <a routerLink="/project/{{task.project.id}}/detail">{{task.project.name}}</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+<hr class="mt-4 mb-4"/>
+<div class="container-fluid">
+  <h4 class="card-title">
+    Need review tasks
+  </h4>
+  <table datatable [dtOptions]="thisWeekTableOptions" class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Priority</th>
+      <th>Deadline</th>
+      <th>Project</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of needReviewTasks">
+      <td>
+        <a routerLink="/task/{{task.id}}/view">{{task.name}}</a>
+      </td>
+      <td>{{task.priorityText}}</td>
+      <td>
+        <span [hidden]="true">{{task.deadline | date:'yyyy/MM/dd'}}</span>
+        {{task.deadline | date:'dd/MM/yyyy'}}
+      </td>
+      <td>
+        <a routerLink="/project/{{task.project.id}}/detail">{{task.project.name}}</a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

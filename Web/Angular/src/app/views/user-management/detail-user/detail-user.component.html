@@ -1,0 +1,76 @@
+<div class="card">
+  <div class="card-header">
+    <strong>Account detail</strong>
+  </div>
+  <app-spinner *ngIf="isLoadingPage"></app-spinner>
+  <div class="card-body animated fadeIn" *ngIf="!isLoadingPage">
+    <div id="AvaAndDe" class="row" *ngIf="foundUser">
+
+      <div id="left" class="col-4">
+        <img id="img" *ngIf="foundUser" src="{{foundUser.avatar}}" height="100%" width="100%">
+      </div>
+      <div class="col-8">
+        
+        <div id="name" *ngIf="foundUser" style="text-transform: uppercase; font-size: 30px; color: #3960A4">
+          <strong>{{foundUser.name}}</strong>
+        </div>
+        <div id="team" *ngIf="foundUser" style="font-size: 30px">
+          <a href="#/department/{{foundUser.team.id}}/detail" *ngIf="foundUser.team">{{foundUser.team.name}}</a>
+          <span *ngIf="!foundUser.team" style="font-size: 25px">No information</span>
+        </div>
+        <br/>
+        <div id="role" *ngIf="foundUser">
+          <div *ngIf="foundUser.isAdmin">
+            <i class="fa fa-user-circle-o fa-lg"></i>
+            <span style="font-size: 20px"> &nbsp;&nbsp;&nbsp;Admin</span>
+          </div>
+          <div *ngIf="!foundUser.isAdmin && foundUser.isManager">
+            <i class="fa fa-user-circle-o fa-lg"></i>
+            <span style="font-size: 20px"> &nbsp;&nbsp;&nbsp;Manager</span>
+          </div>
+          <div *ngIf="!foundUser.isAdmin && !foundUser.isManager">
+            <i class="fa fa-user-circle-o fa-lg"></i>
+            <span style="font-size: 20px"> &nbsp;&nbsp;&nbsp;Staff</span>
+          </div>
+        </div>
+
+        <!-- <div id="ban" *ngIf="foundUser">
+          <div *ngIf="foundUser.isActive">
+            <i class="fa fa-check fa-lg"></i>
+            <span style="font-size: 20px;color: #3AA65B"> &nbsp;&nbsp;&nbsp;Active</span>
+          </div>
+          <div *ngIf="!foundUser.isActive">
+            <i class="fa fa-close fa-lg"></i>
+            <span style="font-size: 20px;color: #CB0A0E"> &nbsp;&nbsp;&nbsp;Banned</span>
+          </div>
+        </div> -->
+
+        <div id="phone" *ngIf="foundUser">
+          <i class="fa fa-phone fa-lg"></i>
+          <span style="font-size: 20px" *ngIf="foundUser.phone"> &nbsp;&nbsp;&nbsp;{{foundUser.phone}}</span>
+          <span style="font-size: 20px" *ngIf="!foundUser.phone"> &nbsp;&nbsp;&nbsp;No information</span>
+        </div>
+        <div id="email" *ngIf="foundUser">
+          <i class="fa fa-envelope-o fa-lg" ></i>
+          <span style="font-size: 20px" *ngIf="foundUser.email"> &nbsp;&nbsp;&nbsp;{{foundUser.email}}</span>
+          <span style="font-size: 20px" *ngIf="!foundUser.email"> &nbsp;&nbsp;&nbsp;No information</span>
+        </div>
+        <div>
+          <div id="birthdate" *ngIf="foundUser">
+            <i class="fa fa-birthday-cake fa-lg"></i>
+            <span style="font-size: 20px" *ngIf="foundUser.birthdate"> &nbsp;&nbsp;&nbsp;{{foundUser.birthdate |date:'dd/MM/yyyy'}}</span>
+            <span style="font-size: 20px" *ngIf="!foundUser.birthdate"> &nbsp;&nbsp;&nbsp;No information</span>
+          </div>
+        </div>
+        <div class="button-row">
+            <a href="#/account/update/{{foundUser.id}}" class="btn btn-primary bg-primary text-light" style="font-size: 20px;margin-top: 10px;" *ngIf="!match">
+              <i class="fa fa-edit"></i>&nbsp; Update
+            </a>
+            <a href="#/account/update" class="btn btn-primary bg-primary text-light" style="font-size: 20px;margin-top: 10px;" *ngIf="match">
+              <i class="fa fa-edit"></i>&nbsp; Update
+            </a>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

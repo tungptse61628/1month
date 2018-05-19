@@ -1,5 +1,78 @@
 webpackJsonp(["project-management.module"],{
 
+/***/ "../../../../../src/app/services/report.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ReportService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__tree_service__ = __webpack_require__("../../../../../src/app/services/tree.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent__ = __webpack_require__("../../../../superagent/lib/client.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_superagent___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_superagent__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__serverPath__ = __webpack_require__("../../../../../src/app/_serverPath.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var ReportService = /** @class */ (function () {
+    function ReportService(store) {
+        this.store = store;
+        this.tokenCursor = this.store.select(['token', 'access_token']);
+    }
+    ReportService.prototype.getReportStatistic = function (projectId) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_1_superagent__["get"](__WEBPACK_IMPORTED_MODULE_2__serverPath__["a" /* serverPath */].reportStatistic(projectId))
+                .set('token', _this.tokenCursor.get())
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content.Message);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ReportService.prototype.getReportProgress = function (projectId) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            __WEBPACK_IMPORTED_MODULE_1_superagent__["get"](__WEBPACK_IMPORTED_MODULE_2__serverPath__["a" /* serverPath */].reportProgress(projectId))
+                .set('token', _this.tokenCursor.get())
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content.Message);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ReportService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__tree_service__["a" /* StoreService */]])
+    ], ReportService);
+    return ReportService;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/views/project/add-project/add-project.component.html":
 /***/ (function(module, exports) {
 
@@ -171,7 +244,7 @@ var AddProjectComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/archive/archive.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<app-task-table [tasks]=\"tasks\"></app-task-table>-->\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <ng-container *ngIf=\"foundProject\">\n          <a routerLink=\"/project/{{foundProject.id}}/detail\">\n            <strong>{{foundProject.name}}</strong>\n          </a>'s archived task\n        </ng-container>\n        <ng-container *ngIf=\"!foundProject\">\n          <strong>project's archived task</strong>\n        </ng-container>\n      </div>\n      <app-spinner *ngIf=\"isLoading.page\"></app-spinner>\n      <div *ngIf=\"!isLoading.page\" class=\"card-body\">\n        <div class=\"button-section\">\n\n        </div>\n        <div class=\"input-group\">\n          <span class=\"input-group-btn\">\n            <button class=\"btn btn-primary\" type=\"button\" (click)=\"search(searchField.value)\">\n              <i class=\"fa fa-search\"></i> Search\n            </button>\n          </span>\n          <input class=\"form-control\" type=\"text\" (input)=\"search(searchField.value)\" #searchField>\n        </div>\n        <div class=\"dataTable-container hide-search mt-3\">\n          <table id=\"allProjectsTable\" datatable [dtOptions]=\"datatableOptions\" class=\"table table-bordered\">\n            <thead>\n              <tr>\n                <th>Name</th>\n                <th>Status</th>\n                <th>Priority</th>\n                <th>Start date</th>\n                <th>Deadline</th>\n                <th>Action</th>\n              </tr>\n            </thead>\n            <tbody>\n              <tr *ngFor=\"let task of tasks;\">\n                <td>\n                  {{task.name}}\n                </td>\n                <td>{{task.statusText}}</td>\n                <td>{{task.priorityText}}</td>\n                <td>{{task.startDate | date:'dd/MM/yyyy'}}</td>\n                <td>{{task.deadline | date:'dd/MM/yyyy'}}</td>\n                <td class=\"text-center\"><button type=\"button\" class=\"btn btn-primary\" (click)=\"handleUnArchiveBtnClick(task.id)\">Unarchive</button></td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--<app-task-table [tasks]=\"tasks\"></app-task-table>-->\r\n<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <ng-container *ngIf=\"foundProject\">\r\n          <a routerLink=\"/project/{{foundProject.id}}/detail\">\r\n            <strong>{{foundProject.name}}</strong>\r\n          </a>'s archived task\r\n        </ng-container>\r\n        <ng-container *ngIf=\"!foundProject\">\r\n          <strong>project's archived task</strong>\r\n        </ng-container>\r\n      </div>\r\n      <app-spinner *ngIf=\"isLoading.page\"></app-spinner>\r\n      <div *ngIf=\"!isLoading.page\" class=\"card-body\">\r\n        <div class=\"button-section\">\r\n\r\n        </div>\r\n        <div class=\"input-group\">\r\n          <span class=\"input-group-btn\">\r\n            <button class=\"btn btn-primary\" type=\"button\" (click)=\"search(searchField.value)\">\r\n              <i class=\"fa fa-search\"></i> Search\r\n            </button>\r\n          </span>\r\n          <input class=\"form-control\" type=\"text\" (input)=\"search(searchField.value)\" #searchField>\r\n        </div>\r\n        <div class=\"dataTable-container hide-search mt-3\">\r\n          <table id=\"allProjectsTable\" datatable [dtOptions]=\"datatableOptions\" class=\"table table-bordered\">\r\n            <thead>\r\n              <tr>\r\n                <th>Name</th>\r\n                <th>Status</th>\r\n                <th>Priority</th>\r\n                <th>Start date</th>\r\n                <th>Deadline</th>\r\n                <th>Action</th>\r\n              </tr>\r\n            </thead>\r\n            <tbody>\r\n              <tr *ngFor=\"let task of tasks;\">\r\n                <td>\r\n                  {{task.name}}\r\n                </td>\r\n                <td>{{task.statusText}}</td>\r\n                <td>{{task.priorityText}}</td>\r\n                <td>{{task.startDate | date:'dd/MM/yyyy'}}</td>\r\n                <td>{{task.deadline | date:'dd/MM/yyyy'}}</td>\r\n                <td class=\"text-center\"><button type=\"button\" class=\"btn btn-primary\" (click)=\"handleUnArchiveBtnClick(task.id)\">Unarchive</button></td>\r\n              </tr>\r\n            </tbody>\r\n          </table>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -342,7 +415,7 @@ var ArchiveComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/project-detail/project-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    <strong>Project detail</strong>\r\n  </div>\r\n  <app-spinner *ngIf=\"isPageLoading\"></app-spinner>\r\n  <div *ngIf=\"!isPageLoading\" class=\"card-body\">\r\n    <div class=\"card-body\" [formGroup]=\"viewForm\" *ngIf=\"foundProject\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\" style=\"font-size: 20px\">\r\n          <h2 class=\"card-title\">{{foundProject.name}}</h2>\r\n        </div>\r\n        <!-- button start -->\r\n        <div class=\"col-12 form-horizontal\">\r\n\r\n          <div class=\"button-row\" style=\"margin-bottom: 5px;margin-top: 4px;\" *ngIf=\"foundProject.status!= 2\">\r\n            <a routerLink=\"/project/{{foundProject.id}}/update\" class=\"btn btn-secondary bg-light\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-edit\"></i>&nbsp; Update\r\n            </a>\r\n            <a class=\"btn btn-secondary bg-light\" (click)=\"handleCloseProject(foundProject.id)\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-close\"></i>&nbsp; Close project\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignModal}\" [ladda]=\"isLoading.openAssignModal\"\r\n              (click)=\"handleOnAssignBtnClick()\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-users\"></i>&nbsp; Set department\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignMembersModal}\" (click)=\"handleOnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-plus\"></i>&nbsp; Assign members\r\n            </a>\r\n\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openUnAssignMembersModal}\" (click)=\"handleOnUnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openUnAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-times\"></i>&nbsp; Un-assign members\r\n            </a>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- button end -->\r\n\r\n        <div class=\"col-6\">\r\n          <div class=\"form-horizontal\">\r\n\r\n\r\n            <div class=\"section mt-4\">\r\n              <!--DESCRIPTION-->\r\n              <h5 class=\"mb-3\">Description</h5>\r\n              <dl class=\"row ml-1\">\r\n                <p class=\"col-12\">\r\n                  {{foundProject.description}}\r\n                </p>\r\n              </dl>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==0\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Not started</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==1\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Executing</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==2\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Closed</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Created date: {{foundProject.createdTime | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Start Date-->\r\n              <h5 class=\"mb-3\">Start date: {{foundProject.startDate | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Deadline-->\r\n              <h5 class=\"mb-3\">Deadline: {{foundProject.deadline | date:'d/M/y'}}</h5>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-6\">\r\n          <div class=\"section\" style=\"font-size: 16px\">\r\n            <div class=\"section mt-4\">\r\n              <dt class=\"col-12\">Links:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <ul class=\"icons-list\">\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/task\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-tasks fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">All tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/schedule\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-calendar fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Schedule</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/report\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-bar-chart fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Report</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/taskarchive\" *ngIf=\"currentUser.isManager\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-archive fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Archived tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n                </ul>\r\n\r\n              </dd>\r\n              <dt class=\"col-12\">Members:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <app-user-list *ngIf=\"foundProject.assignees\" [users]=\"foundProject.assignees\" [sort]=\"true\"></app-user-list>\r\n                <span *ngIf=\"!foundProject.assignees || foundProject.assignees.length < 1\">N/A</span>\r\n              </dd>\r\n              <br/>\r\n              <dt class=\"col-12\">Departments</dt>\r\n              <dd class=\"col-12 pl-4\" *ngIf=\"foundProject.teams\">\r\n                <span *ngFor=\"let team of foundProject.teams\">\r\n                  <a href=\"#/department/{{team.id}}/detail\">{{team.name}}</a>\r\n                  <br/>\r\n                </span>\r\n              </dd>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div bsModal #dangerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n        <div class=\"modal-dialog modal-danger\" role=\"document\">\r\n          <div class=\"modal-content\" style=\"border-color: black;\">\r\n            <div class=\"modal-header\" style=\"color: black;\r\n                      background-color: white;\">\r\n              <h4 class=\"modal-title\">Confirmation message!</h4>\r\n              <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n              <p>Are you sure to close this project?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"dangerModal.hide()\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">No\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"handleClose(foundProject.id)\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">Yes\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    <strong>Project detail- Day la project</strong>\r\n  </div>\r\n  <app-spinner *ngIf=\"isPageLoading\"></app-spinner>\r\n  <div *ngIf=\"!isPageLoading\" class=\"card-body\">\r\n    <div class=\"card-body\" [formGroup]=\"viewForm\" *ngIf=\"foundProject\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\" style=\"font-size: 20px\">\r\n          <h2 class=\"card-title\">{{foundProject.name}}</h2>\r\n        </div>\r\n        <!-- button start -->\r\n        <div class=\"col-12 form-horizontal\">\r\n\r\n          <div class=\"button-row\" style=\"margin-bottom: 5px;margin-top: 4px;\" *ngIf=\"foundProject.status!= 2\">\r\n            <a routerLink=\"/project/{{foundProject.id}}/update\" class=\"btn btn-secondary bg-light\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-edit\"></i>&nbsp; Update\r\n            </a>\r\n            <a class=\"btn btn-secondary bg-light\" (click)=\"handleCloseProject(foundProject.id)\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-close\"></i>&nbsp; Close project\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignModal}\" [ladda]=\"isLoading.openAssignModal\"\r\n              (click)=\"handleOnAssignBtnClick()\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-users\"></i>&nbsp; Set department\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignMembersModal}\" (click)=\"handleOnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-plus\"></i>&nbsp; Assign members\r\n            </a>\r\n\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openUnAssignMembersModal}\" (click)=\"handleOnUnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openUnAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-times\"></i>&nbsp; Un-assign members\r\n            </a>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- button end -->\r\n\r\n        <div class=\"col-6\">\r\n          <div class=\"form-horizontal\">\r\n\r\n\r\n            <div class=\"section mt-4\">\r\n              <!--DESCRIPTION-->\r\n              <h5 class=\"mb-3\">Description</h5>\r\n              <dl class=\"row ml-1\">\r\n                <p class=\"col-12\">\r\n                  {{foundProject.description}}\r\n                </p>\r\n              </dl>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==0\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Not started</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==1\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Executing</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==2\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Closed</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Created date: {{foundProject.createdTime | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Start Date-->\r\n              <h5 class=\"mb-3\">Start date: {{foundProject.startDate | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Deadline-->\r\n              <h5 class=\"mb-3\">Deadline: {{foundProject.deadline | date:'d/M/y'}}</h5>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-6\">\r\n          <div class=\"section\" style=\"font-size: 16px\">\r\n            <div class=\"section mt-4\">\r\n              <dt class=\"col-12\">Links:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <ul class=\"icons-list\">\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/task\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-tasks fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">All tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/schedule\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-calendar fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Schedule</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/report\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-bar-chart fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Report</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/taskarchive\" *ngIf=\"currentUser.isManager\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-archive fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Archived tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n                </ul>\r\n\r\n              </dd>\r\n              <dt class=\"col-12\">Members:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <app-user-list *ngIf=\"foundProject.assignees\" [users]=\"foundProject.assignees\" [sort]=\"true\"></app-user-list>\r\n                <span *ngIf=\"!foundProject.assignees || foundProject.assignees.length < 1\">N/A</span>\r\n              </dd>\r\n              <br/>\r\n              <dt class=\"col-12\">Departments</dt>\r\n              <dd class=\"col-12 pl-4\" *ngIf=\"foundProject.teams\">\r\n                <span *ngFor=\"let team of foundProject.teams\">\r\n                  <a href=\"#/department/{{team.id}}/detail\">{{team.name}}</a>\r\n                  <br/>\r\n                </span>\r\n              </dd>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div bsModal #dangerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n        <div class=\"modal-dialog modal-danger\" role=\"document\">\r\n          <div class=\"modal-content\" style=\"border-color: black;\">\r\n            <div class=\"modal-header\" style=\"color: black;\r\n                      background-color: white;\">\r\n              <h4 class=\"modal-title\">Confirmation message!</h4>\r\n              <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n              <p>Are you sure to close this project?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"dangerModal.hide()\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">No\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"handleClose(foundProject.id)\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">Yes\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -872,7 +945,7 @@ var ProjectManagementModule = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/project-scheduling/project-scheduling.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\n  <div class=\"card-header\">\n    <ng-container *ngIf=\"foundProject\">\n      <a routerLink=\"/project/{{foundProject.id}}/detail\">\n        <strong>{{foundProject.name}}</strong>\n      </a>'s schedule\n    </ng-container>\n    <ng-container *ngIf=\"!foundProject\">\n      <strong>project's schedule</strong>\n    </ng-container>\n  </div>\n  <div class=\"card-body row\">\n    <app-spinner *ngIf=\"isLoading.page\" class=\"col-12\"></app-spinner>\n    <div *ngIf=\"!isLoading.page && projectTasks < 1\">.</div>\n    <div class=\"animated fadeIn\" #gantt_here style='width: 100%; height: 100%;'></div>\n  </div>\n</div>\n\n"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    <ng-container *ngIf=\"foundProject\">\r\n      <a routerLink=\"/project/{{foundProject.id}}/detail\">\r\n        <strong>{{foundProject.name}}</strong>\r\n      </a>'s schedule\r\n    </ng-container>\r\n    <ng-container *ngIf=\"!foundProject\">\r\n      <strong>project's schedule</strong>\r\n    </ng-container>\r\n  </div>\r\n  <div class=\"card-body row\">\r\n    <app-spinner *ngIf=\"isLoading.page\" class=\"col-12\"></app-spinner>\r\n    <div *ngIf=\"!isLoading.page && projectTasks < 1\">.</div>\r\n    <div class=\"animated fadeIn\" #gantt_here style='width: 100%; height: 100%;'></div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1416,7 +1489,7 @@ var ProjectUpdateComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/report/report.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\"><strong>\r\n      View report\r\n  </strong>\r\n\r\n  </div>\r\n  <app-spinner *ngIf=isLoading.page class=\"col-12\"></app-spinner>\r\n  <div class=\"card-body row\" *ngIf=!isLoading.page>\r\n    <div class=\"col-12\">\r\n      <a routerLink=\"/project/{{report.id}}/detail\">\r\n        <h2 class=\"card-title\">{{report.name}}</h2>\r\n      </a>\r\n    </div>\r\n    <div class=\"col-12\">\r\n      <div class=\"row\">\r\n        <div class=\"section col-6\">\r\n          <!--DETAIL SECTION-->\r\n          <h5 class=\"mb-3\">Detail</h5>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Task count:</dt>\r\n            <dd class=\"col-7\">\r\n              {{report.taskCount}}\r\n            </dd>\r\n          </dl>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Task deadline this week:</dt>\r\n            <dd class=\"col-7\">\r\n              {{report.taskExpireThisWeek.length}}\r\n            </dd>\r\n          </dl>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Number of user:</dt>\r\n            <dd class=\"col-7\">\r\n              {{report.userNumberInProject}}\r\n            </dd>\r\n          </dl>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Number of free user:</dt>\r\n            <dd class=\"col-7\">\r\n              {{report.userNumberNotInTask}}\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n        <div class=\"section col-6\">\r\n          <!--DETAIL SECTION-->\r\n          <h5 class=\"mb-3\">Number of task deadline this week</h5>\r\n          <dl class=\"row ml-1\">\r\n            <!--<dt class=\"col-4\">Task count:</dt>-->\r\n            <dd class=\"col-12\">\r\n              <canvas baseChart\r\n                      [data]=\"lineChart.data\"\r\n                      [labels]=\"lineChart.labels\"\r\n                      [chartType]=\"lineChart.type\"\r\n                      [legend]=\"false\">\r\n\r\n              </canvas>\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n        <div class=\"section col-12\">\r\n          <!--DETAIL SECTION-->\r\n          <h5 class=\"mb-3\">Task status</h5>\r\n          <dl class=\"row ml-1\">\r\n            <!--<dt class=\"col-4\">Task count:</dt>-->\r\n            <dd class=\"col-12\">\r\n              <canvas baseChart\r\n                      [data]=\"pieChart.data\"\r\n                      [labels]=\"pieChart.labels\"\r\n                      [chartType]=\"pieChart.type\">\r\n              </canvas>\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\"><strong>\r\n      View report\r\n  </strong>\r\n\r\n  </div>\r\n  <app-spinner *ngIf=isLoading.page class=\"col-12\"></app-spinner>\r\n  <div class=\"card-body row\" *ngIf=!isLoading.page>\r\n    <div class=\"col-12\">\r\n      <a routerLink=\"/project/{{foundProject.id}}/detail\">\r\n        <h2 class=\"card-title\">{{foundProject.name}}</h2>\r\n      </a>\r\n    </div>\r\n    <div class=\"col-12\">\r\n      <div class=\"row\">\r\n        <div class=\"section col-12\">\r\n          <!--Progress SECTION-->\r\n          <h5 class=\"mb-3\">Project progress</h5>\r\n          <dl class=\"row ml-1\">\r\n            <!--<dt class=\"col-4\">Task count:</dt>-->\r\n            <dd class=\"col-12\">\r\n              <canvas baseChart\r\n                      [datasets]=\"barChart.data\"\r\n                      [labels]=\"barChart.labels\"\r\n                      [chartType]=\"'bar'\">\r\n              </canvas>\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n        <div class=\"section col-6\">\r\n          <!--DETAIL SECTION-->\r\n          <h5 class=\"mb-3\">Detail</h5>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Task count:</dt>\r\n            <dd class=\"col-7\">\r\n              {{statistic.taskCount}} tasks\r\n            </dd>\r\n          </dl>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Completed task:</dt>\r\n            <dd class=\"col-7\">\r\n              {{statistic.completedTask}} tasks\r\n            </dd>\r\n          </dl>\r\n          <dl class=\"row ml-1\">\r\n            <dt class=\"col-5\">Number of staffs:</dt>\r\n            <dd class=\"col-7\">\r\n              {{statistic.numberOfPeopleInProject}} staffs\r\n            </dd>\r\n          </dl>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n"
 
 /***/ }),
 
@@ -1449,10 +1522,7 @@ module.exports = module.exports.toString();
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__cmaComponents_modals__ = __webpack_require__("../../../../../src/app/cmaComponents/modals/index.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__services_project_service__ = __webpack_require__("../../../../../src/app/services/project.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__("../../../../moment/moment.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash__ = __webpack_require__("../../../../lodash/lodash.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_lodash___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_lodash__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__services_report_service__ = __webpack_require__("../../../../../src/app/services/report.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1469,72 +1539,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var ReportComponent = /** @class */ (function () {
-    function ReportComponent(router, route, location, modalService, projectService) {
+    function ReportComponent(router, route, location, modalService, projectService, reportService) {
         this.router = router;
         this.route = route;
         this.location = location;
         this.modalService = modalService;
         this.projectService = projectService;
+        this.reportService = reportService;
         this.isLoading = {
             page: true
         };
     }
     ReportComponent.prototype.ngOnInit = function () {
-        var _this = this;
         var id = this.route.snapshot.paramMap.get('id');
         if (Number(id)) {
-            this.projectId = Number(id);
-            this.projectService.getReport(id)
-                .then(function (value) {
-                _this.report = value;
-                _this.setupPieChart();
-                _this.setupLineChart();
-                _this.isLoading.page = false;
-            })
-                .catch(function (reason) {
-                _this.showErrorModal(reason.Message);
-            });
+            this.loadData(id);
         }
         else {
             this.showErrorModal(id + " is not a valid ID");
         }
     };
-    ReportComponent.prototype.setupPieChart = function () {
-        var labels = this.report.taskStatusReport.map(function (value) { return value.key; });
-        var data = this.report.taskStatusReport.map(function (value) { return value.value; });
-        this.pieChart = {
-            labels: labels,
-            data: data,
-            type: 'pie'
-        };
-    };
-    ReportComponent.prototype.setupLineChart = function () {
-        var tmpArray = [];
-        var resultObj = __WEBPACK_IMPORTED_MODULE_7_lodash__["groupBy"](this.report.taskExpireThisWeek, 'deadline');
-        for (var key in resultObj) {
-            if (resultObj.hasOwnProperty(key)) {
-                tmpArray.push({
-                    key: __WEBPACK_IMPORTED_MODULE_6_moment__(key),
-                    value: resultObj[key]
-                });
-            }
-        }
-        tmpArray.sort(function (left, right) {
-            if (left.key.isSame(right.key)) {
-                return 0;
-            }
-            if (left.key.isAfter(right.key)) {
-                return 1;
-            }
-            return -1;
+    ReportComponent.prototype.loadData = function (projectId) {
+        var _this = this;
+        this.isLoading.page = true;
+        Promise.all([this.projectService.getProject(projectId),
+            this.reportService.getReportStatistic(projectId),
+            this.reportService.getReportProgress(projectId)])
+            .then(function (resData) {
+            _this.foundProject = resData[0];
+            _this.statistic = resData[1];
+            _this.barChart = resData[2];
+            _this.isLoading.page = false;
+        })
+            .catch(function (reason) {
+            _this.showErrorModal(reason.Message);
         });
-        this.lineChart = {
-            labels: tmpArray.map(function (el) { return el.key.format('DD/MM'); }),
-            data: tmpArray.map(function (el) { return el.value.length; }),
-            type: 'line'
-        };
     };
     ReportComponent.prototype.showErrorModal = function (message, isNavigateBack) {
         var _this = this;
@@ -1559,7 +1599,8 @@ var ReportComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */],
             __WEBPACK_IMPORTED_MODULE_2__angular_common__["f" /* Location */],
             __WEBPACK_IMPORTED_MODULE_1_ngx_bootstrap__["b" /* BsModalService */],
-            __WEBPACK_IMPORTED_MODULE_5__services_project_service__["a" /* ProjectService */]])
+            __WEBPACK_IMPORTED_MODULE_5__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_6__services_report_service__["a" /* ReportService */]])
     ], ReportComponent);
     return ReportComponent;
 }());

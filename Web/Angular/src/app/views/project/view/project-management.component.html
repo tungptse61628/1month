@@ -1,0 +1,128 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <strong>View projects </strong>
+      </div>
+      <app-spinner *ngIf="isPageLoading"></app-spinner>
+      <div *ngIf="!isPageLoading" class="card-body">
+        <div class="input-group">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="search(searchField.value)">
+              <i class="fa fa-search"></i> Search
+            </button>
+          </span>
+          <input class="form-control" type="text" (input)="search(searchField.value)" #searchField>
+        </div>
+        <div class="dataTable-container hide-search">
+          <table id="allProjectsTable" datatable [dtOptions]="datatableOptions" class="table table-bordered">
+            <thead>
+              <tr>
+                <th style="text-align: center">Name</th>
+                <th style="text-align: center">Description</th>
+                <th style="text-align: center">Start date</th>
+                <th style="text-align: center">Deadline</th>
+                <th style="text-align: center">Status</th>
+                <th style="text-align: center" *ngIf="currentUser.isAdmin || currentUser.isManager">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let project of projects;let i = index">
+                <td>
+                  <a routerLink="/project/{{project.id}}/detail" style="color: blue">
+                    {{project.name | truncatetext:50}}
+                  </a>
+                </td>
+                <td>
+                  <p *ngIf="project.description">{{project.description | truncatetext:70}}</p>
+                  <p *ngIf="!project.description">N/A</p>
+                </td>
+                <td>
+                  <span *ngIf=project.startDate>{{project.startDate | date:'dd/MM/yyyy'}}</span>
+                  <span *ngIf=!project.startDate>N/A</span>
+                </td>
+                <td>
+                  <span *ngIf=project.deadline>{{project.deadline | date:'dd/MM/yyyy'}}</span>
+                  <span *ngIf=!project.deadline>N/A</span>
+                </td>
+                <td>
+                  <span *ngIf="project.status === 0">
+                    Not started
+                  </span>
+                  <span *ngIf="project.status === 1">
+                    Executing
+                  </span>
+                  <span *ngIf="project.status === 2">
+                    Closed
+                  </span>
+                  <span *ngIf="project.status === null">N/A</span>
+                </td>
+                <td *ngIf="currentUser.isAdmin && project.status!= 2">
+                  <div class="row">
+                    <div class="btn-group col-12">
+                      <a routerLink="/project/{{project.id}}/update" class="btn btn-primary">
+                        Update
+                      </a>
+                      <a routerLink="/project/{{project.id}}/task" class="btn btn-primary">
+                        Tasks
+                      </a>
+                      <a routerLink="/project/{{project.id}}/report" class="btn btn-primary">
+                        Report
+                      </a>
+                      <a routerLink="/project/{{project.id}}/schedule" class="btn btn-primary">
+                        Schedule
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td *ngIf="currentUser.isAdmin && project.status == 2">
+                  <div class="row">
+                    <div class="btn-group col-12 text-center" style="margin-left: 40px;">
+                      <a routerLink="/project/{{project.id}}/task" class="btn btn-primary">
+                        Tasks
+                      </a>
+                      <a routerLink="/project/{{project.id}}/report" class="btn btn-primary">
+                        Report
+                      </a>
+                      <a routerLink="/project/{{project.id}}/schedule" class="btn btn-primary">
+                        Schedule
+                      </a>
+                    </div>
+                  </div>
+                </td>
+                <td class="text-center">
+                  <div class="row" *ngIf="currentUser.isManager && project.status!= 2">
+                    <div class="btn-group col-12">
+                      <a routerLink="/project/{{project.id}}/task" class="btn btn-primary">
+                        Tasks
+                      </a>
+                      <a routerLink="/project/{{project.id}}/report" class="btn btn-primary">
+                        Report
+                      </a>
+                      <a routerLink="/project/{{project.id}}/schedule" class="btn btn-primary">
+                        Schedule
+                      </a>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="currentUser.isManager && project.status== 2">
+                    <div class="btn-group col-12">
+                      <a routerLink="/project/{{project.id}}/task" class="btn btn-primary">
+                        Tasks
+                      </a>
+                      <a routerLink="/project/{{project.id}}/report" class="btn btn-primary">
+                        Report
+                      </a>
+                      <a routerLink="/project/{{project.id}}/schedule" class="btn btn-primary">
+                        Schedule
+                      </a>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
