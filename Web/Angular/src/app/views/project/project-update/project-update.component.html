@@ -2,18 +2,18 @@
   <div class="col-12">
     <div class="card">
       <div class="card-header">
-        <strong>Update project</strong>
+        <strong>Update campaign</strong>
       </div>
       <app-spinner *ngIf="isLoading"></app-spinner>
       <div *ngIf="!isLoading" class="card-body">
         <div class="form-horizontal col-6" [formGroup]="updateForm" id="update">
           <div class="form-group row">
-            <label class="col-md-1.2 col-form-label" for="name-input">Project Name
+            <label class="col-md-1.2 col-form-label" for="name-input" style="margin-left: 25px;"> Name
               <span style="color: #ee0d0d">
                 <strong>*</strong>  
               </span>
             </label>
-            <div class="col-md-6">
+            <div class="col-md-6" style="margin-left: 20px;">
               <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the project's name" style="width: 700px" value="{{foundProject.name}}">
               <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
             </div>
