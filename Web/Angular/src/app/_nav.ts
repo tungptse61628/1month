@@ -85,21 +85,21 @@ const admin_navigation = [
     icon: 'icon-calendar',
     children: [
       {
-        name: 'Create new campaign',
+        name: 'Create campaign',
         url: '/project/newCampaign',
         icon: 'icon-calendar',
       },
+
       {
-        name: 'View projects',
-        url: '/project',
-        icon: 'icon-calendar',
-      },
-      {
-        name: 'Create project customize',
+        name: 'Create custom campaign',
         url: '/project/add',
         icon: 'icon-calendar',
       },
-
+      {
+        name: 'View campaigns',
+        url: '/project',
+        icon: 'icon-calendar',
+      },
 
       
     ]
@@ -108,6 +108,18 @@ const admin_navigation = [
     name: 'Team',
     url: '/department/view',
     icon: 'icon-people',
+    children: [
+      {
+        name: 'Create team',
+        url: '/department/create',
+        icon: 'icon-people',
+      },
+      {
+        name: 'View teams',
+        url: '/department/view',
+        icon: 'icon-people',
+      },
+    ]
   },
   {
     name: 'Accounts',

@@ -4,6 +4,7 @@ import {TeamManagePageComponent} from './team-management.component';
 import {CreateTeamComponent} from './create-team/create-team.component';
 import {UpdateTeamComponent} from './update-team/update-team.component';
 import { DetailTeamComponent } from './detail-team/detail-team.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -44,6 +45,13 @@ const routes: Routes = [
         component: UpdateTeamComponent,
         data: {
           title: 'Update department'
+        }
+      },
+      {
+        path: 'create',
+        component: CreateTeamComponent,
+        data: {
+          title: 'Create team'
         }
       }
     ]
