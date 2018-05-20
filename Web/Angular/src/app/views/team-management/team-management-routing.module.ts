@@ -9,42 +9,28 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Department'
+      title: 'Team'
     },
     children: [
       {
         path: 'view',
         component: TeamManagePageComponent,
         data: {
-          title: 'View departments'
+          title: 'View teams'
         }
       },
       {
         path: ':id/detail',
         component: DetailTeamComponent,
         data: {
-          title: 'Department detail'
+          title: 'Team detail'
         }
       },
       {
         path: 'my',
         component: DetailTeamComponent,
         data: {
-          title: 'Department detail'
-        }
-      },
-      {
-        path: 'create',
-        component: CreateTeamComponent,
-        data: {
-          title: 'Create department'
-        }
-      },
-      {
-        path: ':id/update',
-        component: UpdateTeamComponent,
-        data: {
-          title: 'Update department'
+          title: 'Team detail'
         }
       },
       {
@@ -53,7 +39,15 @@ const routes: Routes = [
         data: {
           title: 'Create team'
         }
-      }
+      },
+      {
+        path: ':id/update',
+        component: UpdateTeamComponent,
+        data: {
+          title: 'Update team'
+        }
+      },
+      
     ]
   }
 
