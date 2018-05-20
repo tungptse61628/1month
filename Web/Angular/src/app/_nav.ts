@@ -19,7 +19,7 @@ const staff_navigation = [
     icon: 'icon-people'
   },
   {
-    name: 'Projects',
+    name: 'Campaign',
     url: '/project',
     icon: 'icon-calendar'
   },
@@ -49,12 +49,12 @@ const manager_navigation = [
     icon: 'icon-speedometer'
   },
   {
-    name: 'Department',
+    name: 'Team',
     url: '/department/my',
     icon: 'icon-people'
   },
   {
-    name: 'Projects',
+    name: 'Campaign',
     url: '/project',
     icon: 'icon-calendar'
   },
