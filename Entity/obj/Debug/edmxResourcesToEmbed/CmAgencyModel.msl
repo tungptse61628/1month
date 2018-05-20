@@ -195,5 +195,33 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="MethodAdvertisings">
+      <EntityTypeMapping TypeName="CmAgencyModel.MethodAdvertising">
+        <MappingFragment StoreEntitySet="MethodAdvertising">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ChangedTime" ColumnName="ChangedTime" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeAdvertisings">
+      <EntityTypeMapping TypeName="CmAgencyModel.TypeAdvertising">
+        <MappingFragment StoreEntitySet="TypeAdvertising">
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ChangedTime" ColumnName="ChangedTime" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="MethodAdvertisingID" ColumnName="MethodAdvertisingID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

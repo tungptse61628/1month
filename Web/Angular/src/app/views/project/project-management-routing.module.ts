@@ -9,6 +9,7 @@ import { ProjectTaskComponent } from './project-task/project-task.component';
 import { ReportComponent } from './report/report.component';
 import { ArchiveComponent } from './archive/archive.component';
 import {NewCampaignComponent} from './new-campaign/new-campaign.component';
+import {NewCampaignDetailComponent} from './new-campaign-detail/new-campaign-detail.component';
 
 const routes: Routes = [
   {
@@ -50,6 +51,13 @@ const routes: Routes = [
         component: NewCampaignComponent,
         data: {
           title: 'Create campaign'
+        }
+      },
+      {
+        path: 'createCampaignDetail/:methodId/:typeId',
+        component: NewCampaignDetailComponent,
+        data: {
+          title: 'Create campaign detail'
         }
       },
       {

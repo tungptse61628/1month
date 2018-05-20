@@ -79,6 +79,9 @@
     <Compile Include="List.cs">
       <DependentUpon>CmAgencyModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="MethodAdvertising.cs">
+      <DependentUpon>CmAgencyModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Notification.cs">
       <DependentUpon>CmAgencyModel.tt</DependentUpon>
     </Compile>
@@ -99,6 +102,9 @@
       <DependentUpon>CmAgencyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="TeamProject.cs">
+      <DependentUpon>CmAgencyModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TypeAdvertising.cs">
       <DependentUpon>CmAgencyModel.tt</DependentUpon>
     </Compile>
     <Compile Include="User.cs">

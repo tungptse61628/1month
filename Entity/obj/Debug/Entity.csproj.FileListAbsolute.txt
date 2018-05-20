@@ -31,3 +31,14 @@ E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.ca
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.dll
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.pdb
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.dll.config
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\Entity.pdb
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.SqlServer.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.xml
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\bin\Debug\EntityFramework.SqlServer.xml
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.pdb

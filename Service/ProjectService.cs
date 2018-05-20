@@ -596,6 +596,17 @@ namespace Service
             }
         }
 
+        public JObject ParseToObjectNameOfMethodAndType(MethodAdvertising methodAds, TypeAdvertising typeAds)
+        {
+            var result = new JObject
+            {
+                ["nameMethodAds"] = methodAds != null ? methodAds.Name : string.Empty,
+                ["nameTypeAds"] = typeAds != null ? typeAds.Name : string.Empty
+            };
+
+            return result;
+        }
+
         public JObject ParseToJson(Project project, bool isDetailed = false, string avatarPath = null)
         {
             UserService userService = new UserService(db);
