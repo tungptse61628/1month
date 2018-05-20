@@ -92,7 +92,7 @@ const admin_navigation = [
 
       {
         name: 'Create custom campaign',
-        url: '/project/add',
+        url: '/project/create',
         icon: 'icon-calendar',
       },
       {

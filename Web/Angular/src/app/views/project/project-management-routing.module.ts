@@ -21,7 +21,7 @@ const routes: Routes = [
         path: '',
         component: ProjectManagementComponent,
         data: {
-          title: 'View projects'
+          title: 'View campaigns'
         }
       },
       {
@@ -39,10 +39,10 @@ const routes: Routes = [
         }
       },
       {
-        path: 'add',
+        path: 'create',
         component: AddProjectComponent,
         data: {
-          title: 'Create project'
+          title: 'Create custom campaign'
         }
       },
       {

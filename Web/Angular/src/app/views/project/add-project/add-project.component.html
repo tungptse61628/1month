@@ -2,19 +2,20 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header">
-        <strong>Create project</strong>
+        <strong>Create custome campaign</strong>
       </div>
       <app-spinner *ngIf="isLoadingPage"></app-spinner>
       <div class="card-body" *ngIf="!isLoadingPage">
         <div class="card-body">
           <div [formGroup]="projectForm" class="form-horizontal">
+
             <div class="form-group row">
-              <label class="col-md-1.2 col-form-label" for="name-input">Project Name
-                <span style="color: #ee0d0d">
-                  <strong>*</strong>
-                </span>
-              </label>
-              <div class="col-md-6">
+              <label class="col-form-label" for="name-input">Name 
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+              <div class="col-md-6" style="margin-left: 45px;">
                 <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the project's name">
                 <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
               </div>
@@ -28,7 +29,7 @@
               </div>
             </div>
             <div class="form-group row">
-              <label class="col-form-label" for="startDate-input">Start Date
+              <label class="col-form-label" for="startDate-input">Start date
                 <span style="color: #ee0d0d">
                   <strong>*</strong>
                 </span>
