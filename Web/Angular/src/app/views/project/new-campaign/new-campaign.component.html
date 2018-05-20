@@ -1,12 +1,174 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-12">
     <div class="card">
       <div class="card-header">
         <strong>Create campaign</strong>
       </div>
+      <div class="card-body animated fadeIn">
+        <div [formGroup]="newCamForm" class="form-horizontal ">
+
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="name-input">Name
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name">
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
 
 
-      <div class="card-body">
-        <h1>kira</h1>
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="description-input">Description
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <textarea rows="5" id="description-input" name="description-input" class="form-control" formControlName="description">
+              </textarea>
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="adMethod-input">Advertising method
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <input type="text" id="adMethod-input" name="adMethod-input" class="form-control" formControlName="adMethod">
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="adType-input">Advertising type
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <input type="text" id="adType-input" name="adType-input" class="form-control" formControlName="adType">
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="goal-input">Goal
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <input type="text" id="goal-input" name="goal-input" class="form-control" formControlName="goal">
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-2 col-form-label text-right" for="location-input">Location
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-6">
+              <select class="form-control" formControlName="currency">
+                <option>Việt Nam</option>
+                <option>Laos </option>
+                <option>Cambodia</option>
+                <option>ThaiLand</option>
+                <option>Japanese</option>
+              </select>
+              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label text-right" for="keywords-input">Keywords
+            <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span>
+          </label>
+          <div class="col-6">
+            <input type="text" id="keywords-input" name="keywords-input" class="form-control" formControlName="keywords">
+            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label text-right" for="budget-input">Budget
+            <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span>
+          </label>
+          <div class="col-6">
+            <input type="number" id="budget-input" name="budget-input" class="form-control" formControlName="budget">
+
+            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label text-right" for="budget-input">Currency
+
+          </label>
+          <div class="col-6 ">
+
+            <select class="form-control" formControlName="currency">
+              <option>Đồng(₫)</option>
+              <option>Kip(₭)</option>
+              <option>Riel(៛)</option>
+              <option>Baht(฿)</option>
+              <option>Yen(￥)</option>
+              <option>Dollar($)</option>
+            </select>
+
+          </div>
+
+          <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+        </div>
+
+
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label text-right" for="startDate-input">Start date
+
+          </label>
+
+          <div class="col-6">
+            <input type="date" id="startDate-input" name="startDate-input" class="form-control" formControlName="startDate">
+            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+          </div>
+
+        </div>
+
+        <div class="form-group row">
+          <label class="col-2 col-form-label text-right" for="endDate-input">End date
+
+          </label>
+          <div class="col-6">
+            <input type="date" id="endDate-input" name="endDate-input" class="form-control" formControlName="endDate">
+            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
+          </div>
+        </div>
+
+
+
+
+        <div class="form-actions text-center">
+          <div class="col-12">
+            <button class="btn btn-primary" (click)="handleCreate()" [ladda]="isLoading">
+              Save changes
+            </button>
+            <button class="btn btn-secondary" type="button" (click)="signupForm.reset()">Reset</button>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
