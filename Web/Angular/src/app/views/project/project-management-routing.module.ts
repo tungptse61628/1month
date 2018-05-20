@@ -46,10 +46,10 @@ const routes: Routes = [
         }
       },
       {
-        path: 'newCampaign',
+        path: 'createCampaign',
         component: NewCampaignComponent,
         data: {
-          title: 'Add new campaign'
+          title: 'Create campaign'
         }
       },
       {

@@ -81,12 +81,12 @@ const admin_navigation = [
   },
   {
     name: 'Projects campaign',
-    url: '/project',
+    url: '/campaign',
     icon: 'icon-calendar',
     children: [
       {
         name: 'Create campaign',
-        url: '/project/newCampaign',
+        url: '/project/createCampaign',
         icon: 'icon-calendar',
       },
 
