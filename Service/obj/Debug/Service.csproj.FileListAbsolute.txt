@@ -37,3 +37,16 @@ E:\1.1.1.1.Tung\1month\Service\obj\Debug\Service.csprojResolveAssemblyReference.
 E:\1.1.1.1.Tung\1month\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
 E:\1.1.1.1.Tung\1month\Service\obj\Debug\Service.dll
 E:\1.1.1.1.Tung\1month\Service\obj\Debug\Service.pdb
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Service.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Service.pdb
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Entity.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\EntityFramework.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Newtonsoft.Json.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Entity.pdb
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Entity.dll.config
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\EntityFramework.xml
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\bin\Debug\Newtonsoft.Json.xml
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.dll
+E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.pdb

@@ -1,182 +1,40 @@
 <div class="row">
-  <div class="col-12">
+  <div class="col-md-12">
     <div class="card">
       <div class="card-header">
         <strong>Create campaign</strong>
       </div>
-      <div class="card-body animated fadeIn">
-        <div [formGroup]="newCamForm" class="form-horizontal ">
-
+      <div class="card-body">
+        <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="name-input">Name
-              <span style="color: #ee0d0d">
-                <strong>*</strong>
-              </span>
-            </label>
-            <div class="col-6">
-              <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name">
-              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-            </div>
-          </div>
-
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="description-input">Description
-  
-            </label>
-            <div class="col-6">
-              <textarea rows="5" id="description-input" name="description-input" class="form-control" formControlName="description">
-              </textarea>
-              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="adMethod-input">Advertising method
-
-            </label>
-
-            <div class="col-6 ">
-
-              <select class="form-control" formControlName="currency">
-                <option>Youtube</option>
-                <option>Google</option>
-                <option>Facebook</option>
-                <option>television advertising</option>
-                <option>outdoor advertising banners</option>
-
+            <label class="col-4 col-form-label text-right">Phương thức </label>
+            <div class="col-8">
+              <select ([ngModel])="methodSelectedId" (change)="onChangeMethod($event.target.value)">
+                <option *ngFor="let methodAds of methodAdvertisings" value="{{methodAds.ID}}">
+                  {{methodAds.Name}}
+                </option>
               </select>
-  
-            </div>
-
-          </div>
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="adType-input">Advertising type
-              <span style="color: #ee0d0d">
-                <strong>*</strong>
-              </span>
-            </label>
-            <div class="col-6">
-              <input type="text" id="adType-input" name="adType-input" class="form-control" formControlName="adType">
-              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
             </div>
           </div>
+        </div>
 
+        <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="goal-input">Goal
-  
-            </label>
-            <div class="col-6 ">
-
-              <select class="form-control" formControlName="currency">
-                <option>Traffic</option>
-                <option>Engagement</option>
-                <option>App Installs</option>
-                <option>Video Views</option>
-                <option>Lead Generation</option>
-                <option>Messages</option>
+            <label class="col-4 col-form-label text-right">Loại </label>
+            <div class="col-8">
+              <select ([ngModel])="typeSelectedId" (change)="onChangeType($event.target.value)">
+                <option *ngFor="let typeAds of typeAdvertisings" value="{{typeAds.ID}}">
+                  {{typeAds.Name}}
+                </option>
               </select>
-  
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <label class="col-2 col-form-label text-right" for="location-input">Location
-
-            </label>
-            <div class="col-6">
-              <select class="form-control" formControlName="currency">
-                <option>Việt Nam</option>
-                <option>Laos </option>
-                <option>Cambodia</option>
-                <option>ThaiLand</option>
-                <option>Japanese</option>
-              </select>
-              <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
             </div>
           </div>
         </div>
 
-        <div class="form-group row">
-          <label class="col-2 col-form-label text-right" for="keywords-input">Keywords
-            <span style="color: #ee0d0d">
-              <strong>*</strong>
-            </span>
-          </label>
-          <div class="col-6">
-            <input type="text" id="keywords-input" name="keywords-input" class="form-control" formControlName="keywords">
-            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-2 col-form-label text-right" for="budget-input">Budget
-            <span style="color: #ee0d0d">
-              <strong>*</strong>
-            </span>
-          </label>
-          <div class="col-6">
-            <input type="number" id="budget-input" name="budget-input" class="form-control" formControlName="budget">
-
-            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-          </div>
-        </div>
-
-        <div class="form-group row">
-          <label class="col-2 col-form-label text-right" for="budget-input">Currency
-
-          </label>
-          <div class="col-6 ">
-
-            <select class="form-control" formControlName="currency">
-              <option>Đồng(₫)</option>
-              <option>Kip(₭)</option>
-              <option>Riel(៛)</option>
-              <option>Baht(฿)</option>
-              <option>Yen(￥)</option>
-              <option>Dollar($)</option>
-            </select>
-
-          </div>
-
-          <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-        </div>
-
-
-
-        <div class="form-group row">
-          <label class="col-2 col-form-label text-right" for="startDate-input">Start date
-
-          </label>
-
-          <div class="col-6">
-            <input type="date" id="startDate-input" name="startDate-input" class="form-control" formControlName="startDate">
-            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-          </div>
-
-        </div>
-
-        <div class="form-group row">
-          <label class="col-2 col-form-label text-right" for="endDate-input">End date
-
-          </label>
-          <div class="col-6">
-            <input type="date" id="endDate-input" name="endDate-input" class="form-control" formControlName="endDate">
-            <!-- <div class="invalid-feedback" *ngIf="errors.username">{{errors.username}}</div> -->
-          </div>
-        </div>
-
-
-
-
-        <div class="form-actions text-center">
-          <div class="col-12">
-            <button class="btn btn-primary" (click)="handleCreate()" [ladda]="isLoading">
-              Save changes
-            </button>
-            <button class="btn btn-secondary" type="button" (click)="signupForm.reset()">Reset</button>
-          </div>
+        <div class="col-12">
+          <button class="btn btn-primary" (click)="goToDetail()">
+            Next
+          </button>
         </div>
       </div>
     </div>

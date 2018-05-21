@@ -22,6 +22,35 @@ namespace Web.Controllers
     public class ProjectController : ApiController
     {
         [HttpGet]
+        [Route("{methodId:int}/{typeId:int}")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult GetNameOfMethodAndType(int methodId, int typeId)
+        {
+            try
+            {
+                using (CmAgencyEntities db = new CmAgencyEntities())
+                {
+                    ProjectService projectService = new ProjectService(db);
+                    MethodAdvertisingService methodAdvertisingService = new MethodAdvertisingService(db);
+                    TypeAdvertisingService typeAdvertisingService = new TypeAdvertisingService(db);
+
+                    MethodAdvertising methodModel = methodAdvertisingService.GetById(methodId);
+                    TypeAdvertising typeModel = typeAdvertisingService.GetById(typeId);
+                    
+                    JArray dataObject = new JArray();
+                    dataObject.Add(projectService.ParseToObjectNameOfMethodAndType(methodModel, typeModel));
+
+                    return Ok(ResponseHelper.GetResponse(dataObject));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
+        [HttpGet]
         [Route("all")]
         [System.Web.Http.Authorize(Roles = "Admin")]
         public IHttpActionResult GetAllProject()

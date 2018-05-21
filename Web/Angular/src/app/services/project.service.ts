@@ -1,7 +1,7 @@
-import {Injectable} from '@angular/core';
-import {Cursor, StoreService} from './tree.service';
-import {get, put, post} from 'superagent';
-import {serverPath} from '../_serverPath';
+import { Injectable } from '@angular/core';
+import { Cursor, StoreService } from './tree.service';
+import { get, put, post } from 'superagent';
+import { serverPath } from '../_serverPath';
 import * as _ from 'lodash';
 
 @Injectable()
@@ -16,6 +16,53 @@ export class ProjectService {
     this.projectStatusCursor = this.store.select(['projectStatuses']);
   }
 
+  public getNameOfMethodAndType(methodId: number, typeId: number): Promise<any>{
+    return new Promise<any>((resolve, reject) => {
+      get(serverPath.getNameMethodAndTypeCampaign(methodId, typeId))
+        .set('token', this.tokenCursor.get())
+        .then(res => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            resolve(content.Data);
+          } else {
+            reject(content.Message);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
+    });
+  }
+
+  public getTypeAdvertising(methodAdsId: number) : Promise<any>{
+    return new Promise<any>((resolve, reject) => {
+      get(serverPath.getTypeADvertising(methodAdsId))
+        .set('token', this.tokenCursor.get())
+        .then(res => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            resolve(content.Data);
+          } else {
+            reject(content.Message);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
+    });
+  }
+
+  public getAllMethodAdvertising(): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      get(serverPath.getMethodAdvertisingList)
+        .set('token', this.tokenCursor.get())
+        .then(res => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            resolve(content.Data);
+          } else {
+            reject(content.Message);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
+    });
+  }
 
   public setTeamToProject(projectId: number, teamIds: number[]): Promise<any> {
     const objData = {
@@ -134,18 +181,18 @@ export class ProjectService {
       // if (projects && !force) {
       //   resolve(projects);
       // } else {
-        get(serverPath.allProject)
-          .set('token', this.tokenCursor.get())
-          .then(res => {
-            const content = res.body;
-            if (content.IsSuccess) {
-              this.projectsCursor.set(content.Data);
-              resolve(content.Data);
-            } else {
-              reject(content.Message);
-            }
-          })
-          .catch(reason => reject(reason.response.body));
+      get(serverPath.allProject)
+        .set('token', this.tokenCursor.get())
+        .then(res => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            this.projectsCursor.set(content.Data);
+            resolve(content.Data);
+          } else {
+            reject(content.Message);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
       // }
     });
   }

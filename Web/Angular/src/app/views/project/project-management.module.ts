@@ -20,6 +20,7 @@ import {LaddaModule} from 'angular2-ladda';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { ArchiveComponent } from './archive/archive.component';
 import { NewCampaignComponent } from './new-campaign/new-campaign.component';
+import { NewCampaignDetailComponent } from './new-campaign-detail/new-campaign-detail.component';
 
 
 
@@ -51,7 +52,7 @@ import { NewCampaignComponent } from './new-campaign/new-campaign.component';
     ReportComponent,
     ArchiveComponent,
     NewCampaignComponent,
-
+    NewCampaignDetailComponent
   ]
 })
 export class ProjectManagementModule {

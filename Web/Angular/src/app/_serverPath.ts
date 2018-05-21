@@ -13,6 +13,10 @@ const serverPath = {
   getLateTaskOfUser: '/api/user/latetasks',
   getNearExpireTaskOfUser: '/api/user/expiresoon',
   resetPassword: userId => `/api/user/${userId}/resetpassword`,
+  //Compaign
+  getMethodAdvertisingList: '/api/methodadvertising/all',
+  getTypeADvertising: (methodId : number) => `/api/typeadvertising/${methodId}`,
+  getNameMethodAndTypeCampaign: (methodId: number, typeId: number) => `/api/project/${methodId}/${typeId}`,
   // Project
   allProject: '/api/project/all',
   getProject: (projectId) => `/api/project/${projectId}`,

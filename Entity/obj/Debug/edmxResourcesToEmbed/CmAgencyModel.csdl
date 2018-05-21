@@ -100,6 +100,8 @@
       <End Role="User" EntitySet="Users" />
       <End Role="UserTask" EntitySet="UserTasks" />
     </AssociationSet>
+    <EntitySet Name="MethodAdvertisings" EntityType="CmAgencyModel.MethodAdvertising" />
+    <EntitySet Name="TypeAdvertisings" EntityType="CmAgencyModel.TypeAdvertising" />
   </EntityContainer>
   <EntityType Name="Attachment">
     <Key>
@@ -574,4 +576,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <EntityType Name="MethodAdvertising">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TypeAdvertising">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="MethodAdvertisingID" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" Nullable="false" />
+    <Property Name="CreatedTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ChangedBy" Type="Int32" />
+    <Property Name="ChangedTime" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Int32" />
+  </EntityType>
 </Schema>
