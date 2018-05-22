@@ -1,91 +1,93 @@
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-12">
     <div class="card">
       <div class="card-header">
         <strong>Create custome campaign</strong>
       </div>
       <app-spinner *ngIf="isLoadingPage"></app-spinner>
-      <div class="card-body" *ngIf="!isLoadingPage">
-        <div class="card-body">
-          <div [formGroup]="projectForm" class="form-horizontal">
+      <div class="card-body animated fadeIn" *ngIf="!isLoadingPage">
 
-            <div class="form-group row">
-              <label class="col-form-label" for="name-input">Name campaign 
+
+        <div [formGroup]="projectForm" class="form-horizontal col-6">
+
+          <div class="form-group row">
+            <label class="col-4 col-form-label  text-right" for="name-input">Name campaign
               <span style="color: #ee0d0d">
                 <strong>*</strong>
               </span>
             </label>
-              <div class="col-md-6" style="margin-left: 45px;">
-                <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the campaign's name">
-                <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
-              </div>
+            <div class="col-8">
+              <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the campaign's name">
+              <!-- <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div> -->
             </div>
-            <div class="form-group row">
-              <label class="col-form-label" for="description-input">Description</label>
-              <div class="col-md-6">
-                <textarea id="description-input" name="description-input" rows="5" class="form-control" formControlName="description" placeholder="About project..."
-                  style="margin-left: 23px;"></textarea>
-              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right" for="description-input">Description</label>
+            <div class="col-8">
+              <textarea id="description-input" name="description-input" rows="5" class="form-control" formControlName="description" placeholder="About project..."></textarea>
+              <!-- <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div> -->
             </div>
-            <div class="form-group row">
-              <label class="col-form-label" for="goal-input">Goal</label>
-              <span style="color: #ee0d0d">
-                <strong>*</strong>
-              </span>
-              <div class="col-md-6">
-                <textarea id="goal-input" name="goal-input" rows="5" class="form-control" formControlName="goal" placeholder="Goal..."
-                  style="margin-left: 23px;"></textarea>
-              </div>
-            </div>
-            <div class="form-group row">
-              <label class="col-form-label" for="budget-input">Budget 
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right" for="goal-input">Goal
               <span style="color: #ee0d0d">
                 <strong>*</strong>
               </span>
             </label>
-              <div class="col-md-6" style="margin-left: 45px;">
-                <input type="text" id="budget-input" name="budget-input" class="form-control" formControlName="name" placeholder="Please enter the budget..">
-                <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
-              </div>
+            <div class="col-8">
+              <textarea id="goal-input" name="goal-input" rows="5" class="form-control" formControlName="goal" placeholder="Goal..."></textarea>
+              <!-- <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div> -->
             </div>
-            <div class="form-group row">
-              <label class="col-form-label" for="startDate-input">Start date
-                <span style="color: #ee0d0d">
-                  <strong>*</strong>
-                </span>
-              </label>
-              <div class="col-md-6" style="margin-left: 21px;">
-                <my-date-picker #startDatePicker name="startDate-input" [options]="myDatePickerOptions" class="form-control-mydatepicker"
-                  formControlName="startDate"></my-date-picker>
-                  <div class="invalid-feedback" *ngIf="errors.startDate">{{errors.startDate}}</div>
-              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right" for="budget-input">Budget
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-8" >
+              <input type="text" id="budget-input" name="budget-input" class="form-control" formControlName="name" placeholder="Please enter the budget..">
+              <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
             </div>
-            <div class="form-group row">
-              <label class="col-form-label">Deadline
-                <span style="color: #ee0d0d">
-                  <strong>*</strong>
-                </span>
-              </label>
-              <div class="col-md-6" style="margin-left: 27px;">
-                <my-date-picker #deadlinePicker name="deadline-input" [options]="myDatePickerOptions" class="form-control-mydatepicker" formControlName="deadline"
-                  disable="true"></my-date-picker>
-                  <div class="invalid-feedback" *ngIf="errors.deadline">{{errors.deadline}}</div>
-              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right" for="startDate-input">Start date
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-8" >
+              <my-date-picker #startDatePicker name="startDate-input" [options]="myDatePickerOptions" class="form-control-mydatepicker"
+                formControlName="startDate"></my-date-picker>
+              <div class="invalid-feedback" *ngIf="errors.startDate">{{errors.startDate}}</div>
             </div>
-            <div class="row">
-              <div style="margin-left: 200px;">
-                <button class="btn btn-primary" (click)="handleCreate()" [ladda]="isLoading" >
-                  Add
-                </button>
-                <!-- <button type="button" class="btn btn-success btn-bw " data-toggle="modal" (click)="successModal.show()">Add</button> -->
-              </div>
-              <div style="margin-left: 100px;">
-                <button class="btn btn-secondary"  data-toggle="modal" onclick="location.href='#/project'">Cancel</button>
-              </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right">Deadline
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-8" >
+              <my-date-picker #deadlinePicker name="deadline-input" [options]="myDatePickerOptions" class="form-control-mydatepicker" formControlName="deadline"
+                disable="true"></my-date-picker>
+              <div class="invalid-feedback" *ngIf="errors.deadline">{{errors.deadline}}</div>
+            </div>
+          </div>
+          <div class="row">
+            <div style="margin-left: 200px;">
+              <button class="btn btn-primary" (click)="handleCreate()" [ladda]="isLoading">
+                Add
+              </button>
+              <!-- <button type="button" class="btn btn-success btn-bw " data-toggle="modal" (click)="successModal.show()">Add</button> -->
+            </div>
+            <div style="margin-left: 50px;">
+              <button class="btn btn-secondary" data-toggle="modal" onclick="location.href='#/project'">Cancel</button>
             </div>
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>
