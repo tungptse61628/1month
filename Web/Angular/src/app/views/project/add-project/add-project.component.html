@@ -10,22 +10,42 @@
           <div [formGroup]="projectForm" class="form-horizontal">
 
             <div class="form-group row">
-              <label class="col-form-label" for="name-input">Name 
+              <label class="col-form-label" for="name-input">Name campaign 
               <span style="color: #ee0d0d">
                 <strong>*</strong>
               </span>
             </label>
               <div class="col-md-6" style="margin-left: 45px;">
-                <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the project's name">
+                <input type="text" id="name-input" name="name-input" class="form-control" formControlName="name" placeholder="Please enter the campaign's name">
                 <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
               </div>
             </div>
-          
             <div class="form-group row">
               <label class="col-form-label" for="description-input">Description</label>
               <div class="col-md-6">
                 <textarea id="description-input" name="description-input" rows="5" class="form-control" formControlName="description" placeholder="About project..."
                   style="margin-left: 23px;"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-form-label" for="goal-input">Goal</label>
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+              <div class="col-md-6">
+                <textarea id="goal-input" name="goal-input" rows="5" class="form-control" formControlName="goal" placeholder="Goal..."
+                  style="margin-left: 23px;"></textarea>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-form-label" for="budget-input">Budget 
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+              <div class="col-md-6" style="margin-left: 45px;">
+                <input type="text" id="budget-input" name="budget-input" class="form-control" formControlName="name" placeholder="Please enter the budget..">
+                <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
               </div>
             </div>
             <div class="form-group row">
