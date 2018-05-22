@@ -18,9 +18,9 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 
 
-public partial class CmAgencyEntities : DbContext
+public partial class CmAgencyEntities1 : DbContext
 {
-    public CmAgencyEntities()
+    public CmAgencyEntities1()
         : base("name=CmAgencyEntities")
     {
 

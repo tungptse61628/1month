@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d7c892f77df3485b8ed1963fa0297dfe" Name="Diagram1">
+        <EntityTypeShape EntityType="agencyModel.Attachment" Width="1.5" PointX="12" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Bill" Width="1.5" PointX="7.5" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.CheckList" Width="1.5" PointX="12" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.CheckListItem" Width="1.5" PointX="14.25" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Comment" Width="1.5" PointX="12" PointY="15.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Customer" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.List" Width="1.5" PointX="7.5" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.ListDependency" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.MethodAdvertising" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Notification" Width="1.5" PointX="12.75" PointY="28.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.NotificationUser" Width="1.5" PointX="15" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Project" Width="1.5" PointX="5.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Task" Width="1.5" PointX="9.75" PointY="13" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.TaskDependency" Width="1.5" PointX="12" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.Team" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.TeamProject" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.TypeAdvertising" Width="1.5" PointX="3" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.User" Width="1.5" PointX="12.75" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.UserProject" Width="1.5" PointX="7.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="agencyModel.UserTask" Width="1.5" PointX="15" PointY="16.375" IsExpanded="true" />
+        <AssociationConnector Association="agencyModel.FK_Attachment_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_Bill_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_CheckList_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_CheckListItem_CheckList" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_Comment_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_Project_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_List_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_Task_List" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_TypeAd_MethodAd" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_NotificationUser_Notification" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_NotificationUser_User" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_ProjectCampain_TypeAd" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_TeamProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_UserProject_Project" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_TaskDependency_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_TaskDependency_Task1" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_UserTask_Task" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_TeamProject_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_User_Team" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_UserProject_User" ManuallyRouted="false" />
+        <AssociationConnector Association="agencyModel.FK_UserTask_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
