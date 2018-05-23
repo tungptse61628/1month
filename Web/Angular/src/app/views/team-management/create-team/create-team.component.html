@@ -5,8 +5,34 @@
         <strong>Create team</strong>
       </div>
 
+      <div class="card-body animated fadeIn">
 
-      <div class="card-body">
-        <h1>kira</h1>
+        <div class="form-horizontal col-6">
+          <div class="form-group row">
+            <label class="col-4 col-form-label  text-right" for="name-input">Team's name 
+              <span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span>
+            </label>
+            <div class="col-8">
+              <input type="text" id="name-input" name="name-input" class="form-control"  placeholder="Please enter the campaign's name">
+              <!-- <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div> -->
+            </div>
+            
+          </div>
+          <div class="row">
+            <div style="margin-left: 250px;">
+              <button class="btn btn-primary" (click)="handleCreate()" [ladda]="isLoading">
+                Add
+              </button>
+              <!-- <button type="button" class="btn btn-success btn-bw " data-toggle="modal" (click)="successModal.show()">Add</button> -->
+            </div>
+            <div style="margin-left: 25px;">
+              <button class="btn btn-secondary" data-toggle="modal" onclick="location.href='#/department/view'">Cancel</button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </div>
+</div>
