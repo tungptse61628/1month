@@ -51,6 +51,7 @@ export class AddProjectComponent implements OnInit {
       description: new FormControl(undefined, Validators.required),
       startDate: new FormControl(undefined, Validators.required),
       deadline: new FormControl(undefined, Validators.required),
+      goal: new FormControl(undefined, Validators.required),
     });
     this.isLoading = false;
     this.isLoadingPage = true;
@@ -73,6 +74,7 @@ export class AddProjectComponent implements OnInit {
         formValue.description,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
+        formValue.goal
       )
         .then(value => {
           let newProject= value as Project;

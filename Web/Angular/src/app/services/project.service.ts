@@ -33,6 +33,7 @@ export class ProjectService {
   }
 
   public getTypeAdvertising(methodAdsId: number) : Promise<any>{
+    console.log("methodid" + methodAdsId)
     return new Promise<any>((resolve, reject) => {
       get(serverPath.getTypeADvertising(methodAdsId))
         .set('token', this.tokenCursor.get())
@@ -236,13 +237,15 @@ export class ProjectService {
     name: string,
     description: string,
     startdate: string,
-    deadline: string
+    deadline: string,
+    goal: string
   ): Promise<any> {
     const objData = {
       name: name,
       description: description,
       deadline: deadline,
-      startdate: startdate
+      startdate: startdate,
+      goal: goal
     };
     return new Promise<any>((resolve, reject) => {
       post(serverPath.createProject)

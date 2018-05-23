@@ -92,7 +92,7 @@ namespace Service
         /// <param name="creator">creator id</param>
         /// <returns>new project with Id</returns>
         public Project CreateProject(string name, string description, DateTime? deadline, DateTime? startDate,
-            User creator)
+            User creator, string goal)
         {
             Project newProject = new Project
             {
@@ -102,7 +102,8 @@ namespace Service
                 StartDate = startDate,
                 CreatedBy = creator.ID,
                 CreatedTime = DateTime.Now,
-                Status = (int) ProjectStatus.NotStarted
+                Status = (int) ProjectStatus.NotStarted,
+                Goal = goal
             };
 
             db.Projects.Add(newProject);

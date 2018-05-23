@@ -228,6 +228,8 @@ var serverPath = {
     resetPassword: function (userId) { return "/api/user/" + userId + "/resetpassword"; },
     //Compaign
     getMethodAdvertisingList: '/api/methodadvertising/all',
+    getTypeADvertising: function (methodId) { return "/api/typeadvertising/" + methodId; },
+    getNameMethodAndTypeCampaign: function (methodId, typeId) { return "/api/project/" + methodId + "/" + typeId; },
     // Project
     allProject: '/api/project/all',
     getProject: function (projectId) { return "/api/project/" + projectId; },
@@ -5830,16 +5832,41 @@ var ProjectService = /** @class */ (function () {
         this.projectsCursor = this.store.select(['projects']);
         this.projectStatusCursor = this.store.select(['projectStatuses']);
     }
-    // public getAllMethodAdvertising(): Promise<any> {
-    //   return new Promise<any>((resolve, reject) => {
-    //     get(serverPath.getMethodAdvertisingList)
-    //       .set('token', this.tokenCursor.get())
-    //       .then(res => {
-    //         res.body
-    //       })
-    //       .catch(reason => reject(reason.response.body));
-    //   });
-    // }
+    ProjectService.prototype.getNameOfMethodAndType = function (methodId, typeId) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["get"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].getNameMethodAndTypeCampaign(methodId, typeId))
+                .set('token', _this.tokenCursor.get())
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content.Message);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ProjectService.prototype.getTypeAdvertising = function (methodAdsId) {
+        var _this = this;
+        console.log("methodid" + methodAdsId);
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["get"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].getTypeADvertising(methodAdsId))
+                .set('token', _this.tokenCursor.get())
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content.Message);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
     ProjectService.prototype.getAllMethodAdvertising = function () {
         var _this = this;
         return new Promise(function (resolve, reject) {
@@ -6036,13 +6063,14 @@ var ProjectService = /** @class */ (function () {
                 .catch(function (reason) { return reject(reason.response.body); });
         });
     };
-    ProjectService.prototype.createProject = function (name, description, startdate, deadline) {
+    ProjectService.prototype.createProject = function (name, description, startdate, deadline, goal) {
         var _this = this;
         var objData = {
             name: name,
             description: description,
             deadline: deadline,
-            startdate: startdate
+            startdate: startdate,
+            goal: goal
         };
         return new Promise(function (resolve, reject) {
             Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createProject)

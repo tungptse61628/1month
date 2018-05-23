@@ -100,7 +100,7 @@ namespace Service
             if (team != null)
             {
                 team.Name = name;
-                team.User.Username = manager;
+               // team.User.Username = manager;
 
                 db.SaveChanges();
                 return team;

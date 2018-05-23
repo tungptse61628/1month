@@ -82,11 +82,13 @@ export class NewCampaignDetailComponent implements OnInit {
       let startDate = moment(this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
       let deadline = moment(this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
       //this.isLoading = true;
+      console.log("Goal" + this.goal)
       this.projectService.createProject(
         this.nameCampaign,
         this.description,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
+        this.goal
       )
         .then(value => {
           let newProject= value as Project;
