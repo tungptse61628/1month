@@ -87,10 +87,17 @@
     <EntitySetMapping Name="Projects">
       <EntityTypeMapping TypeName="CmAgencyModel.Project">
         <MappingFragment StoreEntitySet="Project">
+          <ScalarProperty Name="TypeAdID" ColumnName="TypeAdID" />
+          <ScalarProperty Name="TimeFrame" ColumnName="TimeFrame" />
+          <ScalarProperty Name="TimeVideo" ColumnName="TimeVideo" />
+          <ScalarProperty Name="ChannelID" ColumnName="ChannelID" />
+          <ScalarProperty Name="Budget" ColumnName="Budget" />
+          <ScalarProperty Name="Keywords" ColumnName="Keywords" />
+          <ScalarProperty Name="Location" ColumnName="Location" />
+          <ScalarProperty Name="Goal" ColumnName="Goal" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
           <ScalarProperty Name="FinishedDate" ColumnName="FinishedDate" />
           <ScalarProperty Name="Status" ColumnName="Status" />
-          <ScalarProperty Name="CustomerFeedback" ColumnName="CustomerFeedback" />
-          <ScalarProperty Name="LessionLearnt" ColumnName="LessionLearnt" />
           <ScalarProperty Name="ChangedTime" ColumnName="ChangedTime" />
           <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
           <ScalarProperty Name="StartDate" ColumnName="StartDate" />
@@ -219,6 +226,40 @@
           <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
           <ScalarProperty Name="MethodAdvertisingID" ColumnName="MethodAdvertisingID" />
           <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bills">
+      <EntityTypeMapping TypeName="CmAgencyModel.Bill">
+        <MappingFragment StoreEntitySet="Bill">
+          <ScalarProperty Name="ProjectID" ColumnName="ProjectID" />
+          <ScalarProperty Name="Path" ColumnName="Path" />
+          <ScalarProperty Name="Money" ColumnName="Money" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CmAgencyModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListDependencies">
+      <EntityTypeMapping TypeName="CmAgencyModel.ListDependency">
+        <MappingFragment StoreEntitySet="ListDependency">
+          <ScalarProperty Name="CreatedTime" ColumnName="CreatedTime" />
+          <ScalarProperty Name="ChangedTime" ColumnName="ChangedTime" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+          <ScalarProperty Name="LastDependencyListID" ColumnName="LastDependencyListID" />
+          <ScalarProperty Name="FirstDependencyListID" ColumnName="FirstDependencyListID" />
           <ScalarProperty Name="ID" ColumnName="ID" />
         </MappingFragment>
       </EntityTypeMapping>

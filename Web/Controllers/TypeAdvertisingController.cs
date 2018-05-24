@@ -15,17 +15,21 @@ namespace Web.Controllers
     public class TypeAdvertisingController : ApiController
     {
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("{methodId:int}")]
         [System.Web.Http.Authorize(Roles = "Admin")]
-        public IHttpActionResult GetProjectById(int id)
+        public IHttpActionResult GetProjectById(int methodId)
         {
             using (CmAgencyEntities db = new CmAgencyEntities())
             {
                 TypeAdvertisingService typeAdvertisingService = new TypeAdvertisingService(db);
-                IEnumerable<TypeAdvertising> typeAdvertisingByMethod = typeAdvertisingService.GetByMethodAdvertising(id); ;
+                IEnumerable<TypeAdvertising> typeAdvertisingByMethod = typeAdvertisingService.GetByMethodAdvertising(methodId); ;
                 JArray dataObject = new JArray();
 
-                dataObject = JArray.Parse(JsonConvert.SerializeObject(typeAdvertisingByMethod));
+                dataObject = JArray.Parse(JsonConvert.SerializeObject(typeAdvertisingByMethod, Formatting.Indented,
+    new JsonSerializerSettings()
+    {
+        ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+    }));
 
                 return Ok(ResponseHelper.GetResponse(dataObject)); ;
             }

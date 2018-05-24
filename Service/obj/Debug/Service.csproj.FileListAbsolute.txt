@@ -50,3 +50,16 @@ E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Servi
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.dll
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Service\obj\Debug\Service.pdb
+E:\DA\1month\Service\bin\Debug\Service.dll
+E:\DA\1month\Service\bin\Debug\Service.pdb
+E:\DA\1month\Service\bin\Debug\Entity.dll
+E:\DA\1month\Service\bin\Debug\EntityFramework.dll
+E:\DA\1month\Service\bin\Debug\Newtonsoft.Json.dll
+E:\DA\1month\Service\bin\Debug\Entity.pdb
+E:\DA\1month\Service\bin\Debug\Entity.dll.config
+E:\DA\1month\Service\bin\Debug\EntityFramework.xml
+E:\DA\1month\Service\bin\Debug\Newtonsoft.Json.xml
+E:\DA\1month\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+E:\DA\1month\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+E:\DA\1month\Service\obj\Debug\Service.dll
+E:\DA\1month\Service\obj\Debug\Service.pdb

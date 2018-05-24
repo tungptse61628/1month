@@ -38,3 +38,7 @@ yarn-error.log
 # rollup-test output
 /modules/rollup-test/dist/
 .vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
+.vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
+.vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
+Web/Web.config
+Web/Web.config

@@ -523,6 +523,7 @@
     <Compile Include="ViewModels\CreateListModel.cs" />
     <Compile Include="ViewModels\CreateProjectModel.cs" />
     <Compile Include="ViewModels\CreateTaskModel.cs" />
+    <Compile Include="ViewModels\CreateTeamModel.cs" />
     <Compile Include="ViewModels\DeleteListModel.cs" />
     <Compile Include="ViewModels\DeleteProjectViewModel.cs" />
     <Compile Include="ViewModels\DeleteUserModel.cs" />

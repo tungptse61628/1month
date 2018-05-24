@@ -25,14 +25,14 @@ export class NewCampaignComponent implements OnInit {
       .then(data => {
         this.methodAdvertisings = data;
         this.methodSelectedId = this.methodAdvertisings[0].ID;
-        this.getTypeAdvertising(this.methodSelectedId);
+        this.getTypeAdvertisingFunc(this.methodSelectedId);
       })
       .catch(reason => {
         console.debug('NewCampaignComponent', reason);
       })
   }
 
-  getTypeAdvertising(methodAdsId : number)
+  getTypeAdvertisingFunc(methodAdsId : number)
   {
     this.projectService.getTypeAdvertising(methodAdsId)
       .then(data => {
@@ -46,11 +46,11 @@ export class NewCampaignComponent implements OnInit {
 
   onChangeMethod(methodAdsId: any){
     this.methodSelectedId = methodAdsId;
-    this.getTypeAdvertising(methodAdsId);
+    this.getTypeAdvertisingFunc(methodAdsId);
   }
 
-  onChangeType(typeSelectedId: any){
-    this.methodSelectedId = typeSelectedId;
+  onChangeType(typeId: any){
+    this.typeSelectedId = typeId;
   }
 
   goToDetail()

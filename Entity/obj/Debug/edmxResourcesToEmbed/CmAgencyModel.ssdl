@@ -11,6 +11,16 @@
     <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedTime" Type="datetime" />
   </EntityType>
+  <EntityType Name="Bill">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" Nullable="false" />
+    <Property Name="Money" Type="int" Nullable="false" />
+    <Property Name="Path" Type="nvarchar" MaxLength="255" />
+    <Property Name="ProjectID" Type="int" Nullable="false" />
+  </EntityType>
   <EntityType Name="CheckList">
     <Key>
       <PropertyRef Name="ID" />
@@ -19,9 +29,9 @@
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="TaskID" Type="int" Nullable="false" />
     <Property Name="ChangedBy" Type="int" />
-    <Property Name="CreatedBy" Type="int" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
     <Property Name="ChangedTime" Type="datetime" />
-    <Property Name="CreatedTime" Type="datetime" />
+    <Property Name="CreatedTime" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="CheckListItem">
     <Key>
@@ -47,6 +57,15 @@
     <Property Name="ChangedTime" Type="datetime" />
     <Property Name="TaskID" Type="int" Nullable="false" />
   </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
   <EntityType Name="List">
     <Key>
       <PropertyRef Name="ID" />
@@ -54,6 +73,18 @@
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ProjectID" Type="int" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
+    <Property Name="ChangedBy" Type="int" />
+    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="ChangedTime" Type="datetime" />
+    <Property Name="CreatedTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ListDependency">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstDependencyListID" Type="int" Nullable="false" />
+    <Property Name="LastDependencyListID" Type="int" />
     <Property Name="ChangedBy" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="ChangedTime" Type="datetime" />
@@ -64,7 +95,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
     <Property Name="Description" Type="nvarchar(max)" />
     <Property Name="CreatedBy" Type="int" Nullable="false" />
     <Property Name="CreatedTime" Type="datetime" Nullable="false" />
@@ -102,10 +133,17 @@
     <Property Name="StartDate" Type="date" />
     <Property Name="ChangedBy" Type="int" />
     <Property Name="ChangedTime" Type="datetime" />
-    <Property Name="LessionLearnt" Type="nvarchar(max)" />
-    <Property Name="CustomerFeedback" Type="nvarchar(max)" />
     <Property Name="Status" Type="int" />
     <Property Name="FinishedDate" Type="datetime" />
+    <Property Name="CustomerID" Type="int" />
+    <Property Name="Goal" Type="varchar(max)" Nullable="false" />
+    <Property Name="Location" Type="nvarchar" MaxLength="50" />
+    <Property Name="Keywords" Type="nvarchar" MaxLength="50" />
+    <Property Name="Budget" Type="int" />
+    <Property Name="ChannelID" Type="int" />
+    <Property Name="TimeVideo" Type="int" />
+    <Property Name="TimeFrame" Type="nvarchar" MaxLength="50" />
+    <Property Name="TypeAdID" Type="int" />
   </EntityType>
   <EntityType Name="Task">
     <Key>
@@ -131,14 +169,14 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SourceTaskID" Type="int" Nullable="false" />
-    <Property Name="DestinationTaskID" Type="int" Nullable="false" />
-    <Property Name="DependencyType" Type="int" Nullable="false" />
+    <Property Name="DestinationTaskID" Type="int" />
+    <Property Name="DependencyType" Type="int" />
     <Property Name="ChangedBy" Type="int" />
     <Property Name="CreatedBy" Type="int" />
     <Property Name="ChangedTime" Type="datetime" />
     <Property Name="CreatedTime" Type="datetime" />
-    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
   </EntityType>
   <EntityType Name="Team">
     <Key>
@@ -146,7 +184,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="255" Nullable="false" />
-    <Property Name="CreatedBy" Type="int" Nullable="false" />
+    <Property Name="CreatedBy" Type="int" />
     <Property Name="CreatedDate" Type="date" Nullable="false" />
   </EntityType>
   <EntityType Name="TeamProject">
@@ -162,8 +200,8 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Name" Type="nvarchar" MaxLength="200" Nullable="false" />
-    <Property Name="MethodAdvertisingID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="MethodAdvertisingID" Type="int" />
     <Property Name="CreatedBy" Type="int" Nullable="false" />
     <Property Name="CreatedTime" Type="datetime" Nullable="false" />
     <Property Name="ChangedBy" Type="int" />
@@ -178,13 +216,13 @@
     <Property Name="Name" Type="nvarchar" MaxLength="255" />
     <Property Name="Phone" Type="nvarchar" MaxLength="255" />
     <Property Name="Birthdate" Type="date" />
-    <Property Name="Email" Type="varchar" MaxLength="255" />
+    <Property Name="Email" Type="nvarchar" MaxLength="255" />
     <Property Name="Username" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Password" Type="nvarchar" MaxLength="255" Nullable="false" />
     <Property Name="Avatar" Type="nvarchar" MaxLength="255" />
-    <Property Name="IsAdmin" Type="bit" Nullable="false" />
-    <Property Name="IsActive" Type="bit" Nullable="false" />
-    <Property Name="IsManager" Type="bit" Nullable="false" />
+    <Property Name="IsAdmin" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsManager" Type="bit" />
     <Property Name="TeamID" Type="int" />
   </EntityType>
   <EntityType Name="UserProject">
@@ -214,6 +252,18 @@
       </Principal>
       <Dependent Role="Attachment">
         <PropertyRef Name="TaskID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bill_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="Bill" Type="Self.Bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Bill">
+        <PropertyRef Name="ProjectID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -253,6 +303,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_List_Project">
+    <End Role="Project" Type="Self.Project" Multiplicity="1" />
+    <End Role="List" Type="Self.List" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Project">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="List">
+        <PropertyRef Name="ProjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_NotificationUser_Notification">
     <End Role="Notification" Type="Self.Notification" Multiplicity="1" />
     <End Role="NotificationUser" Type="Self.NotificationUser" Multiplicity="*" />
@@ -277,39 +339,27 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Project_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
+  <Association Name="FK_Project_Customer">
+    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
     <End Role="Project" Type="Self.Project" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="Customer">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Project">
-        <PropertyRef Name="CreatedBy" />
+        <PropertyRef Name="CustomerID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Project_User1">
-    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+  <Association Name="FK_ProjectCampain_TypeAd">
+    <End Role="TypeAdvertising" Type="Self.TypeAdvertising" Multiplicity="0..1" />
     <End Role="Project" Type="Self.Project" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="User">
+      <Principal Role="TypeAdvertising">
         <PropertyRef Name="ID" />
       </Principal>
       <Dependent Role="Project">
-        <PropertyRef Name="ChangedBy" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Stage_Project">
-    <End Role="Project" Type="Self.Project" Multiplicity="1" />
-    <End Role="List" Type="Self.List" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Project">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="List">
-        <PropertyRef Name="ProjectID" />
+        <PropertyRef Name="TypeAdID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -322,18 +372,6 @@
       </Principal>
       <Dependent Role="Task">
         <PropertyRef Name="ListID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Task_User">
-    <End Role="User" Type="Self.User" Multiplicity="1" />
-    <End Role="Task" Type="Self.Task" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="User">
-        <PropertyRef Name="ID" />
-      </Principal>
-      <Dependent Role="Task">
-        <PropertyRef Name="CreatedBy" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -350,7 +388,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_TaskDependency_Task1">
-    <End Role="Task" Type="Self.Task" Multiplicity="1" />
+    <End Role="Task" Type="Self.Task" Multiplicity="0..1" />
     <End Role="TaskDependency" Type="Self.TaskDependency" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Task">
@@ -385,6 +423,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_TypeAd_MethodAd">
+    <End Role="MethodAdvertising" Type="Self.MethodAdvertising" Multiplicity="0..1" />
+    <End Role="TypeAdvertising" Type="Self.TypeAdvertising" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MethodAdvertising">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TypeAdvertising">
+        <PropertyRef Name="MethodAdvertisingID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_User_Team">
     <End Role="Team" Type="Self.Team" Multiplicity="0..1" />
     <End Role="User" Type="Self.User" Multiplicity="*" />
@@ -397,7 +447,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_UserProject_Project1">
+  <Association Name="FK_UserProject_Project">
     <End Role="Project" Type="Self.Project" Multiplicity="1" />
     <End Role="UserProject" Type="Self.UserProject" Multiplicity="*" />
     <ReferentialConstraint>
@@ -447,10 +497,13 @@
   </Association>
   <EntityContainer Name="CmAgencyModelStoreContainer">
     <EntitySet Name="Attachment" EntityType="Self.Attachment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bill" EntityType="Self.Bill" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CheckList" EntityType="Self.CheckList" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CheckListItem" EntityType="Self.CheckListItem" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comment" EntityType="Self.Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="List" EntityType="Self.List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ListDependency" EntityType="Self.ListDependency" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="MethodAdvertising" EntityType="Self.MethodAdvertising" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Notification" EntityType="Self.Notification" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="NotificationUser" EntityType="Self.NotificationUser" Schema="dbo" store:Type="Tables" />
@@ -467,6 +520,10 @@
       <End Role="Task" EntitySet="Task" />
       <End Role="Attachment" EntitySet="Attachment" />
     </AssociationSet>
+    <AssociationSet Name="FK_Bill_Project" Association="Self.FK_Bill_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="Bill" EntitySet="Bill" />
+    </AssociationSet>
     <AssociationSet Name="FK_CheckList_Task" Association="Self.FK_CheckList_Task">
       <End Role="Task" EntitySet="Task" />
       <End Role="CheckList" EntitySet="CheckList" />
@@ -479,6 +536,10 @@
       <End Role="Task" EntitySet="Task" />
       <End Role="Comment" EntitySet="Comment" />
     </AssociationSet>
+    <AssociationSet Name="FK_List_Project" Association="Self.FK_List_Project">
+      <End Role="Project" EntitySet="Project" />
+      <End Role="List" EntitySet="List" />
+    </AssociationSet>
     <AssociationSet Name="FK_NotificationUser_Notification" Association="Self.FK_NotificationUser_Notification">
       <End Role="Notification" EntitySet="Notification" />
       <End Role="NotificationUser" EntitySet="NotificationUser" />
@@ -487,24 +548,16 @@
       <End Role="User" EntitySet="User" />
       <End Role="NotificationUser" EntitySet="NotificationUser" />
     </AssociationSet>
-    <AssociationSet Name="FK_Project_User" Association="Self.FK_Project_User">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_Project_Customer" Association="Self.FK_Project_Customer">
+      <End Role="Customer" EntitySet="Customer" />
       <End Role="Project" EntitySet="Project" />
     </AssociationSet>
-    <AssociationSet Name="FK_Project_User1" Association="Self.FK_Project_User1">
-      <End Role="User" EntitySet="User" />
+    <AssociationSet Name="FK_ProjectCampain_TypeAd" Association="Self.FK_ProjectCampain_TypeAd">
+      <End Role="TypeAdvertising" EntitySet="TypeAdvertising" />
       <End Role="Project" EntitySet="Project" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Stage_Project" Association="Self.FK_Stage_Project">
-      <End Role="Project" EntitySet="Project" />
-      <End Role="List" EntitySet="List" />
     </AssociationSet>
     <AssociationSet Name="FK_Task_List" Association="Self.FK_Task_List">
       <End Role="List" EntitySet="List" />
-      <End Role="Task" EntitySet="Task" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Task_User" Association="Self.FK_Task_User">
-      <End Role="User" EntitySet="User" />
       <End Role="Task" EntitySet="Task" />
     </AssociationSet>
     <AssociationSet Name="FK_TaskDependency_Task" Association="Self.FK_TaskDependency_Task">
@@ -523,11 +576,15 @@
       <End Role="Team" EntitySet="Team" />
       <End Role="TeamProject" EntitySet="TeamProject" />
     </AssociationSet>
+    <AssociationSet Name="FK_TypeAd_MethodAd" Association="Self.FK_TypeAd_MethodAd">
+      <End Role="MethodAdvertising" EntitySet="MethodAdvertising" />
+      <End Role="TypeAdvertising" EntitySet="TypeAdvertising" />
+    </AssociationSet>
     <AssociationSet Name="FK_User_Team" Association="Self.FK_User_Team">
       <End Role="Team" EntitySet="Team" />
       <End Role="User" EntitySet="User" />
     </AssociationSet>
-    <AssociationSet Name="FK_UserProject_Project1" Association="Self.FK_UserProject_Project1">
+    <AssociationSet Name="FK_UserProject_Project" Association="Self.FK_UserProject_Project">
       <End Role="Project" EntitySet="Project" />
       <End Role="UserProject" EntitySet="UserProject" />
     </AssociationSet>

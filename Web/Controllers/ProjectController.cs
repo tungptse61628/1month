@@ -383,7 +383,8 @@ namespace Web.Controllers
                             createProjectModel.Description,
                             createProjectModel.Deadline,
                             createProjectModel.StartDate,
-                            creator
+                            creator,
+                            createProjectModel.Goal
                         );
 
                         JObject dataObject = projectService.ParseToJson(newProject);
