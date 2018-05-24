@@ -376,8 +376,6 @@ namespace Web.Controllers
 
                         UserService userService = new UserService(db);
                         ListService listService = new ListService(db);
-                        TaskService taskService = new TaskService(db);
-                        DependencyService dependencyService = new DependencyService(db);
 
                         string loginedUserId = User.Identity.GetUserId();
                         User creator = userService.GetUser(loginedUserId);
@@ -399,66 +397,17 @@ namespace Web.Controllers
 
                         // Create task for list
                         int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
+                        int priorityTmp = 1; // hard code
+                        DateTime startDateTmp = DateTime.Now; // hard code
+                        int duration = 6; // hard code
+                        int effort = 32; // hard code
 
-                        // Task 1 for List 1
-                        Task task1ForList1 = taskService.CreateTask(
-                            "task1ForList1 Name",
-                            "task1ForList1 Description",
-                            list1.ID,
-                            1,
-                            DateTime.Now,
-                            6,
-                            36,
-                            creator
-                        );
+                        // Tasksfor List 1
+                        CreateTaskForList("Task1forList1", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task2forList1", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
-                        if (createTaskModel != null)
-                        {
-                            foreach (int predecessor in createTaskModel)
-                            {
-                                dependencyService.CreateDependency(predecessor, task1ForList1.ID, creator.ID);
-                            }
-                        }
-
-                        //Task 2 for List 1
-                        Task task2ForList1 = taskService.CreateTask(
-                            "task2ForList1 Name",
-                            "task2ForList1 Description",
-                            list1.ID,
-                            1,
-                            DateTime.Now,
-                            6,
-                            36,
-                            creator
-                        );
-
-                        if (createTaskModel != null)
-                        {
-                            foreach (int predecessor in createTaskModel)
-                            {
-                                dependencyService.CreateDependency(predecessor, task1ForList1.ID, creator.ID);
-                            }
-                        }
-
-                        // Task 1 for List 2
-                        Task task1ForList2 = taskService.CreateTask(
-                            "task1ForList2 Name",
-                            "task1ForList2 Description",
-                            list2.ID,
-                            1,
-                            DateTime.Now,
-                            6,
-                            36,
-                            creator
-                        );
-
-                        if (createTaskModel != null)
-                        {
-                            foreach (int predecessor in createTaskModel)
-                            {
-                                dependencyService.CreateDependency(predecessor, task1ForList2.ID, creator.ID);
-                            }
-                        }
+                        // Tasks for List 2
+                        CreateTaskForList("Task1forList2", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }
@@ -476,6 +425,22 @@ namespace Web.Controllers
             }
         }
 
+        private void CreateTaskForList(string taskName, string taskDescription, int listId, int priority,
+            DateTime startDate, int duration, int effort, User creator, int[] createTaskModel, CmAgencyEntities db)
+        {
+            TaskService taskService = new TaskService(db);
+            DependencyService dependencyService = new DependencyService(db);
+
+            Task task = taskService.CreateTask(taskName, taskDescription, listId, priority, startDate, duration, effort, creator);
+
+            if (createTaskModel != null)
+            {
+                foreach (int predecessor in createTaskModel)
+                {
+                    dependencyService.CreateDependency(predecessor, task.ID, creator.ID);
+                }
+            }
+        }
 
         [HttpPut]
         [Route("")]
