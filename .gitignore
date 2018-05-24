@@ -6,6 +6,10 @@
 Web/Web.config
 Web/Web.csproj.user
 Web/Angular/node_modules
+Service/bin
+Web/bin
+Web/obj
+Entity/bin
 
 /dist/
 bazel-*
@@ -40,5 +44,6 @@ yarn-error.log
 .vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
 .vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
 .vs/CM_AgencyProject/v15/Server/sqlite3/storage.ide
+.vs/CM_AgencyProject/v15/Server/sqlite3
 Web/Web.config
 Web/Web.config
