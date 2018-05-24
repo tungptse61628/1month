@@ -22,6 +22,8 @@ import { ArchiveComponent } from './archive/archive.component';
 import { NewCampaignComponent } from './new-campaign/new-campaign.component';
 import { NewCampaignDetailComponent } from './new-campaign-detail/new-campaign-detail.component';
 
+import { FacebookDetailComponent } from './facebook-detail/facebook-detail.component';
+
 
 
 @NgModule({
@@ -52,7 +54,9 @@ import { NewCampaignDetailComponent } from './new-campaign-detail/new-campaign-d
     ReportComponent,
     ArchiveComponent,
     NewCampaignComponent,
-    NewCampaignDetailComponent
+    NewCampaignDetailComponent,
+
+    FacebookDetailComponent
   ]
 })
 export class ProjectManagementModule {

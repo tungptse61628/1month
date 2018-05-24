@@ -10,6 +10,7 @@ import { ReportComponent } from './report/report.component';
 import { ArchiveComponent } from './archive/archive.component';
 import {NewCampaignComponent} from './new-campaign/new-campaign.component';
 import {NewCampaignDetailComponent} from './new-campaign-detail/new-campaign-detail.component';
+import {FacebookDetailComponent} from './facebook-detail/facebook-detail.component';
 
 const routes: Routes = [
   {
@@ -54,8 +55,15 @@ const routes: Routes = [
         }
       },
       {
-        path: 'createCampaignDetail/:methodId/:typeId',
+        path: 'google/:methodId/:typeId',
         component: NewCampaignDetailComponent,
+        data: {
+          title: 'Create campaign detail'
+        }
+      },
+      {
+        path: 'facebook/:methodId/:typeId',
+        component: FacebookDetailComponent,
         data: {
           title: 'Create campaign detail'
         }
