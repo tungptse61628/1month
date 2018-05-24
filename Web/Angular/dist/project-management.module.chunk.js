@@ -413,6 +413,164 @@ var ArchiveComponent = /** @class */ (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/views/project/facebook-detail/facebook-detail.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create campaign detail</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\r\n            <div class=\"col-8\">\r\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">MethodAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">TypeAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"goal\" class=\"form-control\" placeholder=\"Please enter the goal\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Budget: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter the type budget\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\r\n            Create Campaign\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/views/project/facebook-detail/facebook-detail.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/views/project/facebook-detail/facebook-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FacebookDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_project_service__ = __webpack_require__("../../../../../src/app/services/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("../../../../moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__ = __webpack_require__("../../../../../src/app/cmaComponents/modals/index.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var FacebookDetailComponent = /** @class */ (function () {
+    function FacebookDetailComponent(projectService, router, modalService, route) {
+        this.projectService = projectService;
+        this.router = router;
+        this.modalService = modalService;
+        this.route = route;
+        this.myDatePickerOptions = {
+            showInputField: true,
+            dateFormat: 'dd/mm/yyyy',
+        };
+        this.setErrorsNull();
+    }
+    FacebookDetailComponent.prototype.ngOnInit = function () {
+        this.methodSelectedId = Number(this.route.snapshot.paramMap.get('methodId'));
+        ;
+        this.typeSelectedId = Number(this.route.snapshot.paramMap.get('typeId'));
+        ;
+        this.setNameOfMethodAndType();
+    };
+    FacebookDetailComponent.prototype.setNameOfMethodAndType = function () {
+        var _this = this;
+        this.projectService.getNameOfMethodAndType(this.methodSelectedId, this.typeSelectedId)
+            .then(function (data) {
+            _this.nameMethodAdvertising = data[0].nameMethodAds;
+            _this.nameTypeAdvertising = data[0].nameTypeAds;
+        })
+            .catch(function (reason) {
+            console.log(reason.Data);
+        });
+    };
+    FacebookDetailComponent.prototype.handleCreate = function () {
+        var _this = this;
+        this.setErrorsNull();
+        var onConfirm = function () {
+            //const formValue = this.projectForm.value;
+            var startDate = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
+            var deadline = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
+            //this.isLoading = true;
+            _this.projectService.createProject(_this.nameCampaign, _this.description, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt, _this.goal)
+                .then(function (value) {
+                var newProject = value;
+                //this.isLoading = false;
+                _this.router.navigate(['project/' + newProject.id + '/detail']);
+            })
+                .catch(function (reason) {
+                //this.isLoading = false;
+                _this.setErrors(reason.Data);
+            });
+        };
+        var initialState = {
+            message: "Are you sure to create this project?",
+            confirmCallback: onConfirm
+        };
+        this.modalService.show(__WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__["b" /* ConfirmModalComponent */], { initialState: initialState, class: 'modal-dialog' });
+    };
+    FacebookDetailComponent.prototype.setErrorsNull = function () {
+        this.errors = {
+            name: '',
+            startDate: '',
+            deadline: '',
+        };
+    };
+    FacebookDetailComponent.prototype.setErrors = function (errors) {
+        for (var _i = 0, errors_1 = errors; _i < errors_1.length; _i++) {
+            var error = errors_1[_i];
+            var fieldName = error.key;
+            var errorMessage = error.message;
+            switch (fieldName) {
+                case 'Name':
+                    this.errors.name = errorMessage;
+                    break;
+                case 'Deadline':
+                    this.errors.deadline = errorMessage;
+                    break;
+                case 'StartDate':
+                    this.errors.startDate = errorMessage;
+                    break;
+            }
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('startDatePicker'),
+        __metadata("design:type", Object)
+    ], FacebookDetailComponent.prototype, "startDatePicker", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('deadlinePicker'),
+        __metadata("design:type", Object)
+    ], FacebookDetailComponent.prototype, "deadlinePicker", void 0);
+    FacebookDetailComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-facebook-detail',
+            template: __webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["b" /* BsModalService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
+    ], FacebookDetailComponent);
+    return FacebookDetailComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.html":
 /***/ (function(module, exports) {
 
@@ -654,7 +812,7 @@ var NewCampaignComponent = /** @class */ (function () {
     };
     NewCampaignComponent.prototype.goToDetail = function () {
         //this.router.navigate(['project/'+newProject.id+'/detail']);
-        this.router.navigate(['project/createCampaignDetail/' + this.methodSelectedId + '/' + this.typeSelectedId]);
+        this.router.navigate(['project/google/' + this.methodSelectedId + '/' + this.typeSelectedId]);
     };
     NewCampaignComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -1011,12 +1169,14 @@ var ProjectDetailComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__archive_archive_component__ = __webpack_require__("../../../../../src/app/views/project/archive/archive.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__new_campaign_new_campaign_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign/new-campaign.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__new_campaign_detail_new_campaign_detail_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__facebook_detail_facebook_detail_component__ = __webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1072,8 +1232,15 @@ var routes = [
                 }
             },
             {
-                path: 'createCampaignDetail/:methodId/:typeId',
+                path: 'google/:methodId/:typeId',
                 component: __WEBPACK_IMPORTED_MODULE_11__new_campaign_detail_new_campaign_detail_component__["a" /* NewCampaignDetailComponent */],
+                data: {
+                    title: 'Create campaign detail'
+                }
+            },
+            {
+                path: 'facebook/:methodId/:typeId',
+                component: __WEBPACK_IMPORTED_MODULE_12__facebook_detail_facebook_detail_component__["a" /* FacebookDetailComponent */],
                 data: {
                     title: 'Create campaign detail'
                 }
@@ -1155,12 +1322,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__archive_archive_component__ = __webpack_require__("../../../../../src/app/views/project/archive/archive.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__new_campaign_new_campaign_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign/new-campaign.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__new_campaign_detail_new_campaign_detail_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__facebook_detail_facebook_detail_component__ = __webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1215,7 +1384,8 @@ var ProjectManagementModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_16__report_report_component__["a" /* ReportComponent */],
                 __WEBPACK_IMPORTED_MODULE_19__archive_archive_component__["a" /* ArchiveComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__new_campaign_new_campaign_component__["a" /* NewCampaignComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__new_campaign_detail_new_campaign_detail_component__["a" /* NewCampaignDetailComponent */]
+                __WEBPACK_IMPORTED_MODULE_21__new_campaign_detail_new_campaign_detail_component__["a" /* NewCampaignDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_22__facebook_detail_facebook_detail_component__["a" /* FacebookDetailComponent */]
             ]
         })
     ], ProjectManagementModule);

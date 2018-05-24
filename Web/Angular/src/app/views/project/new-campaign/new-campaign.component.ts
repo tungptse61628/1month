@@ -56,7 +56,7 @@ export class NewCampaignComponent implements OnInit {
   goToDetail()
   {
     //this.router.navigate(['project/'+newProject.id+'/detail']);
-    this.router.navigate(['project/createCampaignDetail/' + this.methodSelectedId + '/' + this.typeSelectedId]);
+    this.router.navigate(['project/google/' + this.methodSelectedId + '/' + this.typeSelectedId]);
     
   }
 }

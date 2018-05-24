@@ -86,6 +86,7 @@ export class FacebookDetailComponent implements OnInit {
         this.description,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
+        this.goal
       )
         .then(value => {
           let newProject= value as Project;
