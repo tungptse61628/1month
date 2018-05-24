@@ -42,3 +42,14 @@ E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.dll
 E:\Documents\Download\Agency\Agency\AgencyProject\1month\Entity\obj\Debug\Entity.pdb
+E:\DA\1month\Entity\bin\Debug\Entity.dll.config
+E:\DA\1month\Entity\bin\Debug\Entity.dll
+E:\DA\1month\Entity\bin\Debug\Entity.pdb
+E:\DA\1month\Entity\bin\Debug\EntityFramework.dll
+E:\DA\1month\Entity\bin\Debug\EntityFramework.SqlServer.dll
+E:\DA\1month\Entity\bin\Debug\EntityFramework.xml
+E:\DA\1month\Entity\bin\Debug\EntityFramework.SqlServer.xml
+E:\DA\1month\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\DA\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
+E:\DA\1month\Entity\obj\Debug\Entity.dll
+E:\DA\1month\Entity\obj\Debug\Entity.pdb

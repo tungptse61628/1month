@@ -43,6 +43,56 @@ namespace Web.Controllers
                     ResponseHelper.GetExceptionResponse(ex));
             }
         }
+        [HttpPost]
+        [Route("")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult CreateTeam(CreateTeamModel createTeamModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (CmAgencyEntities db = new CmAgencyEntities())
+                    {
+                        TeamService teamService = new TeamService(db);
+                        bool flag = true;
+                        if (createTeamModel.Name != null &&
+                            teamService.CheckDuplicatedNameOfTeam(createTeamModel.Name))
+                        {
+                            ModelState.AddModelError("Name", "Project name is taken");
+                            flag = false;
+                        }
+                        if (flag == false)
+                        {
+                            return Content(HttpStatusCode.BadRequest, ResponseHelper.GetExceptionResponse(ModelState));
+                        }
+                        UserService userService = new UserService(db);
+                        string loginedUserId = User.Identity.GetUserId();
+                        User creator = userService.GetUser(loginedUserId);
+                        Team newTeam = teamService.CreateTeam(
+                            createTeamModel.Name,
+                            creator
+                            );
+                        JObject dataObject = teamService.ParseToJson(newTeam);
+                        return Ok(ResponseHelper.GetResponse(dataObject));
+
+                    }
+                }
+                else
+                {
+                    return Content(HttpStatusCode.BadRequest,
+                        ResponseHelper.GetExceptionResponse(ModelState));
+                }
+
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
+
 
         [HttpGet]
         [Route("freestaff")]

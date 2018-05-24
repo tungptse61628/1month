@@ -18,6 +18,23 @@ namespace Service
         {
             this.db = db;
         }
+        public bool CheckDuplicatedNameOfTeam(string teamname)
+        {
+            var teams = db.Teams.Where(team=> team.Name == teamname).ToList();
+            return teams.Count > 0;
+        }
+        public Team CreateTeam(string name, User creator)
+        {
+            Team newTeam = new Team
+            {
+                Name = name,
+                CreatedBy = creator.ID,
+                CreatedDate = DateTime.Now,
+            };
+            db.Teams.Add(newTeam);
+            db.SaveChanges();
+            return newTeam;
+        }
 
         public List<Team> GetAll()
         {
