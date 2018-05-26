@@ -61,21 +61,6 @@
     <Compile Include="CheckListItem.cs">
       <DependentUpon>CmaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="CmAgencyModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CmAgencyModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CmAgencyModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CmAgencyModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="CmAgencyModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CmAgencyModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="CmaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -146,13 +131,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="CmAgencyModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>CmAgencyModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="CmAgencyModel.edmx.diagram">
-      <DependentUpon>CmAgencyModel.edmx</DependentUpon>
-    </None>
     <EntityDeploy Include="CmaModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>CmaModel.Designer.cs</LastGenOutput>
@@ -166,16 +144,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CmAgencyModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CmAgencyModel.edmx</DependentUpon>
-      <LastGenOutput>CmAgencyModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="CmAgencyModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>CmAgencyModel.edmx</DependentUpon>
-      <LastGenOutput>CmAgencyModel.cs</LastGenOutput>
-    </Content>
     <Content Include="CmaModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>CmaModel.edmx</DependentUpon>
