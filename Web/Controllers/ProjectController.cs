@@ -391,9 +391,9 @@ namespace Web.Controllers
                         JObject dataObject = projectService.ParseToJson(newProject);
 
                         // Create List
-                        List list1 = listService.CreateList(newProject.ID, "This is 1st List");
-                        List list2 = listService.CreateList(newProject.ID, "This is 2nd List");
-                        List list3 = listService.CreateList(newProject.ID, "This is 3rd List");
+                        List list1 = listService.CreateList(newProject.ID, "Đọc yêu cầu tóm tắt");
+                        List list2 = listService.CreateList(newProject.ID, "Ý tưởng");
+                        List list3 = listService.CreateList(newProject.ID, "Sản xuất sản phẩm");
 
                         // Create task for list
                         int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
@@ -403,11 +403,17 @@ namespace Web.Controllers
                         int effort = 32; // hard code
 
                         // Tasksfor List 1
-                        CreateTaskForList("Task1forList1", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task2forList1", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Tóm tắt yêu cầu", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Phân tích yêu cầu", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         // Tasks for List 2
-                        CreateTaskForList("Task1forList2", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Xây dựng ý tưởng từ khóa hiệu quả", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Khách hàng review ý tưởng", "Task2forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Chỉnh sửa", "Task3forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+                        // Tasks for List 3
+                        CreateTaskForList("Xây dựng google adwords", "Task1forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("SEO từ khóa top", "Task2forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }
