@@ -17,6 +17,8 @@ namespace Web.ViewModels
         
         [Required(ErrorMessage = "Start date must not be empty")]
         public DateTime? StartDate { get; set; }
+        [Required(ErrorMessage = "Goal must not be empty")]
+
         public string Goal { get; set; }
     }
 }
