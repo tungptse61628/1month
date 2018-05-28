@@ -331,6 +331,80 @@ namespace Web.Controllers
                     ResponseHelper.GetExceptionResponse(ex));
             }
         }
+        [HttpPost]
+        [Route("custom")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult CreateCustomProject(CreateProjectModel createProjectModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (CmAgencyEntities db = new CmAgencyEntities())
+                    {
+                        ProjectService projectService = new ProjectService(db);
+                        Boolean flag = true;
+                        if (createProjectModel.Name != null &&
+                            projectService.CheckDuplicatedNameOfProject(createProjectModel.Name))
+                        {
+                            ModelState.AddModelError("Name", "Project name is taken");
+                            flag = false;
+                        }
+
+
+                        if (createProjectModel.StartDate.HasValue && createProjectModel.Deadline.HasValue)
+                        {
+                            if (createProjectModel.StartDate > createProjectModel.Deadline)
+                            {
+                                ModelState.AddModelError("StartDate", "StartDate must be smaller than the deadline");
+                                flag = false;
+                            }
+
+                            if (createProjectModel.Deadline < createProjectModel.StartDate)
+                            {
+                                ModelState.AddModelError("Deadline", "Deadline must be greater than the start date");
+                                flag = false;
+                            }
+                        }
+
+
+                        if (flag == false)
+                        {
+                            return Content(HttpStatusCode.BadRequest, ResponseHelper.GetExceptionResponse(ModelState));
+                        }
+
+                        UserService userService = new UserService(db);
+                        ListService listService = new ListService(db);
+
+                        string loginedUserId = User.Identity.GetUserId();
+                        User creator = userService.GetUser(loginedUserId);
+
+                        Project newProject = projectService.CreateProject(
+                            createProjectModel.Name,
+                            createProjectModel.Description,
+                            createProjectModel.Deadline,
+                            createProjectModel.StartDate,
+                            creator,
+                            createProjectModel.Goal
+                        );
+                        JObject dataObject = projectService.ParseToJson(newProject);
+
+                        return Ok(ResponseHelper.GetResponse(dataObject));
+                    }
+                }
+                else
+                {
+                    return Content(HttpStatusCode.BadRequest,
+                        ResponseHelper.GetExceptionResponse(ModelState));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
 
         [HttpPost]
         [Route("")]
