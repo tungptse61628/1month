@@ -11,6 +11,7 @@ import { ArchiveComponent } from './archive/archive.component';
 import {NewCampaignComponent} from './new-campaign/new-campaign.component';
 import {NewCampaignDetailComponent} from './new-campaign-detail/new-campaign-detail.component';
 import {FacebookDetailComponent} from './facebook-detail/facebook-detail.component';
+import { TvcDetailComponent } from './tvc-detail/tvc-detail.component';
 
 const routes: Routes = [
   {
@@ -58,14 +59,21 @@ const routes: Routes = [
         path: 'google/:methodId/:typeId',
         component: NewCampaignDetailComponent,
         data: {
-          title: 'Create campaign detail'
+          title: 'Create google campaign detail'
         }
       },
       {
         path: 'facebook/:methodId/:typeId',
         component: FacebookDetailComponent,
         data: {
-          title: 'Create campaign detail'
+          title: 'Create facebook campaign detail'
+        }
+      },
+      {
+        path: 'tvc/:methodId/:typeId',
+        component: TvcDetailComponent,
+        data: {
+          title: 'Create tvc campaign detail'
         }
       },
       {

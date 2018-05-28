@@ -63,6 +63,8 @@ export class NewCampaignComponent implements OnInit {
       }
     });
 
+    console.warn(this.typeSelectedId)
+
     if (current == "Google") {
       sservice = "google";
     } else if (current == "Facebook") {
@@ -70,12 +72,14 @@ export class NewCampaignComponent implements OnInit {
     } else if (current == "TVC") {
       sservice = "tvc";
     }else{
-      sservice = "?"
+      sservice == null;
     }
+    console.error(current);
+    //console.error(sservice);
     //this.router.navigate(['project/'+newProject.id+'/detail']);
 
     let lik = `project/${sservice}/${this.methodSelectedId}/${this.typeSelectedId}`;
-    console.error(current);
+    console.error(lik);
 
     this.router.navigate([lik]);
 
