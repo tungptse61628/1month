@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { Router } from '@angular/router';
+import { link } from 'fs';
 
 @Component({
   selector: 'app-new-campaign',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
 export class NewCampaignComponent implements OnInit {
 
   methodAdvertisings: any;
-  typeAdvertisings : any;
+  typeAdvertisings: any;
 
   methodSelectedId: number;
   typeSelectedId: number;
@@ -32,8 +33,7 @@ export class NewCampaignComponent implements OnInit {
       })
   }
 
-  getTypeAdvertisingFunc(methodAdsId : number)
-  {
+  getTypeAdvertisingFunc(methodAdsId: number) {
     this.projectService.getTypeAdvertising(methodAdsId)
       .then(data => {
         this.typeAdvertisings = data;
@@ -44,19 +44,40 @@ export class NewCampaignComponent implements OnInit {
       })
   }
 
-  onChangeMethod(methodAdsId: any){
+  onChangeMethod(methodAdsId: any) {
     this.methodSelectedId = methodAdsId;
     this.getTypeAdvertisingFunc(methodAdsId);
   }
 
-  onChangeType(typeId: any){
+  onChangeType(typeId: any) {
     this.typeSelectedId = typeId;
   }
 
-  goToDetail()
-  {
+  goToDetail() {
+    let sservice = "google";
+    let current = ""
+
+    this.typeAdvertisings.forEach(item => {
+      if(item.ID == this.typeSelectedId){
+        current = item.Name;
+      }
+    });
+
+    if (current == "Google") {
+      sservice = "google";
+    } else if (current == "Facebook") {
+      sservice = "facebook";
+    } else if (current == "TVC") {
+      sservice = "tvc";
+    }else{
+      sservice = "?"
+    }
     //this.router.navigate(['project/'+newProject.id+'/detail']);
-    this.router.navigate(['project/google/' + this.methodSelectedId + '/' + this.typeSelectedId]);
-    
+
+    let lik = `project/${sservice}/${this.methodSelectedId}/${this.typeSelectedId}`;
+    console.error(current);
+
+    this.router.navigate([lik]);
+
   }
 }

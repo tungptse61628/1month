@@ -99,9 +99,7 @@ const admin_navigation = [
         name: 'View campaigns',
         url: '/project',
         icon: 'icon-calendar',
-      },
-
-      
+      }
     ]
   },
   {
