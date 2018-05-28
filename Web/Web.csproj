@@ -520,6 +520,7 @@
     <Compile Include="ViewModels\CreateCheckListItemModel.cs" />
     <Compile Include="ViewModels\CreateChecklistModel.cs" />
     <Compile Include="ViewModels\CreateCommentModel.cs" />
+    <Compile Include="ViewModels\CreateCustomProjectModel.cs" />
     <Compile Include="ViewModels\CreateListModel.cs" />
     <Compile Include="ViewModels\CreateProjectModel.cs" />
     <Compile Include="ViewModels\CreateTaskModel.cs" />

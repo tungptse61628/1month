@@ -111,6 +111,27 @@ namespace Service
 
             return newProject;
         }
+        public Project CreateCustomProject(string name, string description, DateTime? deadline, DateTime? startDate,
+            User creator, int budget, string goal)
+        {
+            Project newProject = new Project
+            {
+                Name = name,
+                Description = description,
+                Deadline = deadline,
+                StartDate = startDate,
+                CreatedBy = creator.ID,
+                CreatedTime = DateTime.Now,
+                Status = (int)ProjectStatus.NotStarted,
+                Goal = goal,
+                Budget = budget
+            };
+
+            db.Projects.Add(newProject);
+            db.SaveChanges();
+
+            return newProject;
+        }
 
         public Project GetProjectOfTask(int taskId)
         {
@@ -607,6 +628,45 @@ namespace Service
 
             return result;
         }
+        public bool IsProjectDeadlineInThisWeek(Project project)
+        {
+            DateTime date = DateTime.Now.Date;
+            DateTime weekFirstDay = date.AddDays(DayOfWeek.Sunday - date.DayOfWeek);
+            DateTime weekLastDay = weekFirstDay.AddDays(7);
+            DateTime deadline = project.Deadline.Value;
+            if (project.StartDate != null&&deadline!= null)
+            {
+                if (deadline.Date >= weekFirstDay.Date && deadline.Date <= weekLastDay.Date)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+        public bool IsProjectFinishedThisMonth(Project Project)
+        {
+            if (!Project.FinishedDate.HasValue) return false;
+
+            DateTime finishedTime = Project.FinishedDate.Value;
+            DateTime currentSystemTime = DateTime.Now;
+
+            return finishedTime.Year == currentSystemTime.Year &&
+                   finishedTime.Month == currentSystemTime.Month;
+        }
+        public double GetProjectRemainingTime(Project project)
+        {
+            if (!project.FinishedDate.HasValue || !project.StartDate.HasValue || !project.Deadline.HasValue)
+            {
+                throw new InvalidOperationException("Finish date, Deadline and start date must have value");
+            }
+
+            DateTime finishedDate = project.FinishedDate.Value;
+            DateTime deadline = project.Deadline.Value;
+            TimeSpan remainingTime = deadline - finishedDate;
+            return remainingTime.TotalDays;
+        }
+
+
 
         public JObject ParseToJson(Project project, bool isDetailed = false, string avatarPath = null)
         {
