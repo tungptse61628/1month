@@ -111,6 +111,27 @@ namespace Service
 
             return newProject;
         }
+        public Project CreateCustomProject(string name, string description, DateTime? deadline, DateTime? startDate,
+            User creator, int budget, string goal)
+        {
+            Project newProject = new Project
+            {
+                Name = name,
+                Description = description,
+                Deadline = deadline,
+                StartDate = startDate,
+                CreatedBy = creator.ID,
+                CreatedTime = DateTime.Now,
+                Status = (int)ProjectStatus.NotStarted,
+                Goal = goal,
+                Budget = budget
+            };
+
+            db.Projects.Add(newProject);
+            db.SaveChanges();
+
+            return newProject;
+        }
 
         public Project GetProjectOfTask(int taskId)
         {

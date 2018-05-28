@@ -334,7 +334,7 @@ namespace Web.Controllers
         [HttpPost]
         [Route("custom")]
         [System.Web.Http.Authorize(Roles = "Admin")]
-        public IHttpActionResult CreateCustomProject(CreateProjectModel createProjectModel)
+        public IHttpActionResult CreateCustomProject(CreateCustomProjectModel createCustomProjectModel)
         {
             try
             {
@@ -344,23 +344,23 @@ namespace Web.Controllers
                     {
                         ProjectService projectService = new ProjectService(db);
                         Boolean flag = true;
-                        if (createProjectModel.Name != null &&
-                            projectService.CheckDuplicatedNameOfProject(createProjectModel.Name))
+                        if (createCustomProjectModel.Name != null &&
+                            projectService.CheckDuplicatedNameOfProject(createCustomProjectModel.Name))
                         {
                             ModelState.AddModelError("Name", "Project name is taken");
                             flag = false;
                         }
 
 
-                        if (createProjectModel.StartDate.HasValue && createProjectModel.Deadline.HasValue)
+                        if (createCustomProjectModel.StartDate.HasValue && createCustomProjectModel.Deadline.HasValue)
                         {
-                            if (createProjectModel.StartDate > createProjectModel.Deadline)
+                            if (createCustomProjectModel.StartDate > createCustomProjectModel.Deadline)
                             {
                                 ModelState.AddModelError("StartDate", "StartDate must be smaller than the deadline");
                                 flag = false;
                             }
 
-                            if (createProjectModel.Deadline < createProjectModel.StartDate)
+                            if (createCustomProjectModel.Deadline < createCustomProjectModel.StartDate)
                             {
                                 ModelState.AddModelError("Deadline", "Deadline must be greater than the start date");
                                 flag = false;
@@ -379,13 +379,14 @@ namespace Web.Controllers
                         string loginedUserId = User.Identity.GetUserId();
                         User creator = userService.GetUser(loginedUserId);
 
-                        Project newProject = projectService.CreateProject(
-                            createProjectModel.Name,
-                            createProjectModel.Description,
-                            createProjectModel.Deadline,
-                            createProjectModel.StartDate,
-                            creator,
-                            createProjectModel.Goal
+                        Project newProject = projectService.CreateCustomProject(
+                            createCustomProjectModel.Name,
+                            createCustomProjectModel.Description,
+                            createCustomProjectModel.Deadline,
+                            createCustomProjectModel.StartDate,
+                            creator,                            
+                            (int)createCustomProjectModel.Budget,
+                            createCustomProjectModel.Goal
                         );
                         JObject dataObject = projectService.ParseToJson(newProject);
 
