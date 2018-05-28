@@ -23,6 +23,7 @@ import { NewCampaignComponent } from './new-campaign/new-campaign.component';
 import { NewCampaignDetailComponent } from './new-campaign-detail/new-campaign-detail.component';
 
 import { FacebookDetailComponent } from './facebook-detail/facebook-detail.component';
+import { TvcDetailComponent } from './tvc-detail/tvc-detail.component';
 
 
 
@@ -56,7 +57,9 @@ import { FacebookDetailComponent } from './facebook-detail/facebook-detail.compo
     NewCampaignComponent,
     NewCampaignDetailComponent,
 
-    FacebookDetailComponent
+    FacebookDetailComponent,
+
+    TvcDetailComponent
   ]
 })
 export class ProjectManagementModule {
