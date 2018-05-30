@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild} from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProjectService } from '../../../services/project.service';
 import { Cursor, StoreService } from '../../../services/tree.service';
 import { Location } from '@angular/common';
@@ -20,6 +20,7 @@ import { Router } from '@angular/router';
 import { IMyDpOptions } from 'mydatepicker';
 import { BsModalService } from 'ngx-bootstrap';
 import { Project } from 'app/interfaces/project';
+
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
@@ -39,8 +40,11 @@ export class AddProjectComponent implements OnInit {
   isLoadingPage: boolean;
   errors: {
     name: string,
+    description: string,
+    budget: string,
     startDate: string,
     deadline: string,
+    
   };
   constructor(private projectService: ProjectService,
     private router: Router,
@@ -49,6 +53,7 @@ export class AddProjectComponent implements OnInit {
     this.projectForm = new FormGroup({
       name: new FormControl(undefined, Validators.required),
       description: new FormControl(undefined, Validators.required),
+      budget: new FormControl(undefined, Validators.required),
       startDate: new FormControl(undefined, Validators.required),
       deadline: new FormControl(undefined, Validators.required),
       goal: new FormControl(undefined, Validators.required),
@@ -66,21 +71,23 @@ export class AddProjectComponent implements OnInit {
     this.setErrorsNull();
     const onConfirm = () => {
       const formValue = this.projectForm.value;
+
       let startDate = moment(this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
       let deadline = moment(this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
       this.isLoading = true;
       this.projectService.createProject(
         formValue.name,
         formValue.description,
+        formValue.budget,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
         formValue.goal
       )
         .then(value => {
-          let newProject= value as Project;
-          
+          let newProject = value as Project;
+
           this.isLoading = false;
-          this.router.navigate(['project/'+newProject.id+'/detail']);
+          this.router.navigate(['project/' + newProject.id + '/detail']);
         })
         .catch(reason => {
           this.isLoading = false;
@@ -109,8 +116,11 @@ export class AddProjectComponent implements OnInit {
   setErrorsNull(): void {
     this.errors = {
       name: '',
+      description:'',
+      budget: '',
       startDate: '',
       deadline: '',
+
     };
   }
   setErrors(errors: any[]) {
@@ -120,6 +130,12 @@ export class AddProjectComponent implements OnInit {
       switch (fieldName) {
         case 'Name':
           this.errors.name = errorMessage;
+          break;
+          case 'Description':
+          this.errors.name = errorMessage;
+          break;
+        case 'Budget':
+          this.errors.budget = errorMessage;
           break;
         case 'Deadline':
           this.errors.deadline = errorMessage;

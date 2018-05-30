@@ -237,12 +237,14 @@ export class ProjectService {
     name: string,
     description: string,
     startdate: string,
+    budget: number,
     deadline: string,
     goal: string
   ): Promise<any> {
     const objData = {
       name: name,
       description: description,
+      budget : budget,
       deadline: deadline,
       startdate: startdate,
       goal: goal
@@ -268,12 +270,14 @@ export class ProjectService {
     projectId: number,
     name: string,
     description: string,
+    budget: number,
     startdate: string,
     deadline: string
   ): Promise<any> {
     const objData = {
       id: projectId,
       name: name,
+      budget: budget,
       description: description,
       startdate: startdate,
       deadline: deadline

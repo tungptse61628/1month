@@ -9,6 +9,7 @@ export interface Project {
   deadline: string,
   createdTime: string,
   createdBy: User,
+  budget: number,
   startDate: string,
   changedBy: User,
   changedTime: string,

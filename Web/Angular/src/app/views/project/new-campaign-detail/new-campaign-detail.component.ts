@@ -86,6 +86,7 @@ export class NewCampaignDetailComponent implements OnInit {
       this.projectService.createProject(
         this.nameCampaign,
         this.description,
+        this.budget,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
         this.goal

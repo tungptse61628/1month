@@ -54,7 +54,7 @@ export class NewCampaignComponent implements OnInit {
   }
 
   goToDetail() {
-    let sservice = "google";
+    let sservice = "other";
     let current = ""
 
     this.typeAdvertisings.forEach(item => {
@@ -72,7 +72,7 @@ export class NewCampaignComponent implements OnInit {
     } else if (current == "TVC") {
       sservice = "tvc";
     }else{
-      sservice == null;
+      sservice == "other";
     }
     console.error(current);
     //console.error(sservice);

@@ -138,6 +138,7 @@ export class ProjectUpdateComponent implements OnInit {
         this.projectService.updateProject(
           this.foundProject.id,
           formValue.name,
+          formValue.budget,
           formValue.description,
           this.foundProject.startDate,
           deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
