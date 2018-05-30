@@ -41,6 +41,7 @@ export class AddProjectComponent implements OnInit {
   errors: {
     name: string,
     description: string,
+    goal: string,
     budget: string,
     startDate: string,
     deadline: string,
@@ -75,13 +76,13 @@ export class AddProjectComponent implements OnInit {
       let startDate = moment(this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
       let deadline = moment(this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
       this.isLoading = true;
-      this.projectService.createProject(
+      this.projectService.createCustomProject(
         formValue.name,
         formValue.description,
+        formValue.goal,
         formValue.budget,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
-        formValue.goal
       )
         .then(value => {
           let newProject = value as Project;
@@ -117,6 +118,7 @@ export class AddProjectComponent implements OnInit {
     this.errors = {
       name: '',
       description:'',
+      goal:'',
       budget: '',
       startDate: '',
       deadline: '',

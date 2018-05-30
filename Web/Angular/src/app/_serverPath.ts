@@ -25,6 +25,7 @@ const serverPath = {
   getProjectList: (projectId: number) => `/api/project/${projectId}/list`,
   updateProject: '/api/project',
   createProject: '/api/project',
+  createCustomProject:'/api/project/custom',
   closeProject: '/api/project/close',
   recentProject: '/api/project/recentchanged',
   getProjectStatus: '/api/project/statuses',

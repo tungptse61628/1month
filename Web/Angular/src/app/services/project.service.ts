@@ -236,21 +236,60 @@ export class ProjectService {
   public createProject(
     name: string,
     description: string,
-    startdate: string,
+    goal: string,
     budget: number,
+    startdate: string,
     deadline: string,
-    goal: string
+
   ): Promise<any> {
     const objData = {
       name: name,
       description: description,
+      goal: goal,
       budget : budget,
-      deadline: deadline,
       startdate: startdate,
-      goal: goal
+      deadline: deadline,
+
+
     };
     return new Promise<any>((resolve, reject) => {
       post(serverPath.createProject)
+        .set('token', this.tokenCursor.get())
+        .send(objData)
+        .type('form')
+        .then((res) => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            resolve(content.Data);
+          } else {
+            reject(content);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
+    })
+  }
+
+  public createCustomProject(
+    name: string,
+    description: string,
+    goal: string,
+    budget: number,
+    startdate: string,
+    deadline: string,
+
+  ): Promise<any> {
+    const objData = {
+      name: name,
+      description: description,
+      goal: goal,
+      budget : budget,
+      startdate: startdate,
+      deadline: deadline,
+
+
+    };
+    return new Promise<any>((resolve, reject) => {
+      post(serverPath.createCustomProject)
         .set('token', this.tokenCursor.get())
         .send(objData)
         .type('form')
