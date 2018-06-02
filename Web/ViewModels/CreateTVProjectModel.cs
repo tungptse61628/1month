@@ -6,8 +6,9 @@ using System.Web;
 
 namespace Web.ViewModels
 {
-    public class CreateCustomProjectModel
+    public class CreateTVProjectModel
     {
+
         [Required(ErrorMessage = "Name must not be empty")]
         [MaxLength(255)]
         public string Name { get; set; }
@@ -23,5 +24,12 @@ namespace Web.ViewModels
         [MaxLength(255)]
         public string Goal { get; set; }
         public int? Budget { get; set; }
+        
+        public int ChannelId { get; set; }
+        public int TimeVideo { get; set; }
+        public string TimeFrame { get; set; }
+
+
+
     }
 }

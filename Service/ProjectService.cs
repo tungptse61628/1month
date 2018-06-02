@@ -111,6 +111,53 @@ namespace Service
 
             return newProject;
         }
+        public Project CreateOnlineProject(string name, string description, DateTime? deadline, DateTime? startDate,
+            User creator, string goal, int budget, string location, string keywords)
+        {
+            Project newProject = new Project
+            {
+                Name = name,
+                Description = description,
+                Deadline = deadline,
+                StartDate = startDate,
+                CreatedBy = creator.ID,
+                CreatedTime = DateTime.Now,
+                Status = (int)ProjectStatus.NotStarted,
+                Goal = goal,
+                Budget = budget,
+                Location = location,
+                Keywords = keywords,
+            };
+
+            db.Projects.Add(newProject);
+            db.SaveChanges();
+
+            return newProject;
+        }
+        public Project CreateTvProject(string name, string description, DateTime? deadline, DateTime? startDate,
+            User creator, string goal, int budget, int channelId, int timeVideo, String timeFrame)
+        {
+            Project newProject = new Project
+            {
+                Name = name,
+                Description = description,
+                Deadline = deadline,
+                StartDate = startDate,
+                CreatedBy = creator.ID,
+                CreatedTime = DateTime.Now,
+                Status = (int)ProjectStatus.NotStarted,
+                Goal = goal,
+                Budget =  budget,
+                ChannelID = channelId,
+                TimeVideo = timeVideo, 
+                TimeFrame = timeFrame
+            };
+
+            db.Projects.Add(newProject);
+            db.SaveChanges();
+
+            return newProject;
+        }
         public Project CreateCustomProject(string name, string description, DateTime? deadline, DateTime? startDate,
             User creator, int budget, string goal)
         {
@@ -643,6 +690,17 @@ namespace Service
             }
             return false;
         }
+        public List<Project> ProjectsDeadlineInThisWeek(Project project) {
+            List<Project> list = new List<Project>();
+            foreach (var item in db.Projects)
+            {
+                if (IsProjectDeadlineInThisWeek(item))
+                {
+                    list.Add(item);
+                }
+            }
+            return list;
+        }
         public bool IsProjectFinishedThisMonth(Project Project)
         {
             if (!Project.FinishedDate.HasValue) return false;
@@ -652,6 +710,18 @@ namespace Service
 
             return finishedTime.Year == currentSystemTime.Year &&
                    finishedTime.Month == currentSystemTime.Month;
+        }
+        public List<Project> ProjectsFinishedThisMonth(Project project)
+        {
+            List<Project> list = new List<Project>();
+            foreach (var item in db.Projects)
+            {
+                if (IsProjectFinishedThisMonth(item))
+                {
+                    list.Add(item);
+                }
+            }
+            return list;
         }
         public double GetProjectRemainingTime(Project project)
         {

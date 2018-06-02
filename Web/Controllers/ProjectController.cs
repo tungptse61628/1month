@@ -405,6 +405,306 @@ namespace Web.Controllers
                     ResponseHelper.GetExceptionResponse(ex));
             }
         }
+        [HttpPost]
+        [Route("google")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult CreateGoogleProject(CreateOnlineProjectModel createOnlineProjectModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (CmAgencyEntities db = new CmAgencyEntities())
+                    {
+                        ProjectService projectService = new ProjectService(db);
+                        Boolean flag = true;
+                        if (createOnlineProjectModel.Name != null &&
+                            projectService.CheckDuplicatedNameOfProject(createOnlineProjectModel.Name))
+                        {
+                            ModelState.AddModelError("Name", "Project name is taken");
+                            flag = false;
+                        }
+
+
+                        if (createOnlineProjectModel.StartDate.HasValue && createOnlineProjectModel.Deadline.HasValue)
+                        {
+                            if (createOnlineProjectModel.StartDate > createOnlineProjectModel.Deadline)
+                            {
+                                ModelState.AddModelError("StartDate", "StartDate must be smaller than the deadline");
+                                flag = false;
+                            }
+
+                            if (createOnlineProjectModel.Deadline < createOnlineProjectModel.StartDate)
+                            {
+                                ModelState.AddModelError("Deadline", "Deadline must be greater than the start date");
+                                flag = false;
+                            }
+                        }
+
+
+                        if (flag == false)
+                        {
+                            return Content(HttpStatusCode.BadRequest, ResponseHelper.GetExceptionResponse(ModelState));
+                        }
+
+                        UserService userService = new UserService(db);
+                        ListService listService = new ListService(db);
+
+                        string loginedUserId = User.Identity.GetUserId();
+                        User creator = userService.GetUser(loginedUserId);
+
+                        Project newProject = projectService.CreateOnlineProject(
+                            createOnlineProjectModel.Name,
+                            createOnlineProjectModel.Description,
+                            createOnlineProjectModel.Deadline,
+                            createOnlineProjectModel.StartDate,
+                            creator,
+                            createOnlineProjectModel.Goal,
+                            (int)createOnlineProjectModel.Budget,
+                            createOnlineProjectModel.Location,
+                            createOnlineProjectModel.Keywords
+                        );
+
+                        newProject.TypeAdID = 10;
+                        JObject dataObject = projectService.ParseToJson(newProject);
+
+                        // Create List
+                        List list1 = listService.CreateList(newProject.ID, "Client brief");
+                        List list2 = listService.CreateList(newProject.ID, "Brainstorm Ideas");
+                        List list3 = listService.CreateList(newProject.ID, "Present ideas/plans");
+                        List list4 = listService.CreateList(newProject.ID, "Production");
+                        List list5 = listService.CreateList(newProject.ID, "Launch");
+                        List list6 = listService.CreateList(newProject.ID, "Monitor/Report");
+
+                        // Create task for list
+                        int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
+                        int priorityTmp = 1; // hard code
+                        DateTime startDateTmp = DateTime.Now; // hard code
+                        int duration = 6; // hard code
+                        int effort = 32; // hard code
+
+                        // Tasksfor List 1
+                        CreateTaskForList("Task1", "Choosing Niche", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task2", "Set Up Niche Landing Page & Thank You Page", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task3", "Choosing Campaign Settings", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task4", "Setting Up Ad Group", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+                        return Ok(ResponseHelper.GetResponse(dataObject));
+                    }
+                }
+                else
+                {
+                    return Content(HttpStatusCode.BadRequest,
+                        ResponseHelper.GetExceptionResponse(ModelState));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+        [HttpPost]
+        [Route("tv")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult CreateTvProject(CreateTVProjectModel createTVProjectModel
+            )
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (CmAgencyEntities db = new CmAgencyEntities())
+                    {
+                        ProjectService projectService = new ProjectService(db);
+                        Boolean flag = true;
+                        if (createTVProjectModel.Name != null &&
+                            projectService.CheckDuplicatedNameOfProject(createTVProjectModel.Name))
+                        {
+                            ModelState.AddModelError("Name", "Project name is taken");
+                            flag = false;
+                        }
+
+
+                        if (createTVProjectModel.StartDate.HasValue && createTVProjectModel.Deadline.HasValue)
+                        {
+                            if (createTVProjectModel.StartDate > createTVProjectModel.Deadline)
+                            {
+                                ModelState.AddModelError("StartDate", "StartDate must be smaller than the deadline");
+                                flag = false;
+                            }
+
+                            if (createTVProjectModel.Deadline < createTVProjectModel.StartDate)
+                            {
+                                ModelState.AddModelError("Deadline", "Deadline must be greater than the start date");
+                                flag = false;
+                            }
+                        }
+
+
+                        if (flag == false)
+                        {
+                            return Content(HttpStatusCode.BadRequest, ResponseHelper.GetExceptionResponse(ModelState));
+                        }
+
+                        UserService userService = new UserService(db);
+                        ListService listService = new ListService(db);
+
+                        string loginedUserId = User.Identity.GetUserId();
+                        User creator = userService.GetUser(loginedUserId);
+
+                        Project newProject = projectService.CreateTvProject(
+                            createTVProjectModel.Name,
+                            createTVProjectModel.Description,
+                            createTVProjectModel.Deadline,
+                            createTVProjectModel.StartDate,
+                            creator,
+                            createTVProjectModel.Goal,
+                            (int)createTVProjectModel.Budget,
+                            createTVProjectModel.ChannelId,
+                            createTVProjectModel.TimeVideo,
+                            createTVProjectModel.TimeFrame
+                        );
+                        newProject.TypeAdID = 8;
+                        JObject dataObject = projectService.ParseToJson(newProject);
+
+                        // Create List
+                        List list1 = listService.CreateList(newProject.ID, "Client brief");
+                        List list2 = listService.CreateList(newProject.ID, "Brainstorm Ideas");
+                        List list3 = listService.CreateList(newProject.ID, "Present ideas/plans");
+                        List list4 = listService.CreateList(newProject.ID, "Production");
+                        List list5 = listService.CreateList(newProject.ID, "Launch");
+                        List list6 = listService.CreateList(newProject.ID, "Monitor/Report");
+
+                        // Create task for list
+                        int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
+                        int priorityTmp = 1; // hard code
+                        DateTime startDateTmp = DateTime.Now; // hard code
+                        int duration = 6; // hard code
+                        int effort = 32; // hard code
+
+                        // Tasksfor List 1
+                        CreateTaskForList("Task1", "Build an ad script", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task2", "Reservation booking plan", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task3", "Get a TV advertising permit", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task4", "Get a TV ad code", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+                        return Ok(ResponseHelper.GetResponse(dataObject));
+                    }
+                }
+                else
+                {
+                    return Content(HttpStatusCode.BadRequest,
+                        ResponseHelper.GetExceptionResponse(ModelState));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
+
+        [HttpPost]
+        [Route("facebook")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult CreateFacebookProject(CreateOnlineProjectModel createOnlineProjectModel)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    using (CmAgencyEntities db = new CmAgencyEntities())
+                    {
+                        ProjectService projectService = new ProjectService(db);
+                        Boolean flag = true;
+                        if (createOnlineProjectModel.Name != null &&
+                            projectService.CheckDuplicatedNameOfProject(createOnlineProjectModel.Name))
+                        {
+                            ModelState.AddModelError("Name", "Project name is taken");
+                            flag = false;
+                        }
+
+
+                        if (createOnlineProjectModel.StartDate.HasValue && createOnlineProjectModel.Deadline.HasValue)
+                        {
+                            if (createOnlineProjectModel.StartDate > createOnlineProjectModel.Deadline)
+                            {
+                                ModelState.AddModelError("StartDate", "StartDate must be smaller than the deadline");
+                                flag = false;
+                            }
+
+                            if (createOnlineProjectModel.Deadline < createOnlineProjectModel.StartDate)
+                            {
+                                ModelState.AddModelError("Deadline", "Deadline must be greater than the start date");
+                                flag = false;
+                            }
+                        }
+
+
+                        if (flag == false)
+                        {
+                            return Content(HttpStatusCode.BadRequest, ResponseHelper.GetExceptionResponse(ModelState));
+                        }
+
+                        UserService userService = new UserService(db);
+                        ListService listService = new ListService(db);
+
+                        string loginedUserId = User.Identity.GetUserId();
+                        User creator = userService.GetUser(loginedUserId);
+
+                        Project newProject = projectService.CreateOnlineProject(
+                            createOnlineProjectModel.Name,
+                            createOnlineProjectModel.Description,
+                            createOnlineProjectModel.Deadline,
+                            createOnlineProjectModel.StartDate,
+                            creator,
+                            createOnlineProjectModel.Goal,
+                            (int)createOnlineProjectModel.Budget,
+                            createOnlineProjectModel.Location,
+                            createOnlineProjectModel.Keywords
+                        );
+                        newProject.TypeAdID = 11;
+                        JObject dataObject = projectService.ParseToJson(newProject);
+
+                        // Create List
+                        List list1 = listService.CreateList(newProject.ID, "Client brief");
+                        List list2 = listService.CreateList(newProject.ID, "Brainstorm Ideas");
+                        List list3 = listService.CreateList(newProject.ID, "Present ideas/plans");
+                        List list4 = listService.CreateList(newProject.ID, "Production");
+                        List list5 = listService.CreateList(newProject.ID, "Launch");
+                        List list6 = listService.CreateList(newProject.ID, "Monitor/Report");
+
+                        // Create task for list
+                        int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
+                        int priorityTmp = 1; // hard code
+                        DateTime startDateTmp = DateTime.Now; // hard code
+                        int duration = 6; // hard code
+                        int effort = 32; // hard code
+
+                        // Tasksfor List 1
+                        CreateTaskForList("Task1", "Create a Marketing Campaign Page and Publish it to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task2", "Create an Entry Popup to Drive Website Traffic to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task3", "Create a Facebook Ad to Drive New Prospective Customers", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task4", "Use Email to Achieve the Campaign Objective", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+                        return Ok(ResponseHelper.GetResponse(dataObject));
+                    }
+                }
+                else
+                {
+                    return Content(HttpStatusCode.BadRequest,
+                        ResponseHelper.GetExceptionResponse(ModelState));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
 
 
         [HttpPost]
@@ -466,9 +766,9 @@ namespace Web.Controllers
                         JObject dataObject = projectService.ParseToJson(newProject);
 
                         // Create List
-                        List list1 = listService.CreateList(newProject.ID, "Đọc yêu cầu tóm tắt");
-                        List list2 = listService.CreateList(newProject.ID, "Ý tưởng");
-                        List list3 = listService.CreateList(newProject.ID, "Sản xuất sản phẩm");
+                        List list1 = listService.CreateList(newProject.ID, "Read the summary request"); //Đọc yêu cầu tóm tắt
+                        List list2 = listService.CreateList(newProject.ID, "Ideas");//Ý tưởng
+                        List list3 = listService.CreateList(newProject.ID, "Product manufacturing");//Sản xuất sản phẩm
 
                         // Create task for list
                         int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
@@ -478,17 +778,17 @@ namespace Web.Controllers
                         int effort = 32; // hard code
 
                         // Tasksfor List 1
-                        CreateTaskForList("Tóm tắt yêu cầu", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Phân tích yêu cầu", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Request Summary", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Request analysis", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         // Tasks for List 2
-                        CreateTaskForList("Xây dựng ý tưởng từ khóa hiệu quả", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Khách hàng review ý tưởng", "Task2forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Chỉnh sửa", "Task3forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Build an creative & effective keyword ", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Xây dựng ý tưởng từ khóa hiệu quả
+                        CreateTaskForList("Ideas review phase of customer", "Task2forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Khách hàng review ý tưởng
+                        CreateTaskForList("Edit", "Task3forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         // Tasks for List 3
-                        CreateTaskForList("Xây dựng google adwords", "Task1forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("SEO từ khóa top", "Task2forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Built the google adwords", "Task1forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("SEO - Top key word", "Task2forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Seo top tu khoa
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }

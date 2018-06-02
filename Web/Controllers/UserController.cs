@@ -546,7 +546,6 @@ namespace Web.Controllers
             double score2 = user2.Value<double>("score");
             return score2.CompareTo(score1);
         }
-
         public class UserNameComparer : IComparer<User>
         {
             public int Compare(User x, User y)

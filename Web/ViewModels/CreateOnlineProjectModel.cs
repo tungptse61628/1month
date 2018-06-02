@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Web.ViewModels
 {
-    public class CreateCustomProjectModel
+    public class CreateOnlineProjectModel
     {
         [Required(ErrorMessage = "Name must not be empty")]
         [MaxLength(255)]
@@ -20,8 +20,12 @@ namespace Web.ViewModels
         [Required(ErrorMessage = "Start date must not be empty")]
         public DateTime? StartDate { get; set; }
         [Required(ErrorMessage = "Goal must not be empty")]
-        [MaxLength(255)]
+
         public string Goal { get; set; }
         public int? Budget { get; set; }
+        public string Location { get; set; }
+        public string Keywords { get; set; }
+
+
     }
 }
