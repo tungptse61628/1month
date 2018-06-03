@@ -74,12 +74,12 @@ export class NewCampaignComponent implements OnInit {
     }else{
       sservice == "other";
     }
-    console.error(current);
+    // console.error(current);
     //console.error(sservice);
     //this.router.navigate(['project/'+newProject.id+'/detail']);
 
     let lik = `project/${sservice}/${this.methodSelectedId}/${this.typeSelectedId}`;
-    console.error(lik);
+
 
     this.router.navigate([lik]);
 
