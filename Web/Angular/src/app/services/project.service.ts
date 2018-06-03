@@ -348,6 +348,50 @@ export class ProjectService {
     })
   }
 
+  public createFacebookProject(
+    name: string,
+    description: string,
+    nameMethodAdvertising: string,
+    nameTypeAdvertising: string,
+    goal: string,
+    location: string,
+
+    budget: number,
+    startdate: string,
+    deadline: string,
+
+  ): Promise<any> {
+    const objData = {
+      name: name,
+      description: description,
+      nameMethodAdvertising: nameMethodAdvertising,
+      nameTypeAdvertising: nameTypeAdvertising,
+      goal: goal,
+      location: location,
+
+      budget : budget,
+      startdate: startdate,
+      deadline: deadline,
+
+
+    };
+    return new Promise<any>((resolve, reject) => {
+      post(serverPath.createGoogleProject)
+        .set('token', this.tokenCursor.get())
+        .send(objData)
+        .type('form')
+        .then((res) => {
+          const content = res.body;
+          if (content.IsSuccess) {
+            resolve(content.Data);
+          } else {
+            reject(content);
+          }
+        })
+        .catch(reason => reject(reason.response.body));
+    })
+  }
+
 
   public updateProject(
     projectId: number,
