@@ -690,7 +690,7 @@ namespace Service
             }
             return false;
         }
-        public List<Project> ProjectsDeadlineInThisWeek(Project project) {
+        public List<Project> GetProjectsDeadlineInThisWeek(Project project) {
             List<Project> list = new List<Project>();
             foreach (var item in db.Projects)
             {
@@ -711,7 +711,7 @@ namespace Service
             return finishedTime.Year == currentSystemTime.Year &&
                    finishedTime.Month == currentSystemTime.Month;
         }
-        public List<Project> ProjectsFinishedThisMonth(Project project)
+        public List<Project> GetProjectsFinishedThisMonth(Project project)
         {
             List<Project> list = new List<Project>();
             foreach (var item in db.Projects)
