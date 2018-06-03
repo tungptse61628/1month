@@ -611,10 +611,10 @@ namespace Web.Controllers
 
 
                         // Tasksfor List 4
-                        CreateTaskForList("Task1", "Build an ad script", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task2", "Reservation booking plan", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task3", "Get a TV advertising permit", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task4", "Get a TV ad code", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Build an ad script", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Reservation booking plan", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Get a TV advertising permit", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Get a TV ad code", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }
@@ -735,10 +735,10 @@ namespace Web.Controllers
 
 
                         // Tasksfor List 4
-                        CreateTaskForList("Task1", "Create a Marketing Campaign Page and Publish it to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task2", "Create an Entry Popup to Drive Website Traffic to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task3", "Create a Facebook Ad to Drive New Prospective Customers", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Task4", "Use Email to Achieve the Campaign Objective", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Create a Marketing Campaign Page and Publish it to Facebook", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Create an Entry Popup to Drive Website Traffic to Facebook", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Create a Facebook Ad to Drive New Prospective Customers", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Use Email to Achieve the Campaign Objective", "Please input your specifically description", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }
