@@ -66,6 +66,7 @@
     <Compile Include="TaskService.cs" />
     <Compile Include="TaskStatus.cs" />
     <Compile Include="TeamService.cs" />
+    <Compile Include="TvChanel.cs" />
     <Compile Include="TypeAdvertisingService.cs" />
     <Compile Include="UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
