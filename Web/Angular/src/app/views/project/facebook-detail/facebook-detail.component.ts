@@ -32,18 +32,27 @@ export class FacebookDetailComponent implements OnInit {
 
   nameCampaign: string;
   description: string;
-  goal: string;
-  location: string;
-  keywords: string;
-  budget: string;
-  
   nameMethodAdvertising: string;
   nameTypeAdvertising: string;
+  goal: string;
+  location: string;
+
+  budget: number;
+  startDate: string;
+  deadline: string;
+  
 
   errors: {
-    name: string,
-    startDate: string,
-    deadline: string,
+    name: string;
+    description: string;
+    nameMethodAdvertising: string;
+    nameTypeAdvertising: string;
+    goal: string;
+    location: string;
+
+    budget: string;
+    startDate: string;
+    deadline: string;
   };
 
   constructor(
@@ -81,13 +90,18 @@ export class FacebookDetailComponent implements OnInit {
       let startDate = moment(this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
       let deadline = moment(this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
       //this.isLoading = true;
-      this.projectService.createProject(
+      this.projectService
+      .createFacebookProject(
         this.nameCampaign,
-        this.description,
-        this.budget,
+          this.description,
+          this.nameMethodAdvertising,
+          this.nameTypeAdvertising,
+          this.goal, 
+          this.location,
+          this.budget,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
         deadline.isValid() ? deadline.format('YYYY-MM-DD') : this.deadlinePicker.selectionDayTxt,
-        this.goal
+
       )
         .then(value => {
           let newProject= value as Project;
@@ -109,9 +123,15 @@ export class FacebookDetailComponent implements OnInit {
 
   setErrorsNull(): void {
     this.errors = {
-      name: '',
-      startDate: '',
-      deadline: '',
+      name: "",
+      description: "",
+      nameMethodAdvertising: "",
+      nameTypeAdvertising: "",
+      goal: "",
+      location: "",
+      budget: "",
+      startDate: "",
+      deadline: ""
     };
   }
 
@@ -120,15 +140,30 @@ export class FacebookDetailComponent implements OnInit {
       const fieldName = error.key;
       const errorMessage = error.message;
       switch (fieldName) {
-        case 'Name':
-          this.errors.name = errorMessage;
-          break;
-        case 'Deadline':
-          this.errors.deadline = errorMessage;
-          break;
-        case 'StartDate':
-          this.errors.startDate = errorMessage;
-          break;
+        case "Name":
+        this.errors.name = errorMessage;
+        break;
+        case "Description":
+        this.errors.name = errorMessage;
+        break;
+        case "Goal":
+        this.errors.name = errorMessage;
+        break;
+        case "Location":
+        this.errors.name = errorMessage;
+        break;
+        case "Keywords":
+        this.errors.name = errorMessage;
+        break;
+        case "Budget":
+        this.errors.name = errorMessage;
+        break;
+        case "StartDate":
+        this.errors.startDate = errorMessage;
+        break;
+        case "Deadline":
+        this.errors.deadline = errorMessage;
+        break;
       }
     }
   }
