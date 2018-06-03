@@ -202,8 +202,16 @@ namespace Service
             string name,
             string description,
             DateTime? deadline,
-            DateTime? startDate)
+            DateTime? startDate,
+            int modifierId)
         {
+            var modifier = db.Users.Find(modifierId);
+
+            if (modifier == null)
+            {
+                throw new ObjectNotFoundException($"Can't find user with ID {modifierId}");
+            }
+
             var foundProject = db.Projects.Find(id);
             if (foundProject != null)
             {
@@ -211,6 +219,9 @@ namespace Service
                 foundProject.Description = description;
                 foundProject.Deadline = deadline;
                 foundProject.StartDate = startDate;
+                foundProject.ChangedBy = modifier.ID;
+                foundProject.ChangedTime = DateTime.Today;
+
                 db.SaveChanges();
                 return foundProject;
             }

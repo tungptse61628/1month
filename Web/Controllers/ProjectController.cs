@@ -936,7 +936,8 @@ namespace Web.Controllers
                             updateProjectViewModel.name,
                             updateProjectViewModel.description,
                             deadline,
-                            startdate
+                            startdate,
+                            currentUser.ID
                         );
 
 
