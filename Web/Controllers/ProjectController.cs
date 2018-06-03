@@ -509,7 +509,7 @@ namespace Web.Controllers
             }
         }
         [HttpPost]
-        [Route("tv")]
+        [Route("tvc")]
         [System.Web.Http.Authorize(Roles = "Admin")]
         public IHttpActionResult CreateTvProject(CreateTVProjectModel createTVProjectModel
             )
