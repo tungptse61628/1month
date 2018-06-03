@@ -26,6 +26,7 @@ const serverPath = {
   updateProject: '/api/project',
   createProject: '/api/project',
   createCustomProject:'/api/project/custom',
+  createGoogleProject:'/api/project/google',
   closeProject: '/api/project/close',
   recentProject: '/api/project/recentchanged',
   getProjectStatus: '/api/project/statuses',
