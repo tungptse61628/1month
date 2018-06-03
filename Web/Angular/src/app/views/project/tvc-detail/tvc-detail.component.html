@@ -81,6 +81,33 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
+            <label class="col-4 col-form-label text-right">Channel: </label>
+            <div class="col-8">
+              <input type="text" [(ngModel)]="channel" class="form-control" placeholder="Please enter the channel">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal col-6 ">
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right">Time of video: </label>
+            <div class="col-8">
+              <input type="text" [(ngModel)]="timeVideo" class="form-control" placeholder="Please enter time of a video">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal col-6 ">
+          <div class="form-group row">
+            <label class="col-4 col-form-label text-right">Time flame: </label>
+            <div class="col-8">
+              <input type="text" [(ngModel)]="timeFrame" class="form-control" placeholder="Please enter the time frame">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal col-6 ">
+          <div class="form-group row">
             <label class="col-4 col-form-label text-right">Start Date: </label>
             <div class="col-8">
               <my-date-picker #startDatePicker name="startDate-input" [options]="myDatePickerOptions" class="form-control-mydatepicker"></my-date-picker>
