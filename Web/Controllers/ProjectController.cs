@@ -586,8 +586,31 @@ namespace Web.Controllers
                         DateTime startDateTmp = DateTime.Now; // hard code
                         int duration = 6; // hard code
                         int effort = 32; // hard code
-
                         // Tasksfor List 1
+                        CreateTaskForList("Get customer's opinion", "Please input your specifically description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Client consultant", "Please input your specifically description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 2
+                        CreateTaskForList("Create a main ideal", "Please input your specifically description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Create a script ", "Please input your specifically description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+                        // Tasksfor List 3
+                        CreateTaskForList("Planning the Presentation ", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Define the objective of the presentation", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Preparing the Content of the Presentation", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Your Presentation ", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 5
+                        CreateTaskForList("Test thoroughly before launch.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Invigorate team.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Prepare for an increase in sales.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Gather feedback after launch.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 6
+                        CreateTaskForList("Plan the Report", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Write the Report.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Reference the source.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Review.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+
+
+                        // Tasksfor List 4
                         CreateTaskForList("Task1", "Build an ad script", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
                         CreateTaskForList("Task2", "Reservation booking plan", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
                         CreateTaskForList("Task3", "Get a TV advertising permit", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
@@ -673,9 +696,12 @@ namespace Web.Controllers
                         JObject dataObject = projectService.ParseToJson(newProject);
 
                         // Create List
-                        List list1 = listService.CreateList(newProject.ID, "Read the summary request"); //Đọc yêu cầu tóm tắt
-                        List list2 = listService.CreateList(newProject.ID, "Ideas");//Ý tưởng
-                        List list3 = listService.CreateList(newProject.ID, "Product manufacturing");//Sản xuất sản phẩm
+                        List list1 = listService.CreateList(newProject.ID, "Client brief");
+                        List list2 = listService.CreateList(newProject.ID, "Brainstorm Ideas");
+                        List list3 = listService.CreateList(newProject.ID, "Present ideas/plans");
+                        List list4 = listService.CreateList(newProject.ID, "Production");
+                        List list5 = listService.CreateList(newProject.ID, "Launch");
+                        List list6 = listService.CreateList(newProject.ID, "Monitor/Report");
 
                         // Create task for list
                         int[] createTaskModel = null;// new int[0]; // Anh k biet cai nay la gi, nen tam thoi de trong
@@ -685,17 +711,34 @@ namespace Web.Controllers
                         int effort = 32; // hard code
 
                         // Tasksfor List 1
-                        CreateTaskForList("Request Summary", "Task1forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("Request analysis", "Task2forList1 Description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Get customer's opinion", "Please input your specifically description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Client consultant", "Please input your specifically description", list1.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 2
+                        CreateTaskForList("Create a main ideal", "Please input your specifically description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Create a script ", "Please input your specifically description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
-                        // Tasks for List 2
-                        CreateTaskForList("Build an creative & effective keyword ", "Task1forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Xây dựng ý tưởng từ khóa hiệu quả
-                        CreateTaskForList("Ideas review phase of customer", "Task2forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Khách hàng review ý tưởng
-                        CreateTaskForList("Edit", "Task3forList2 Description", list2.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 3
+                        CreateTaskForList("Planning the Presentation ", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Define the objective of the presentation", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Preparing the Content of the Presentation", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Your Presentation ", "Please input your specifically description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 5
+                        CreateTaskForList("Test thoroughly before launch.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Invigorate team.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Prepare for an increase in sales.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Gather feedback after launch.", "Please input your specifically description", list5.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        // Tasksfor List 6
+                        CreateTaskForList("Plan the Report", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Write the Report.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Reference the source.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Review.", "Please input your specifically description", list6.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
-                        // Tasks for List 3
-                        CreateTaskForList("Built the google adwords", "Task1forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
-                        CreateTaskForList("SEO - Top key word", "Task2forList3 Description", list3.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db); //Seo top tu khoa
+
+                        // Tasksfor List 4
+                        CreateTaskForList("Task1", "Create a Marketing Campaign Page and Publish it to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task2", "Create an Entry Popup to Drive Website Traffic to Facebook", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task3", "Create a Facebook Ad to Drive New Prospective Customers", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
+                        CreateTaskForList("Task4", "Use Email to Achieve the Campaign Objective", list4.ID, priorityTmp, startDateTmp, duration, effort, creator, createTaskModel, db);
 
                         return Ok(ResponseHelper.GetResponse(dataObject));
                     }
