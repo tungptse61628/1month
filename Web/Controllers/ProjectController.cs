@@ -162,6 +162,70 @@ namespace Web.Controllers
                     ResponseHelper.GetExceptionResponse(ex));
             }
         }
+        [HttpGet]
+        [Route("recentdeadline")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult GetAdminDashboard1()
+        {
+            try
+            {
+                using (CmAgencyEntities db = new CmAgencyEntities())
+                {
+                    int userId = Int32.Parse(User.Identity.GetUserId());
+                    ProjectService projectService = new ProjectService(db);
+                    JArray dataObject = new JArray();
+                    var projects = projectService.GetProjectsDeadlineInThisWeek()
+                        .Where(project => project.Status.HasValue &&
+                                          (project.Status.Value == (int)ProjectStatus.NotStarted ||
+                                           project.Status.Value == (int)ProjectStatus.Executing))
+                        .OrderByDescending(x => x.Deadline);
+                    foreach (var project in projects)
+                    {
+                        dataObject.Add(projectService.ParseToJson(project, false, AgencyConfig.AvatarPath));
+                    }
+
+
+                    return Ok(ResponseHelper.GetResponse(dataObject));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+        [HttpGet]
+        [Route("recentdeadline")]
+        [System.Web.Http.Authorize(Roles = "Admin")]
+        public IHttpActionResult GetAdminDashboard2()
+        {
+            try
+            {
+                using (CmAgencyEntities db = new CmAgencyEntities())
+                {
+                    int userId = Int32.Parse(User.Identity.GetUserId());
+                    ProjectService projectService = new ProjectService(db);
+                    JArray dataObject = new JArray();
+                    var projects = projectService.GetProjectsFinishedThisMonth()
+                        .Where(project => project.Status.HasValue &&
+                                          (project.Status.Value == (int)ProjectStatus.NotStarted ||
+                                           project.Status.Value == (int)ProjectStatus.Executing))
+                        .OrderByDescending(x => x.FinishedDate);
+                    foreach (var project in projects)
+                    {
+                        dataObject.Add(projectService.ParseToJson(project, false, AgencyConfig.AvatarPath));
+                    }
+
+
+                    return Ok(ResponseHelper.GetResponse(dataObject));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
 
         [HttpGet]
         [Route("{projecId:int}/members/assignable")]
