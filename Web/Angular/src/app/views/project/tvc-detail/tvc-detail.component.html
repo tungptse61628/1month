@@ -80,7 +80,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Budget: </label>
+            <label class="col-4 col-form-label text-right">Budget(USD): </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="budget" class="form-control" placeholder="Please enter budget">
             </div>
@@ -90,7 +90,7 @@
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Channel: </label>
-            <div class="col-8">
+            <div class=" col-8">
               <select [(ngModel)]="ChannelId" [ngClass]="{'form-control': true}" >
                 <option value="1">VTV1</option>
                 <option value="2">VTV2</option>
@@ -101,12 +101,13 @@
               </select>
 
             </div>
+
           </div>
         </div>
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Time of video: </label>
+            <label class="col-4 col-form-label text-right">Time of video(sec): </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="timeVideo" class="form-control" placeholder="Please enter the time of video">
             </div>

@@ -107,14 +107,17 @@ export class ProjectDetailComponent implements OnInit {
 
     this.viewForm = new FormGroup({
       projectname: new FormControl(undefined, Validators.required),
-      customername: new FormControl(undefined, Validators.required),
       description: new FormControl(undefined, Validators.required),
+      deadline: new FormControl(undefined, Validators.required),
       createdTime: new FormControl(undefined, Validators.required),
       startDate: new FormControl(undefined, Validators.required),
-      deadline: new FormControl(undefined, Validators.required),
-      changedBy: new FormControl(undefined, Validators.required),
       changedTime: new FormControl(undefined, Validators.required),
-
+      changedBy: new FormControl(undefined, Validators.required),
+      keywords: new FormControl(undefined, Validators.required),
+      goal: new FormControl(undefined, Validators.required),
+      budget: new FormControl(undefined, Validators.required),
+      timeVideo: new FormControl(undefined, Validators.required),
+      timeFrame: new FormControl(undefined, Validators.required),
     })
   }
 
