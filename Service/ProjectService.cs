@@ -202,8 +202,18 @@ namespace Service
             string name,
             string description,
             DateTime? deadline,
-            DateTime? startDate)
+            DateTime? startDate,
+            int modifierId,
+            string goal,
+            int budget)
         {
+            var modifier = db.Users.Find(modifierId);
+
+            if (modifier == null)
+            {
+                throw new ObjectNotFoundException($"Can't find user with ID {modifierId}");
+            }
+
             var foundProject = db.Projects.Find(id);
             if (foundProject != null)
             {
@@ -211,6 +221,10 @@ namespace Service
                 foundProject.Description = description;
                 foundProject.Deadline = deadline;
                 foundProject.StartDate = startDate;
+                foundProject.ChangedBy = modifier.ID;
+                foundProject.ChangedTime = DateTime.Today;
+                foundProject.Goal = goal;
+                foundProject.Budget = budget;
                 db.SaveChanges();
                 return foundProject;
             }
@@ -690,7 +704,7 @@ namespace Service
             }
             return false;
         }
-        public List<Project> GetProjectsDeadlineInThisWeek(Project project) {
+        public List<Project> GetProjectsDeadlineInThisWeek() {
             List<Project> list = new List<Project>();
             foreach (var item in db.Projects)
             {
@@ -711,7 +725,7 @@ namespace Service
             return finishedTime.Year == currentSystemTime.Year &&
                    finishedTime.Month == currentSystemTime.Month;
         }
-        public List<Project> GetProjectsFinishedThisMonth(Project project)
+        public List<Project> GetProjectsFinishedThisMonth()
         {
             List<Project> list = new List<Project>();
             foreach (var item in db.Projects)
@@ -755,7 +769,11 @@ namespace Service
                 ["createdBy"] = userService.ParseToJson(creator, avatarPath),
                 ["startDate"] = updatedProject.StartDate,
                 ["changedTime"] = updatedProject.ChangedTime,
-                ["status"] = updatedProject.Status
+                ["status"] = updatedProject.Status,
+                ["goal"] = updatedProject.Goal,
+                ["budget"] = updatedProject.Budget,
+
+                
             };
 
             if (updatedProject.Status.HasValue)
