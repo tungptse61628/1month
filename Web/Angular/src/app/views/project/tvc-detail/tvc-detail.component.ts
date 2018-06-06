@@ -13,7 +13,7 @@ import {
   SelectTeamsModalComponent,
   SelectMembersModalComponent
 } from '../../../cmaComponents/modals';
-
+import { link } from 'fs';
 
 @Component({
   selector: 'app-tvc-detail',
@@ -37,7 +37,7 @@ export class TvcDetailComponent implements OnInit {
   nameTypeAdvertising: string;
   goal: string;
   budget: number;
-  channel: number;
+  ChannelId: number;
   timeVideo: number;
   timeFrame: string;
   startDate: string;
@@ -52,7 +52,7 @@ export class TvcDetailComponent implements OnInit {
     nameTypeAdvertising: string;
     goal: string;
     budget: string;
-    channel: string;
+    ChannelId: string;
     timeVideo: string;
     timeFrame: string;
     startDate: string,
@@ -101,7 +101,7 @@ export class TvcDetailComponent implements OnInit {
         this.nameTypeAdvertising,
         this.goal, 
         this.budget,
-        this.channel,
+        this.ChannelId,
         this.timeVideo,
         this.timeFrame,
         startDate.isValid() ? startDate.format('YYYY-MM-DD') : this.startDatePicker.selectionDayTxt,
@@ -133,7 +133,7 @@ export class TvcDetailComponent implements OnInit {
       nameTypeAdvertising: "",
       goal: "",
       budget: "",
-      channel: "",
+      ChannelId: "",
       timeVideo: "",
       timeFrame: "",
       startDate: "",
@@ -158,7 +158,7 @@ export class TvcDetailComponent implements OnInit {
         case "Budget":
         this.errors.name = errorMessage;
         break;
-        case "channel":
+        case "ChannelId":
         this.errors.name = errorMessage;
         break;
         case "timeVideo":

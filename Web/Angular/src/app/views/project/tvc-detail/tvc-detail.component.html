@@ -29,7 +29,7 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">MethodAd: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}" />
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">TypeAd: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}" />
             </div>
           </div>
         </div>
@@ -47,11 +47,19 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Goal: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="goal" class="form-control" placeholder="Please enter the goal">
+              <select [ngClass]="{'form-control': true}" [(ngModel)]="goal">
+                <option value="Introduction to product information">
+                  Introduction to product information</option>
+                <option value="Persuade consumers to buy">Persuade consumers to buy</option>
+                <option value="Remind">Remind</option>
+
+
+              </select>
+
             </div>
           </div>
         </div>
-
+<!-- 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Location: </label>
@@ -59,7 +67,7 @@
               <input type="text" [(ngModel)]="location" class="form-control" placeholder="Please enter the location">
             </div>
           </div>
-        </div>
+        </div> -->
 
         <!-- <div class="form-horizontal col-6 ">
           <div class="form-group row">
@@ -74,7 +82,7 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Budget: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="budget" class="form-control" placeholder="Please enter the type budget">
+              <input type="text" [(ngModel)]="budget" class="form-control" placeholder="Please enter budget">
             </div>
           </div>
         </div>
@@ -83,7 +91,15 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Channel: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="channel" class="form-control" placeholder="Please enter the channel">
+              <select [(ngModel)]="ChannelId" [ngClass]="{'form-control': true}" >
+                <option value="1">VTV1</option>
+                <option value="2">VTV2</option>
+                <option value="3">VTV3</option>
+                <option value="6">VTV6</option>
+                <option value="7">HTV7</option>
+                <option value="8">HTV8</option>
+              </select>
+
             </div>
           </div>
         </div>
@@ -92,8 +108,10 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Time of video: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="timeVideo" class="form-control" placeholder="Please enter time of a video">
+              <input type="text" [(ngModel)]="timeVideo" class="form-control" placeholder="Please enter the time of video">
             </div>
+            
+
           </div>
         </div>
 
@@ -101,7 +119,14 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Time flame: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="timeFrame" class="form-control" placeholder="Please enter the time frame">
+              <select [ngClass]="{'form-control': true}" [(ngModel)]="timeFrame">
+                <option value="10:00AM-12:00PM">10:00AM-12:00PM</option>
+                <option value="12:00PM-14:00PM">12:00PM-14:00PM</option>
+                <option value="14:00AM-16:00PM">14:00AM-16:00PM</option>
+                <option value="16:00AM-18:00PM">16:00AM-18:00PM</option>
+                <option value="18:00AM-20:00PM">18:00AM-20:00PM</option>
+              </select>
+
             </div>
           </div>
         </div>

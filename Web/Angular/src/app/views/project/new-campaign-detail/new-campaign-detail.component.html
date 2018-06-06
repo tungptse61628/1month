@@ -5,7 +5,6 @@
         <strong>Create google campaign detail</strong>
       </div>
       <div class="card-body">
-
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Name Campaign: </label>
@@ -27,18 +26,18 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">MethodAd: </label>
+            <label class="col-4 col-form-label text-right">Method advertisesing: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}" />
             </div>
           </div>
         </div>
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">TypeAd: </label>
+            <label class="col-4 col-form-label text-right">Type advertisesing: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}" />
             </div>
           </div>
         </div>
@@ -47,7 +46,13 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Goal: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="goal" class="form-control" placeholder="Please enter the goal">
+              <select  [ngClass]="{'form-control': true}" [(ngModel)]="goal">
+                <option value="Keyword target" >Keyword target</option>
+                <option value="Location and language target">Location and language target</option>
+                <option value="Target by device">Target by device</option>
+              
+              </select>
+
             </div>
           </div>
         </div>

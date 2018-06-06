@@ -1,6 +1,18 @@
-import { Component, OnInit } from '@angular/core';
-import { ProjectService } from '../../../services/project.service';
-import { Router } from '@angular/router';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { ProjectService } from "../../../services/project.service";
+import { Router, ActivatedRoute } from "@angular/router";
+import { IMyDpOptions } from "mydatepicker";
+import { BsModalService } from "ngx-bootstrap/modal";
+import * as moment from "moment";
+import { Project } from "app/interfaces/project";
+import {
+  CommentModalComponent,
+  ConfirmModalComponent,
+  ErrorModalComponent,
+  SelectUsersModalComponent,
+  SelectTeamsModalComponent,
+  SelectMembersModalComponent
+} from "../../../cmaComponents/modals";
 import { link } from 'fs';
 
 @Component({

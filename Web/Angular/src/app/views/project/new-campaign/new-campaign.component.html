@@ -7,9 +7,9 @@
       <div class="card-body">
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Phương thức </label>
+            <label class="col-4 col-form-label text-right">Method </label>
             <div class="col-8">
-              <select ([ngModel])="methodSelectedId" (change)="onChangeMethod($event.target.value)">
+              <select [ngClass]="{'form-control': true}" ([ngModel])="methodSelectedId" (change)="onChangeMethod($event.target.value)">
                 <option *ngFor="let methodAds of methodAdvertisings" value="{{methodAds.ID}}">
                   {{methodAds.Name}}
                 </option>
@@ -20,9 +20,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Loại </label>
+            <label class="col-4 col-form-label text-right">Type </label>
             <div class="col-8">
-              <select ([ngModel])="typeSelectedId" (change)="onChangeType($event.target.value)">
+              <select [ngClass]="{'form-control': true}" ([ngModel])="typeSelectedId" (change)="onChangeType($event.target.value)">
                 <option *ngFor="let typeAds of typeAdvertisings" value="{{typeAds.ID}}">
                   {{typeAds.Name}}
                 </option>

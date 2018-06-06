@@ -29,7 +29,7 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">MethodAd: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}" />
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">TypeAd: </label>
             <div class="col-8">
-              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}"/>
+              <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}" />
             </div>
           </div>
         </div>
@@ -47,7 +47,20 @@
           <div class="form-group row">
             <label class="col-4 col-form-label text-right">Goal: </label>
             <div class="col-8">
-              <input type="text" [(ngModel)]="goal" class="form-control" placeholder="Please enter the goal">
+              <select [ngClass]="{'form-control': true}" [(ngModel)]="goal">
+                <option value="Target by audience">Target by audience</option>
+                <option value="Brand awareness">Brand awareness</option>
+                <option value="Number of people">Number of people</option>
+                <option value="Approaching">Approaching</option>
+                <option value="Traffic">Traffic</option>
+                <option value="Interactive">Interactive</option>
+                <option value="App installs">App installs</option>
+                <option value="Video views">Video views</option>
+                <option value="Search for potential customers">Search for potential customers</option>
+                <option value="Message">Message </option>
+
+              </select>
+
             </div>
           </div>
         </div>
