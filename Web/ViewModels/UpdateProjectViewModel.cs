@@ -14,5 +14,9 @@ namespace Web.ViewModels
         public string startdate { get; set; }
         [AgencyDateValidation]
         public string deadline { get; set; }
+        [MaxLength(255)]
+        public string Goal { get; set; }
+        public int? Budget { get; set; }
+
     }
 }

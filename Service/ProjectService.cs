@@ -203,7 +203,9 @@ namespace Service
             string description,
             DateTime? deadline,
             DateTime? startDate,
-            int modifierId)
+            int modifierId,
+            string goal,
+            int budget)
         {
             var modifier = db.Users.Find(modifierId);
 
@@ -221,7 +223,8 @@ namespace Service
                 foundProject.StartDate = startDate;
                 foundProject.ChangedBy = modifier.ID;
                 foundProject.ChangedTime = DateTime.Today;
-
+                foundProject.Goal = goal;
+                foundProject.Budget = budget;
                 db.SaveChanges();
                 return foundProject;
             }
@@ -766,7 +769,11 @@ namespace Service
                 ["createdBy"] = userService.ParseToJson(creator, avatarPath),
                 ["startDate"] = updatedProject.StartDate,
                 ["changedTime"] = updatedProject.ChangedTime,
-                ["status"] = updatedProject.Status
+                ["status"] = updatedProject.Status,
+                ["goal"] = updatedProject.Goal,
+                ["budget"] = updatedProject.Budget,
+
+                
             };
 
             if (updatedProject.Status.HasValue)

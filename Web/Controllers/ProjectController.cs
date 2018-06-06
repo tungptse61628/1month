@@ -1001,7 +1001,9 @@ namespace Web.Controllers
                             updateProjectViewModel.description,
                             deadline,
                             startdate,
-                            currentUser.ID
+                            currentUser.ID,
+                            updateProjectViewModel.Goal,
+                            (int)updateProjectViewModel.Budget
                         );
 
 
