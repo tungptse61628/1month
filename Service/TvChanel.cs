@@ -8,13 +8,12 @@ namespace Service
 {
     public enum TvChanel
     {
-        VTC10_NETVIET,
-        VTC11,
-        VTC13,
-        VTC14,
-        VTC16,
-        QPVN,
-        VOVTV,
-        QTV3
+        HTC2,
+        VTV1,
+        VTV2,
+        VTV3,
+        VTV6,
+        HTV7,
+        HTV8
     }
 }

@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-header">
-    <strong>Project detail</strong>
+    <strong>Campaign detail</strong>
   </div>
   <app-spinner *ngIf="isPageLoading"></app-spinner>
   <div *ngIf="!isPageLoading" class="card-body">
@@ -76,27 +76,33 @@
             </div>
             <div class="section">
               <!--Keyworks-->
-              <h5 class="mb-3">Keywords: {{foundProject.keywords }}</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 " >Keywords: {{foundProject.keywords }}</h5>
             </div>
             <div class="section">
               <!--goal-->
-              <h5 class="mb-3">Goal: {{foundProject.goal }}</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 || foundProject.typeAdID==11 || foundProject.typeAdID==8">Goal: {{foundProject.goal }}</h5>
             </div>
             <div class="section">
               <!--budget-->
-              <h5 class="mb-3">Location: {{foundProject.location }}</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 || foundProject.typeAdID==11 ">Location: {{foundProject.location }}</h5>
             </div>
             <div class="section">
               <!--budget-->
-              <h5 class="mb-3">Budget: {{foundProject.budget }}</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 || foundProject.typeAdID==11 || foundProject.typeAdID==8">Budget: {{foundProject.budget }}</h5>
             </div>
-            <div class="section">
-              <!--timeVideo-->
-              <h5 class="mb-3">Video time: {{foundProject.timeVideo }}</h5>
-            </div>
+
+
             <div class="section">
               <!--timeFrame-->
-              <h5 class="mb-3">Time frame: {{foundProject.timeFrame }}</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8">Time frame: {{foundProject.timeFrame }}</h5>
+            </div>
+            <!-- <div class="section">
+
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 || foundProject.typeAdID==11 || foundProject.typeAdID==8">channelText: {{foundProject.channelID }}</h5>
+            </div> -->
+            <div class="section">
+              <!--timeVideo-->
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8">Time of video(sec): {{foundProject.timeVideo }}</h5>
             </div>
           </div>
         </div>

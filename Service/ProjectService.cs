@@ -771,13 +771,14 @@ namespace Service
                 ["changedTime"] = updatedProject.ChangedTime,
                 ["status"] = updatedProject.Status,
                 ["goal"] = updatedProject.Goal,
+                ["keywords"] = updatedProject.Keywords,
                 ["budget"] = updatedProject.Budget,
                 ["timeVideo"] = updatedProject.TimeVideo,
                 ["typeAdID"] = updatedProject.TypeAdID,
                 ["timeFrame"] = updatedProject.TimeFrame,
                 ["location"] = updatedProject.Location,
-
-
+                ["channelID"] = updatedProject.ChannelID,
+                
 
             };
 
@@ -786,7 +787,12 @@ namespace Service
                 var statusText = ((ProjectStatus)updatedProject.Status.Value).ToString();
                 result["statusText"] = DisplayCamelCaseString(statusText);
             }
-            
+            if (updatedProject.ChannelID.HasValue)
+            {
+                var channelText = ((TvChanel)updatedProject.ChannelID.Value).ToString();
+                result["channelText"] = DisplayCamelCaseString(channelText);
+            }
+
             if (updatedProject.ChangedBy.HasValue)
             {
                 var changer = userService.GetUser(updatedProject.ChangedBy.Value);

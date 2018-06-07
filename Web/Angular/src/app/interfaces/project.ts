@@ -18,7 +18,9 @@ export interface Project {
   location: string,
   budget: number,
   timeVideo: number,
+  typeAdID: number,
   timeFrame: string,
+
   statusText: string,
   lists: List[],
   teams: Team[],

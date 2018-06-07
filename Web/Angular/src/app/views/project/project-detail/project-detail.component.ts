@@ -118,7 +118,9 @@ export class ProjectDetailComponent implements OnInit {
       location: new FormControl(undefined, Validators.required),
       budget: new FormControl(undefined, Validators.required),
       timeVideo: new FormControl(undefined, Validators.required),
+      typeAdID: new FormControl(undefined, Validators.required),
       timeFrame: new FormControl(undefined, Validators.required),
+      channelText: new FormControl(undefined, Validators.required),
     })
   }
 
