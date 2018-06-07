@@ -17,7 +17,7 @@ const routes: Routes = [
   {
     path: '',
     data: {
-      title: 'Project'
+      title: 'Campaign'
     },
     children: [
       {
@@ -38,7 +38,7 @@ const routes: Routes = [
         path: ':id/detail',
         component: ProjectDetailComponent,
         data: {
-          title: 'Project detail'
+          title: 'campaign detail'
         }
       },
       {
