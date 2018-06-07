@@ -772,8 +772,13 @@ namespace Service
                 ["status"] = updatedProject.Status,
                 ["goal"] = updatedProject.Goal,
                 ["budget"] = updatedProject.Budget,
+                ["timeVideo"] = updatedProject.TimeVideo,
+                ["typeAdID"] = updatedProject.TypeAdID,
+                ["timeFrame"] = updatedProject.TimeFrame,
+                ["location"] = updatedProject.Location,
 
-                
+
+
             };
 
             if (updatedProject.Status.HasValue)
