@@ -153,7 +153,7 @@ var admin_navigation = [
                 name: 'View campaigns',
                 url: '/project',
                 icon: 'icon-calendar',
-            },
+            }
         ]
     },
     {
@@ -238,6 +238,10 @@ var serverPath = {
     getProjectList: function (projectId) { return "/api/project/" + projectId + "/list"; },
     updateProject: '/api/project',
     createProject: '/api/project',
+    createCustomProject: '/api/project/custom',
+    createGoogleProject: '/api/project/google',
+    createFacebookProject: '/api/project/facebook',
+    createTVCProject: '/api/project/tvc',
     closeProject: '/api/project/close',
     recentProject: '/api/project/recentchanged',
     getProjectStatus: '/api/project/statuses',
@@ -6063,14 +6067,15 @@ var ProjectService = /** @class */ (function () {
                 .catch(function (reason) { return reject(reason.response.body); });
         });
     };
-    ProjectService.prototype.createProject = function (name, description, startdate, deadline, goal) {
+    ProjectService.prototype.createProject = function (name, description, goal, budget, startdate, deadline) {
         var _this = this;
         var objData = {
             name: name,
             description: description,
-            deadline: deadline,
+            goal: goal,
+            budget: budget,
             startdate: startdate,
-            goal: goal
+            deadline: deadline,
         };
         return new Promise(function (resolve, reject) {
             Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createProject)
@@ -6089,11 +6094,132 @@ var ProjectService = /** @class */ (function () {
                 .catch(function (reason) { return reject(reason.response.body); });
         });
     };
-    ProjectService.prototype.updateProject = function (projectId, name, description, startdate, deadline) {
+    ProjectService.prototype.createCustomProject = function (name, description, goal, budget, startdate, deadline) {
+        var _this = this;
+        var objData = {
+            name: name,
+            description: description,
+            goal: goal,
+            budget: budget,
+            startdate: startdate,
+            deadline: deadline,
+        };
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createCustomProject)
+                .set('token', _this.tokenCursor.get())
+                .send(objData)
+                .type('form')
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ProjectService.prototype.createOnlineProject = function (name, description, nameMethodAdvertising, nameTypeAdvertising, goal, location, keywords, budget, startdate, deadline) {
+        var _this = this;
+        var objData = {
+            name: name,
+            description: description,
+            nameMethodAdvertising: nameMethodAdvertising,
+            nameTypeAdvertising: nameTypeAdvertising,
+            goal: goal,
+            location: location,
+            keywords: keywords,
+            budget: budget,
+            startdate: startdate,
+            deadline: deadline,
+        };
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createGoogleProject)
+                .set('token', _this.tokenCursor.get())
+                .send(objData)
+                .type('form')
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ProjectService.prototype.createFacebookProject = function (name, description, nameMethodAdvertising, nameTypeAdvertising, goal, location, budget, startdate, deadline) {
+        var _this = this;
+        var objData = {
+            name: name,
+            description: description,
+            nameMethodAdvertising: nameMethodAdvertising,
+            nameTypeAdvertising: nameTypeAdvertising,
+            goal: goal,
+            location: location,
+            budget: budget,
+            startdate: startdate,
+            deadline: deadline,
+        };
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createFacebookProject)
+                .set('token', _this.tokenCursor.get())
+                .send(objData)
+                .type('form')
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ProjectService.prototype.createTVCProject = function (name, description, nameMethodAdvertising, nameTypeAdvertising, goal, budget, ChannelId, timeVideo, timeFrame, startdate, deadline) {
+        var _this = this;
+        var objData = {
+            name: name,
+            description: description,
+            nameMethodAdvertising: nameMethodAdvertising,
+            nameTypeAdvertising: nameTypeAdvertising,
+            goal: goal,
+            budget: budget,
+            ChannelId: ChannelId,
+            timeVideo: timeVideo,
+            timeFrame: timeFrame,
+            startdate: startdate,
+            deadline: deadline,
+        };
+        return new Promise(function (resolve, reject) {
+            Object(__WEBPACK_IMPORTED_MODULE_2_superagent__["post"])(__WEBPACK_IMPORTED_MODULE_3__serverPath__["a" /* serverPath */].createTVCProject)
+                .set('token', _this.tokenCursor.get())
+                .send(objData)
+                .type('form')
+                .then(function (res) {
+                var content = res.body;
+                if (content.IsSuccess) {
+                    resolve(content.Data);
+                }
+                else {
+                    reject(content);
+                }
+            })
+                .catch(function (reason) { return reject(reason.response.body); });
+        });
+    };
+    ProjectService.prototype.updateProject = function (projectId, name, description, budget, startdate, deadline) {
         var _this = this;
         var objData = {
             id: projectId,
             name: name,
+            budget: budget,
             description: description,
             startdate: startdate,
             deadline: deadline

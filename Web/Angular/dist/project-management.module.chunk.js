@@ -76,7 +76,7 @@ var ReportService = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/add-project/add-project.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create custome campaign</strong>\r\n      </div>\r\n      <app-spinner *ngIf=\"isLoadingPage\"></app-spinner>\r\n      <div class=\"card-body animated fadeIn\" *ngIf=\"!isLoadingPage\">\r\n\r\n\r\n        <div [formGroup]=\"projectForm\" class=\"form-horizontal col-6\">\r\n\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label  text-right\" for=\"name-input\">Name campaign\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" id=\"name-input\" name=\"name-input\" class=\"form-control\" formControlName=\"name\" placeholder=\"Please enter the campaign's name\">\r\n              <!-- <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"description-input\">Description</label>\r\n            <div class=\"col-8\">\r\n              <textarea id=\"description-input\" name=\"description-input\" rows=\"5\" class=\"form-control\" formControlName=\"description\" placeholder=\"About project...\"></textarea>\r\n              <!-- <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"goal-input\">Goal\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\">\r\n              <textarea id=\"goal-input\" name=\"goal-input\" rows=\"5\" class=\"form-control\" formControlName=\"goal\" placeholder=\"Goal...\"></textarea>\r\n              <!-- <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div> -->\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"budget-input\">Budget\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <input type=\"text\" id=\"budget-input\" name=\"budget-input\" class=\"form-control\" formControlName=\"name\" placeholder=\"Please enter the budget..\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"startDate-input\">Start date\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"\r\n                formControlName=\"startDate\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" formControlName=\"deadline\"\r\n                disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div style=\"margin-left: 200px;\">\r\n              <button class=\"btn btn-primary\" (click)=\"handleCreate()\" [ladda]=\"isLoading\">\r\n                Add\r\n              </button>\r\n              <!-- <button type=\"button\" class=\"btn btn-success btn-bw \" data-toggle=\"modal\" (click)=\"successModal.show()\">Add</button> -->\r\n            </div>\r\n            <div style=\"margin-left: 50px;\">\r\n              <button class=\"btn btn-secondary\" data-toggle=\"modal\" onclick=\"location.href='#/project'\">Cancel</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- style=\"font-size: 20px; width: 100px\" -->\r\n"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create custome campaign</strong>\r\n      </div>\r\n      <app-spinner *ngIf=\"isLoadingPage\"></app-spinner>\r\n      <div class=\"card-body animated fadeIn\" *ngIf=\"!isLoadingPage\">\r\n\r\n\r\n        <div [formGroup]=\"projectForm\" class=\"form-horizontal col-6\">\r\n\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label  text-right\" for=\"name-input\">Name campaign\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" id=\"name-input\" name=\"name-input\" class=\"form-control\" formControlName=\"name\" placeholder=\"Please enter the campaign's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"description-input\">Description</label>\r\n            <div class=\"col-8\">\r\n              <textarea id=\"description-input\" name=\"description-input\" rows=\"5\" class=\"form-control\" formControlName=\"description\" placeholder=\"About project...\"></textarea>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.description\">{{errors.description}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"goal-input\">Goal\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\">\r\n              <textarea id=\"goal-input\" name=\"goal-input\" rows=\"5\" class=\"form-control\" formControlName=\"goal\" placeholder=\"Goal...\"></textarea>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.goal\">{{errors.goal}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" for=\"budget-input\">Budget\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <input type=\"text\" id=\"budget-input\" name=\"budget-input\" class=\"form-control\" formControlName=\"budget\" placeholder=\"Please enter the budget..\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.budget}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\" >Start date\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"\r\n                formControlName=\"startDate\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline\r\n              <span style=\"color: #ee0d0d\">\r\n                <strong>*</strong>\r\n              </span>\r\n            </label>\r\n            <div class=\"col-8\" >\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" formControlName=\"deadline\"\r\n                disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n          <div class=\"row\">\r\n            <div style=\"margin-left: 200px;\">\r\n              <button class=\"btn btn-primary\" (click)=\"handleCreate()\" [ladda]=\"isLoading\">\r\n                Add\r\n              </button>\r\n              <!-- <button type=\"button\" class=\"btn btn-success btn-bw \" data-toggle=\"modal\" (click)=\"successModal.show()\">Add</button> -->\r\n            </div>\r\n            <div style=\"margin-left: 50px;\">\r\n              <button class=\"btn btn-secondary\" data-toggle=\"modal\" onclick=\"location.href='#/project'\">Cancel</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n\r\n    </div>\r\n  </div>\r\n</div>\r\n<!-- style=\"font-size: 20px; width: 100px\" -->\r\n"
 
 /***/ }),
 
@@ -142,6 +142,7 @@ var AddProjectComponent = /** @class */ (function () {
         this.projectForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["b" /* FormGroup */]({
             name: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
             description: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
+            budget: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
             startDate: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
             deadline: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
             goal: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* Validators */].required),
@@ -161,7 +162,7 @@ var AddProjectComponent = /** @class */ (function () {
             var startDate = __WEBPACK_IMPORTED_MODULE_3_moment__(_this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
             var deadline = __WEBPACK_IMPORTED_MODULE_3_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
             _this.isLoading = true;
-            _this.projectService.createProject(formValue.name, formValue.description, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt, formValue.goal)
+            _this.projectService.createCustomProject(formValue.name, formValue.description, formValue.goal, formValue.budget, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt)
                 .then(function (value) {
                 var newProject = value;
                 _this.isLoading = false;
@@ -194,6 +195,9 @@ var AddProjectComponent = /** @class */ (function () {
     AddProjectComponent.prototype.setErrorsNull = function () {
         this.errors = {
             name: '',
+            description: '',
+            goal: '',
+            budget: '',
             startDate: '',
             deadline: '',
         };
@@ -206,6 +210,12 @@ var AddProjectComponent = /** @class */ (function () {
             switch (fieldName) {
                 case 'Name':
                     this.errors.name = errorMessage;
+                    break;
+                case 'Description':
+                    this.errors.name = errorMessage;
+                    break;
+                case 'Budget':
+                    this.errors.budget = errorMessage;
                     break;
                 case 'Deadline':
                     this.errors.deadline = errorMessage;
@@ -416,7 +426,7 @@ var ArchiveComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/facebook-detail/facebook-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create campaign detail</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\r\n            <div class=\"col-8\">\r\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">MethodAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">TypeAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"goal\" class=\"form-control\" placeholder=\"Please enter the goal\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Budget: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter the type budget\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\r\n            Create Campaign\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create facebook campaign detail</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\r\n            <div class=\"col-8\">\r\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">MethodAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">TypeAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\r\n            <div class=\"col-8\">\r\n              <select [ngClass]=\"{'form-control': true}\" [(ngModel)]=\"goal\">\r\n                <option value=\"Target by audience\">Target by audience</option>\r\n                <option value=\"Brand awareness\">Brand awareness</option>\r\n                <option value=\"Number of people\">Number of people</option>\r\n                <option value=\"Approaching\">Approaching</option>\r\n                <option value=\"Traffic\">Traffic</option>\r\n                <option value=\"Interactive\">Interactive</option>\r\n                <option value=\"App installs\">App installs</option>\r\n                <option value=\"Video views\">Video views</option>\r\n                <option value=\"Search for potential customers\">Search for potential customers</option>\r\n                <option value=\"Message\">Message </option>\r\n\r\n              </select>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\r\n            </div>\r\n          </div>\r\n        </div> -->\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Budget(USD): </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter the type budget\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\r\n            Create Campaign\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -503,7 +513,8 @@ var FacebookDetailComponent = /** @class */ (function () {
             var startDate = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
             var deadline = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
             //this.isLoading = true;
-            _this.projectService.createProject(_this.nameCampaign, _this.description, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt, _this.goal)
+            _this.projectService
+                .createFacebookProject(_this.nameCampaign, _this.description, _this.nameMethodAdvertising, _this.nameTypeAdvertising, _this.goal, _this.location, _this.budget, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt)
                 .then(function (value) {
                 var newProject = value;
                 //this.isLoading = false;
@@ -522,9 +533,15 @@ var FacebookDetailComponent = /** @class */ (function () {
     };
     FacebookDetailComponent.prototype.setErrorsNull = function () {
         this.errors = {
-            name: '',
-            startDate: '',
-            deadline: '',
+            name: "",
+            description: "",
+            nameMethodAdvertising: "",
+            nameTypeAdvertising: "",
+            goal: "",
+            location: "",
+            budget: "",
+            startDate: "",
+            deadline: ""
         };
     };
     FacebookDetailComponent.prototype.setErrors = function (errors) {
@@ -533,14 +550,29 @@ var FacebookDetailComponent = /** @class */ (function () {
             var fieldName = error.key;
             var errorMessage = error.message;
             switch (fieldName) {
-                case 'Name':
+                case "Name":
                     this.errors.name = errorMessage;
                     break;
-                case 'Deadline':
-                    this.errors.deadline = errorMessage;
+                case "Description":
+                    this.errors.name = errorMessage;
                     break;
-                case 'StartDate':
+                case "Goal":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Location":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Keywords":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Budget":
+                    this.errors.name = errorMessage;
+                    break;
+                case "StartDate":
                     this.errors.startDate = errorMessage;
+                    break;
+                case "Deadline":
+                    this.errors.deadline = errorMessage;
                     break;
             }
         }
@@ -574,7 +606,7 @@ var FacebookDetailComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create campaign detail</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\r\n            <div class=\"col-8\">\r\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">MethodAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">TypeAd: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\"/>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"goal\" class=\"form-control\" placeholder=\"Please enter the goal\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Budget: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter the type budget\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\r\n            Create Campaign\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create google campaign detail</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\r\n            <div class=\"col-8\">\r\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Method advertisesing: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Type advertisesing: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\" />\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\r\n            <div class=\"col-8\">\r\n              <select  [ngClass]=\"{'form-control': true}\" [(ngModel)]=\"goal\">\r\n                <option value=\"Keyword target\" >Keyword target</option>\r\n                <option value=\"Location and language target\">Location and language target</option>\r\n                <option value=\"Target by device\">Target by device</option>\r\n                <option value=\"Target by audience\">Target by audience</option>\r\n              \r\n              </select>\r\n\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Budget(USD): </label>\r\n            <div class=\"col-8\">\r\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter the type budget\">\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\r\n            <div class=\"col-8\">\r\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\r\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\r\n            Create Campaign\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -631,20 +663,19 @@ var NewCampaignDetailComponent = /** @class */ (function () {
         this.route = route;
         this.myDatePickerOptions = {
             showInputField: true,
-            dateFormat: 'dd/mm/yyyy',
+            dateFormat: "dd/mm/yyyy"
         };
         this.setErrorsNull();
     }
     NewCampaignDetailComponent.prototype.ngOnInit = function () {
-        this.methodSelectedId = Number(this.route.snapshot.paramMap.get('methodId'));
-        ;
-        this.typeSelectedId = Number(this.route.snapshot.paramMap.get('typeId'));
-        ;
+        this.methodSelectedId = Number(this.route.snapshot.paramMap.get("methodId"));
+        this.typeSelectedId = Number(this.route.snapshot.paramMap.get("typeId"));
         this.setNameOfMethodAndType();
     };
     NewCampaignDetailComponent.prototype.setNameOfMethodAndType = function () {
         var _this = this;
-        this.projectService.getNameOfMethodAndType(this.methodSelectedId, this.typeSelectedId)
+        this.projectService
+            .getNameOfMethodAndType(this.methodSelectedId, this.typeSelectedId)
             .then(function (data) {
             _this.nameMethodAdvertising = data[0].nameMethodAds;
             _this.nameTypeAdvertising = data[0].nameTypeAds;
@@ -658,15 +689,20 @@ var NewCampaignDetailComponent = /** @class */ (function () {
         this.setErrorsNull();
         var onConfirm = function () {
             //const formValue = this.projectForm.value;
-            var startDate = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
-            var deadline = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
+            var startDate = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.startDatePicker.selectionDayTxt, "DD/MM/YYYY");
+            var deadline = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.deadlinePicker.selectionDayTxt, "DD/MM/YYYY");
             //this.isLoading = true;
             console.log("Goal" + _this.goal);
-            _this.projectService.createProject(_this.nameCampaign, _this.description, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt, _this.goal)
+            _this.projectService
+                .createOnlineProject(_this.nameCampaign, _this.description, _this.nameMethodAdvertising, _this.nameTypeAdvertising, _this.goal, _this.location, _this.keywords, _this.budget, startDate.isValid()
+                ? startDate.format("YYYY-MM-DD")
+                : _this.startDatePicker.selectionDayTxt, deadline.isValid()
+                ? deadline.format("YYYY-MM-DD")
+                : _this.deadlinePicker.selectionDayTxt)
                 .then(function (value) {
                 var newProject = value;
                 //this.isLoading = false;
-                _this.router.navigate(['project/' + newProject.id + '/detail']);
+                _this.router.navigate(["project/" + newProject.id + "/detail"]);
             })
                 .catch(function (reason) {
                 //this.isLoading = false;
@@ -677,13 +713,23 @@ var NewCampaignDetailComponent = /** @class */ (function () {
             message: "Are you sure to create this project?",
             confirmCallback: onConfirm
         };
-        this.modalService.show(__WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__["b" /* ConfirmModalComponent */], { initialState: initialState, class: 'modal-dialog' });
+        this.modalService.show(__WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__["b" /* ConfirmModalComponent */], {
+            initialState: initialState,
+            class: "modal-dialog"
+        });
     };
     NewCampaignDetailComponent.prototype.setErrorsNull = function () {
         this.errors = {
-            name: '',
-            startDate: '',
-            deadline: '',
+            name: "",
+            description: "",
+            nameMethodAdvertising: "",
+            nameTypeAdvertising: "",
+            goal: "",
+            location: "",
+            keywords: "",
+            budget: "",
+            startDate: "",
+            deadline: ""
         };
     };
     NewCampaignDetailComponent.prototype.setErrors = function (errors) {
@@ -692,29 +738,44 @@ var NewCampaignDetailComponent = /** @class */ (function () {
             var fieldName = error.key;
             var errorMessage = error.message;
             switch (fieldName) {
-                case 'Name':
+                case "Name":
                     this.errors.name = errorMessage;
                     break;
-                case 'Deadline':
-                    this.errors.deadline = errorMessage;
+                case "Description":
+                    this.errors.name = errorMessage;
                     break;
-                case 'StartDate':
+                case "Goal":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Location":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Keywords":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Budget":
+                    this.errors.name = errorMessage;
+                    break;
+                case "StartDate":
                     this.errors.startDate = errorMessage;
+                    break;
+                case "Deadline":
+                    this.errors.deadline = errorMessage;
                     break;
             }
         }
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('startDatePicker'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("startDatePicker"),
         __metadata("design:type", Object)
     ], NewCampaignDetailComponent.prototype, "startDatePicker", void 0);
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('deadlinePicker'),
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])("deadlinePicker"),
         __metadata("design:type", Object)
     ], NewCampaignDetailComponent.prototype, "deadlinePicker", void 0);
     NewCampaignDetailComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'app-new-campaign-detail',
+            selector: "app-new-campaign-detail",
             template: __webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.html"),
             styles: [__webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.scss")]
         }),
@@ -733,7 +794,7 @@ var NewCampaignDetailComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/new-campaign/new-campaign.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create campaign</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Phương thức </label>\r\n            <div class=\"col-8\">\r\n              <select ([ngModel])=\"methodSelectedId\" (change)=\"onChangeMethod($event.target.value)\">\r\n                <option *ngFor=\"let methodAds of methodAdvertisings\" value=\"{{methodAds.ID}}\">\r\n                  {{methodAds.Name}}\r\n                </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Loại </label>\r\n            <div class=\"col-8\">\r\n              <select ([ngModel])=\"typeSelectedId\" (change)=\"onChangeType($event.target.value)\">\r\n                <option *ngFor=\"let typeAds of typeAdvertisings\" value=\"{{typeAds.ID}}\">\r\n                  {{typeAds.Name}}\r\n                </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"goToDetail()\">\r\n            Next\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
+module.exports = "<div class=\"row\">\r\n  <div class=\"col-md-12\">\r\n    <div class=\"card\">\r\n      <div class=\"card-header\">\r\n        <strong>Create campaign</strong>\r\n      </div>\r\n      <div class=\"card-body\">\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Method </label>\r\n            <div class=\"col-8\">\r\n              <select [ngClass]=\"{'form-control': true}\" ([ngModel])=\"methodSelectedId\" (change)=\"onChangeMethod($event.target.value)\">\r\n                <option *ngFor=\"let methodAds of methodAdvertisings\" value=\"{{methodAds.ID}}\">\r\n                  {{methodAds.Name}}\r\n                </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-horizontal col-6 \">\r\n          <div class=\"form-group row\">\r\n            <label class=\"col-4 col-form-label text-right\">Type </label>\r\n            <div class=\"col-8\">\r\n              <select [ngClass]=\"{'form-control': true}\" ([ngModel])=\"typeSelectedId\" (change)=\"onChangeType($event.target.value)\">\r\n                <option *ngFor=\"let typeAds of typeAdvertisings\" value=\"{{typeAds.ID}}\">\r\n                  {{typeAds.Name}}\r\n                </option>\r\n              </select>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"col-12\">\r\n          <button class=\"btn btn-primary\" (click)=\"goToDetail()\">\r\n            Next\r\n          </button>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>"
 
 /***/ }),
 
@@ -811,8 +872,32 @@ var NewCampaignComponent = /** @class */ (function () {
         this.typeSelectedId = typeId;
     };
     NewCampaignComponent.prototype.goToDetail = function () {
+        var _this = this;
+        var sservice = "other";
+        var current = "";
+        this.typeAdvertisings.forEach(function (item) {
+            if (item.ID == _this.typeSelectedId) {
+                current = item.Name;
+            }
+        });
+        console.warn(this.typeSelectedId);
+        if (current == "Google") {
+            sservice = "google";
+        }
+        else if (current == "Facebook") {
+            sservice = "facebook";
+        }
+        else if (current == "TVC") {
+            sservice = "tvc";
+        }
+        else {
+            sservice == "other";
+        }
+        // console.error(current);
+        //console.error(sservice);
         //this.router.navigate(['project/'+newProject.id+'/detail']);
-        this.router.navigate(['project/google/' + this.methodSelectedId + '/' + this.typeSelectedId]);
+        var lik = "project/" + sservice + "/" + this.methodSelectedId + "/" + this.typeSelectedId;
+        this.router.navigate([lik]);
     };
     NewCampaignComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
@@ -833,7 +918,7 @@ var NewCampaignComponent = /** @class */ (function () {
 /***/ "../../../../../src/app/views/project/project-detail/project-detail.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    <strong>Project detail</strong>\r\n  </div>\r\n  <app-spinner *ngIf=\"isPageLoading\"></app-spinner>\r\n  <div *ngIf=\"!isPageLoading\" class=\"card-body\">\r\n    <div class=\"card-body\" [formGroup]=\"viewForm\" *ngIf=\"foundProject\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\" style=\"font-size: 20px\">\r\n          <h2 class=\"card-title\">{{foundProject.name}}</h2>\r\n        </div>\r\n        <!-- button start -->\r\n        <div class=\"col-12 form-horizontal\">\r\n\r\n          <div class=\"button-row\" style=\"margin-bottom: 5px;margin-top: 4px;\" *ngIf=\"foundProject.status!= 2\">\r\n            <a routerLink=\"/project/{{foundProject.id}}/update\" class=\"btn btn-secondary bg-light\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-edit\"></i>&nbsp; Update\r\n            </a>\r\n            <a class=\"btn btn-secondary bg-light\" (click)=\"handleCloseProject(foundProject.id)\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-close\"></i>&nbsp; Close project\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignModal}\" [ladda]=\"isLoading.openAssignModal\"\r\n              (click)=\"handleOnAssignBtnClick()\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-users\"></i>&nbsp; Set department\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignMembersModal}\" (click)=\"handleOnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-plus\"></i>&nbsp; Assign members\r\n            </a>\r\n\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openUnAssignMembersModal}\" (click)=\"handleOnUnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openUnAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-times\"></i>&nbsp; Un-assign members\r\n            </a>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- button end -->\r\n\r\n        <div class=\"col-6\">\r\n          <div class=\"form-horizontal\">\r\n\r\n\r\n            <div class=\"section mt-4\">\r\n              <!--DESCRIPTION-->\r\n              <h5 class=\"mb-3\">Description</h5>\r\n              <dl class=\"row ml-1\">\r\n                <p class=\"col-12\">\r\n                  {{foundProject.description}}\r\n                </p>\r\n              </dl>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==0\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Not started</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==1\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Executing</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==2\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Closed</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Created date: {{foundProject.createdTime | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Start Date-->\r\n              <h5 class=\"mb-3\">Start date: {{foundProject.startDate | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Deadline-->\r\n              <h5 class=\"mb-3\">Deadline: {{foundProject.deadline | date:'d/M/y'}}</h5>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-6\">\r\n          <div class=\"section\" style=\"font-size: 16px\">\r\n            <div class=\"section mt-4\">\r\n              <dt class=\"col-12\">Links:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <ul class=\"icons-list\">\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/task\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-tasks fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">All tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/schedule\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-calendar fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Schedule</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/report\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-bar-chart fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Report</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/taskarchive\" *ngIf=\"currentUser.isManager\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-archive fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Archived tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n                </ul>\r\n\r\n              </dd>\r\n              <dt class=\"col-12\">Members:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <app-user-list *ngIf=\"foundProject.assignees\" [users]=\"foundProject.assignees\" [sort]=\"true\"></app-user-list>\r\n                <span *ngIf=\"!foundProject.assignees || foundProject.assignees.length < 1\">N/A</span>\r\n              </dd>\r\n              <br/>\r\n              <dt class=\"col-12\">Departments</dt>\r\n              <dd class=\"col-12 pl-4\" *ngIf=\"foundProject.teams\">\r\n                <span *ngFor=\"let team of foundProject.teams\">\r\n                  <a href=\"#/department/{{team.id}}/detail\">{{team.name}}</a>\r\n                  <br/>\r\n                </span>\r\n              </dd>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div bsModal #dangerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n        <div class=\"modal-dialog modal-danger\" role=\"document\">\r\n          <div class=\"modal-content\" style=\"border-color: black;\">\r\n            <div class=\"modal-header\" style=\"color: black;\r\n                      background-color: white;\">\r\n              <h4 class=\"modal-title\">Confirmation message!</h4>\r\n              <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n              <p>Are you sure to close this project?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"dangerModal.hide()\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">No\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"handleClose(foundProject.id)\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">Yes\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"card\">\r\n  <div class=\"card-header\">\r\n    <strong>Project detail</strong>\r\n  </div>\r\n  <app-spinner *ngIf=\"isPageLoading\"></app-spinner>\r\n  <div *ngIf=\"!isPageLoading\" class=\"card-body\">\r\n    <div class=\"card-body\" [formGroup]=\"viewForm\" *ngIf=\"foundProject\">\r\n      <div class=\"row\">\r\n        <div class=\"col-12\" style=\"font-size: 20px\">\r\n          <h2 class=\"card-title\">{{foundProject.name}}</h2>\r\n        </div>\r\n        <!-- button start -->\r\n        <div class=\"col-12 form-horizontal\">\r\n\r\n          <div class=\"button-row\" style=\"margin-bottom: 5px;margin-top: 4px;\" *ngIf=\"foundProject.status!= 2\">\r\n            <a routerLink=\"/project/{{foundProject.id}}/update\" class=\"btn btn-secondary bg-light\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-edit\"></i>&nbsp; Update\r\n            </a>\r\n            <a class=\"btn btn-secondary bg-light\" (click)=\"handleCloseProject(foundProject.id)\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-close\"></i>&nbsp; Close project\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignModal}\" [ladda]=\"isLoading.openAssignModal\"\r\n              (click)=\"handleOnAssignBtnClick()\" *ngIf=\"currentUser.isAdmin\">\r\n              <i class=\"fa fa-users\"></i>&nbsp; Set department\r\n            </a>\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openAssignMembersModal}\" (click)=\"handleOnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-plus\"></i>&nbsp; Assign members\r\n            </a>\r\n\r\n            <a [ngClass]=\"{'btn': true, 'btn-secondary': true, 'bg-light':!isLoading.openUnAssignMembersModal}\" (click)=\"handleOnUnAssignMembersBtnClick()\"\r\n              [ladda]=\"isLoading.openUnAssignMembersModal\" *ngIf=\"currentUser.isManager || currentUser.isAdmin\">\r\n              <i class=\"fa fa-user-times\"></i>&nbsp; Un-assign members\r\n            </a>\r\n          </div>\r\n        </div>\r\n\r\n        <!-- button end -->\r\n\r\n        <div class=\"col-6\">\r\n          <div class=\"form-horizontal\">\r\n\r\n\r\n            <div class=\"section mt-4\">\r\n              <!--DESCRIPTION-->\r\n              <h5 class=\"mb-3\">Description</h5>\r\n              <dl class=\"row ml-1\">\r\n                <p class=\"col-12\">\r\n                  {{foundProject.description}}\r\n                </p>\r\n              </dl>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==0\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Not started</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==1\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Executing</h5>\r\n            </div>\r\n            <div class=\"section\" *ngIf=\"foundProject.status==2\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Status: Closed</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Created Date-->\r\n              <h5 class=\"mb-3\">Created date: {{foundProject.createdTime | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Start Date-->\r\n              <h5 class=\"mb-3\">Start date: {{foundProject.startDate | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Deadline-->\r\n              <h5 class=\"mb-3\">Deadline: {{foundProject.deadline | date:'d/M/y'}}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--Keyworks-->\r\n              <h5 class=\"mb-3\">Keywords: {{foundProject.keywords }}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--goal-->\r\n              <h5 class=\"mb-3\">Goal: {{foundProject.goal }}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--budget-->\r\n              <h5 class=\"mb-3\">Budget: {{foundProject.budget }}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--timeVideo-->\r\n              <h5 class=\"mb-3\">Video time: {{foundProject.timeVideo }}</h5>\r\n            </div>\r\n            <div class=\"section\">\r\n              <!--timeFrame-->\r\n              <h5 class=\"mb-3\">Time frame: {{foundProject.timeFrame }}</h5>\r\n            </div>\r\n          </div>\r\n        </div>\r\n        <div class=\"col-6\">\r\n          <div class=\"section\" style=\"font-size: 16px\">\r\n            <div class=\"section mt-4\">\r\n              <dt class=\"col-12\">Links:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <ul class=\"icons-list\">\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/task\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-tasks fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">All tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/schedule\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-calendar fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Schedule</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/report\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-bar-chart fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Report</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n\r\n                  <!-- ITEM START -->\r\n                  <a routerLink=\"/project/{{foundProject.id}}/taskarchive\" *ngIf=\"currentUser.isManager\">\r\n\r\n                    <li class=\"d-flex align-items-center hover-bg\">\r\n                      <i class=\"fa fa-archive fa-lg bg-primary\"></i>\r\n                      <div class=\"ml-2 font-weight-bold\">\r\n                        <div class=\"title\">Archived tasks</div>\r\n                      </div>\r\n                    </li>\r\n                  </a>\r\n\r\n                  <!-- ITEM END -->\r\n                </ul>\r\n\r\n              </dd>\r\n              <dt class=\"col-12\">Members:</dt>\r\n              <dd class=\"col-12 pl-4\">\r\n                <app-user-list *ngIf=\"foundProject.assignees\" [users]=\"foundProject.assignees\" [sort]=\"true\"></app-user-list>\r\n                <span *ngIf=\"!foundProject.assignees || foundProject.assignees.length < 1\">N/A</span>\r\n              </dd>\r\n              <br/>\r\n              <dt class=\"col-12\">Departments</dt>\r\n              <dd class=\"col-12 pl-4\" *ngIf=\"foundProject.teams\">\r\n                <span *ngFor=\"let team of foundProject.teams\">\r\n                  <a href=\"#/department/{{team.id}}/detail\">{{team.name}}</a>\r\n                  <br/>\r\n                </span>\r\n              </dd>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div bsModal #dangerModal=\"bs-modal\" class=\"modal fade\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">\r\n        <div class=\"modal-dialog modal-danger\" role=\"document\">\r\n          <div class=\"modal-content\" style=\"border-color: black;\">\r\n            <div class=\"modal-header\" style=\"color: black;\r\n                      background-color: white;\">\r\n              <h4 class=\"modal-title\">Confirmation message!</h4>\r\n              <button type=\"button\" class=\"close\" (click)=\"dangerModal.hide()\" aria-label=\"Close\">\r\n                <span aria-hidden=\"true\">&times;</span>\r\n              </button>\r\n            </div>\r\n            <div class=\"modal-body\">\r\n              <p>Are you sure to close this project?</p>\r\n            </div>\r\n            <div class=\"modal-footer\">\r\n              <button type=\"button\" class=\"btn btn-secondary\" (click)=\"dangerModal.hide()\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">No\r\n              </button>\r\n              <button type=\"button\" class=\"btn btn-danger\" (click)=\"handleClose(foundProject.id)\" style=\"color: black;\r\n                          background-color: white;\r\n                          border-color: black;\">Yes\r\n              </button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n      </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -939,13 +1024,17 @@ var ProjectDetailComponent = /** @class */ (function () {
         }
         this.viewForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["b" /* FormGroup */]({
             projectname: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
-            customername: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
             description: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            deadline: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
             createdTime: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
             startDate: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
-            deadline: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
-            changedBy: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
             changedTime: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            changedBy: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            keywords: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            goal: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            budget: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            timeVideo: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
+            timeFrame: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["a" /* FormControl */](undefined, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["h" /* Validators */].required),
         });
     };
     ProjectDetailComponent.prototype.handleClose = function (projectID) {
@@ -1170,12 +1259,14 @@ var ProjectDetailComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__new_campaign_new_campaign_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign/new-campaign.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__new_campaign_detail_new_campaign_detail_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__facebook_detail_facebook_detail_component__ = __webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__tvc_detail_tvc_detail_component__ = __webpack_require__("../../../../../src/app/views/project/tvc-detail/tvc-detail.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1235,14 +1326,21 @@ var routes = [
                 path: 'google/:methodId/:typeId',
                 component: __WEBPACK_IMPORTED_MODULE_11__new_campaign_detail_new_campaign_detail_component__["a" /* NewCampaignDetailComponent */],
                 data: {
-                    title: 'Create campaign detail'
+                    title: 'Create google campaign detail'
                 }
             },
             {
                 path: 'facebook/:methodId/:typeId',
                 component: __WEBPACK_IMPORTED_MODULE_12__facebook_detail_facebook_detail_component__["a" /* FacebookDetailComponent */],
                 data: {
-                    title: 'Create campaign detail'
+                    title: 'Create facebook campaign detail'
+                }
+            },
+            {
+                path: 'tvc/:methodId/:typeId',
+                component: __WEBPACK_IMPORTED_MODULE_13__tvc_detail_tvc_detail_component__["a" /* TvcDetailComponent */],
+                data: {
+                    title: 'Create tvc campaign detail'
                 }
             },
             {
@@ -1323,12 +1421,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__new_campaign_new_campaign_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign/new-campaign.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__new_campaign_detail_new_campaign_detail_component__ = __webpack_require__("../../../../../src/app/views/project/new-campaign-detail/new-campaign-detail.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__facebook_detail_facebook_detail_component__ = __webpack_require__("../../../../../src/app/views/project/facebook-detail/facebook-detail.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__tvc_detail_tvc_detail_component__ = __webpack_require__("../../../../../src/app/views/project/tvc-detail/tvc-detail.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -1385,7 +1485,8 @@ var ProjectManagementModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_19__archive_archive_component__["a" /* ArchiveComponent */],
                 __WEBPACK_IMPORTED_MODULE_20__new_campaign_new_campaign_component__["a" /* NewCampaignComponent */],
                 __WEBPACK_IMPORTED_MODULE_21__new_campaign_detail_new_campaign_detail_component__["a" /* NewCampaignDetailComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__facebook_detail_facebook_detail_component__["a" /* FacebookDetailComponent */]
+                __WEBPACK_IMPORTED_MODULE_22__facebook_detail_facebook_detail_component__["a" /* FacebookDetailComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__tvc_detail_tvc_detail_component__["a" /* TvcDetailComponent */]
             ]
         })
     ], ProjectManagementModule);
@@ -1872,7 +1973,7 @@ var ProjectUpdateComponent = /** @class */ (function () {
                 // const formValue = this.updateForm.value;
                 var deadline = __WEBPACK_IMPORTED_MODULE_7_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
                 _this.isLoading = true;
-                _this.projectService.updateProject(_this.foundProject.id, formValue.name, formValue.description, _this.foundProject.startDate, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt)
+                _this.projectService.updateProject(_this.foundProject.id, formValue.name, formValue.budget, formValue.description, _this.foundProject.startDate, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt)
                     .then(function (value) {
                     _this.isLoading = false;
                     _this.router.navigate(['project']);
@@ -2057,6 +2158,190 @@ var ReportComponent = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_6__services_report_service__["a" /* ReportService */]])
     ], ReportComponent);
     return ReportComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/views/project/tvc-detail/tvc-detail.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <strong>Create tvc campaign detail</strong>\n      </div>\n      <div class=\"card-body\">\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Name Campaign: </label>\n            <div class=\"col-8\">\n              <input type=\"text\" [(ngModel)]=\"nameCampaign\" class=\"form-control\" placeholder=\"Please enter the project's name\">\n              <div class=\"invalid-feedback\" *ngIf=\"errors.name\">{{errors.name}}</div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Description: </label>\n            <div class=\"col-8\">\n              <textarea [(ngModel)]=\"description\" rows=\"5\" class=\"form-control\" placeholder=\"About project...\"></textarea>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">MethodAd: </label>\n            <div class=\"col-8\">\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameMethodAdvertising}}\" />\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">TypeAd: </label>\n            <div class=\"col-8\">\n              <input type=\"text\" disabled=\"true\" class=\"form-control\" value=\"{{nameTypeAdvertising}}\" />\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Goal: </label>\n            <div class=\"col-8\">\n              <select [ngClass]=\"{'form-control': true}\" [(ngModel)]=\"goal\">\n                <option value=\"Introduction to product information\">\n                  Introduction to product information</option>\n                <option value=\"Persuade consumers to buy\">Persuade consumers to buy</option>\n                <option value=\"Remind\">Remind</option>\n\n\n              </select>\n\n            </div>\n          </div>\n        </div>\n<!-- \n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Location: </label>\n            <div class=\"col-8\">\n              <input type=\"text\" [(ngModel)]=\"location\" class=\"form-control\" placeholder=\"Please enter the location\">\n            </div>\n          </div>\n        </div> -->\n\n        <!-- <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Keywords: </label>\n            <div class=\"col-8\">\n              <input type=\"text\" [(ngModel)]=\"keywords\" class=\"form-control\" placeholder=\"Please enter the keywords\">\n            </div>\n          </div>\n        </div> -->\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Budget(USD): </label>\n            <div class=\"col-8\">\n              <input type=\"text\" [(ngModel)]=\"budget\" class=\"form-control\" placeholder=\"Please enter budget\">\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Channel: </label>\n            <div class=\" col-8\">\n              <select [(ngModel)]=\"ChannelId\" [ngClass]=\"{'form-control': true}\" >\n                <option value=\"1\">VTV1</option>\n                <option value=\"2\">VTV2</option>\n                <option value=\"3\">VTV3</option>\n                <option value=\"6\">VTV6</option>\n                <option value=\"7\">HTV7</option>\n                <option value=\"8\">HTV8</option>\n              </select>\n\n            </div>\n\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Time of video(sec): </label>\n            <div class=\"col-8\">\n              <input type=\"text\" [(ngModel)]=\"timeVideo\" class=\"form-control\" placeholder=\"Please enter the time of video\">\n            </div>\n            \n\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Time flame: </label>\n            <div class=\"col-8\">\n              <select [ngClass]=\"{'form-control': true}\" [(ngModel)]=\"timeFrame\">\n                <option value=\"10:00AM-12:00PM\">10:00AM-12:00PM</option>\n                <option value=\"12:00PM-14:00PM\">12:00PM-14:00PM</option>\n                <option value=\"14:00AM-16:00PM\">14:00AM-16:00PM</option>\n                <option value=\"16:00AM-18:00PM\">16:00AM-18:00PM</option>\n                <option value=\"18:00AM-20:00PM\">18:00AM-20:00PM</option>\n              </select>\n\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Start Date: </label>\n            <div class=\"col-8\">\n              <my-date-picker #startDatePicker name=\"startDate-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\"></my-date-picker>\n              <div class=\"invalid-feedback\" *ngIf=\"errors.startDate\">{{errors.startDate}}</div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"form-horizontal col-6 \">\n          <div class=\"form-group row\">\n            <label class=\"col-4 col-form-label text-right\">Deadline: </label>\n            <div class=\"col-8\">\n              <my-date-picker #deadlinePicker name=\"deadline-input\" [options]=\"myDatePickerOptions\" class=\"form-control-mydatepicker\" disable=\"true\"></my-date-picker>\n              <div class=\"invalid-feedback\" *ngIf=\"errors.deadline\">{{errors.deadline}}</div>\n            </div>\n          </div>\n        </div>\n\n        <div class=\"col-12\">\n          <button class=\"btn btn-primary\" (click)=\"handleCreate()\">\n            Create Campaign\n          </button>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/views/project/tvc-detail/tvc-detail.component.scss":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/views/project/tvc-detail/tvc-detail.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TvcDetailComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_project_service__ = __webpack_require__("../../../../../src/app/services/project.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__ = __webpack_require__("../../../../ngx-bootstrap/modal/index.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__("../../../../moment/moment.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__ = __webpack_require__("../../../../../src/app/cmaComponents/modals/index.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var TvcDetailComponent = /** @class */ (function () {
+    function TvcDetailComponent(projectService, router, modalService, route) {
+        this.projectService = projectService;
+        this.router = router;
+        this.modalService = modalService;
+        this.route = route;
+        this.myDatePickerOptions = {
+            showInputField: true,
+            dateFormat: 'dd/mm/yyyy',
+        };
+        this.setErrorsNull();
+    }
+    TvcDetailComponent.prototype.ngOnInit = function () {
+        this.methodSelectedId = Number(this.route.snapshot.paramMap.get('methodId'));
+        ;
+        this.typeSelectedId = Number(this.route.snapshot.paramMap.get('typeId'));
+        ;
+        this.setNameOfMethodAndType();
+    };
+    TvcDetailComponent.prototype.setNameOfMethodAndType = function () {
+        var _this = this;
+        this.projectService.getNameOfMethodAndType(this.methodSelectedId, this.typeSelectedId)
+            .then(function (data) {
+            _this.nameMethodAdvertising = data[0].nameMethodAds;
+            _this.nameTypeAdvertising = data[0].nameTypeAds;
+        })
+            .catch(function (reason) {
+            console.log(reason.Data);
+        });
+    };
+    TvcDetailComponent.prototype.handleCreate = function () {
+        var _this = this;
+        this.setErrorsNull();
+        var onConfirm = function () {
+            //const formValue = this.projectForm.value;
+            var startDate = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.startDatePicker.selectionDayTxt, 'DD/MM/YYYY');
+            var deadline = __WEBPACK_IMPORTED_MODULE_4_moment__(_this.deadlinePicker.selectionDayTxt, 'DD/MM/YYYY');
+            //this.isLoading = true;
+            _this.projectService.createTVCProject(_this.nameCampaign, _this.description, _this.nameMethodAdvertising, _this.nameTypeAdvertising, _this.goal, _this.budget, _this.ChannelId, _this.timeVideo, _this.timeFrame, startDate.isValid() ? startDate.format('YYYY-MM-DD') : _this.startDatePicker.selectionDayTxt, deadline.isValid() ? deadline.format('YYYY-MM-DD') : _this.deadlinePicker.selectionDayTxt)
+                .then(function (value) {
+                var newProject = value;
+                //this.isLoading = false;
+                _this.router.navigate(['project/' + newProject.id + '/detail']);
+            })
+                .catch(function (reason) {
+                //this.isLoading = false;
+                _this.setErrors(reason.Data);
+            });
+        };
+        var initialState = {
+            message: "Are you sure to create this project?",
+            confirmCallback: onConfirm
+        };
+        this.modalService.show(__WEBPACK_IMPORTED_MODULE_5__cmaComponents_modals__["b" /* ConfirmModalComponent */], { initialState: initialState, class: 'modal-dialog' });
+    };
+    TvcDetailComponent.prototype.setErrorsNull = function () {
+        this.errors = {
+            name: "",
+            description: "",
+            nameMethodAdvertising: "",
+            nameTypeAdvertising: "",
+            goal: "",
+            budget: "",
+            ChannelId: "",
+            timeVideo: "",
+            timeFrame: "",
+            startDate: "",
+            deadline: "",
+        };
+    };
+    TvcDetailComponent.prototype.setErrors = function (errors) {
+        for (var _i = 0, errors_1 = errors; _i < errors_1.length; _i++) {
+            var error = errors_1[_i];
+            var fieldName = error.key;
+            var errorMessage = error.message;
+            switch (fieldName) {
+                case "Name":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Description":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Goal":
+                    this.errors.name = errorMessage;
+                    break;
+                case "Budget":
+                    this.errors.name = errorMessage;
+                    break;
+                case "ChannelId":
+                    this.errors.name = errorMessage;
+                    break;
+                case "timeVideo":
+                    this.errors.name = errorMessage;
+                    break;
+                case "timeFrame":
+                    this.errors.name = errorMessage;
+                    break;
+                case "StartDate":
+                    this.errors.startDate = errorMessage;
+                    break;
+                case "Deadline":
+                    this.errors.deadline = errorMessage;
+                    break;
+            }
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('startDatePicker'),
+        __metadata("design:type", Object)
+    ], TvcDetailComponent.prototype, "startDatePicker", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('deadlinePicker'),
+        __metadata("design:type", Object)
+    ], TvcDetailComponent.prototype, "deadlinePicker", void 0);
+    TvcDetailComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'app-tvc-detail',
+            template: __webpack_require__("../../../../../src/app/views/project/tvc-detail/tvc-detail.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/views/project/tvc-detail/tvc-detail.component.scss")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_project_service__["a" /* ProjectService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["c" /* Router */],
+            __WEBPACK_IMPORTED_MODULE_3_ngx_bootstrap_modal__["b" /* BsModalService */],
+            __WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */]])
+    ], TvcDetailComponent);
+    return TvcDetailComponent;
 }());
 
 
