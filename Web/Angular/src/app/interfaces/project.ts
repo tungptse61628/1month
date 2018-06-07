@@ -15,6 +15,7 @@ export interface Project {
   status: number,
   keywords:string,
   goal: string,
+  location: string,
   budget: number,
   timeVideo: number,
   timeFrame: string,

@@ -115,6 +115,7 @@ export class ProjectDetailComponent implements OnInit {
       changedBy: new FormControl(undefined, Validators.required),
       keywords: new FormControl(undefined, Validators.required),
       goal: new FormControl(undefined, Validators.required),
+      location: new FormControl(undefined, Validators.required),
       budget: new FormControl(undefined, Validators.required),
       timeVideo: new FormControl(undefined, Validators.required),
       timeFrame: new FormControl(undefined, Validators.required),

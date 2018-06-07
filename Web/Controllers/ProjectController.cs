@@ -51,6 +51,33 @@ namespace Web.Controllers
         }
 
         [HttpGet]
+        [Route("pp/{id:int}")]
+        [System.Web.Http.Authorize]
+        public IHttpActionResult GetProject(int id)
+        {
+            try
+            {
+                int currentUserId = Int32.Parse(User.Identity.GetUserId());
+
+                using (CmAgencyEntities db = new CmAgencyEntities())
+                {
+                    ProjectService projectService = new ProjectService(db);
+
+                    Project project = projectService.GetProjectByID(id);
+                    
+                    return Ok(ResponseHelper.GetResponse(
+                            projectService.ParseToJson(project)
+                        ));
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content(HttpStatusCode.InternalServerError,
+                    ResponseHelper.GetExceptionResponse(ex));
+            }
+        }
+
+        [HttpGet]
         [Route("all")]
         [System.Web.Http.Authorize(Roles = "Admin")]
         public IHttpActionResult GetAllProject()

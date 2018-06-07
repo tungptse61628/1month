@@ -27,7 +27,6 @@ E:\1.1.1.1.Tung\1month\Entity\bin\Debug\EntityFramework.dll
 E:\1.1.1.1.Tung\1month\Entity\bin\Debug\EntityFramework.SqlServer.dll
 E:\1.1.1.1.Tung\1month\Entity\bin\Debug\EntityFramework.xml
 E:\1.1.1.1.Tung\1month\Entity\bin\Debug\EntityFramework.SqlServer.xml
-E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.csproj.CoreCompileInputs.cache
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.dll
 E:\1.1.1.1.Tung\1month\Entity\obj\Debug\Entity.pdb
