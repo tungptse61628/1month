@@ -8,7 +8,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Name Campaign: </label>
+            <label class="col-4 col-form-label text-right">Name Campaign              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="nameCampaign" class="form-control" placeholder="Please enter the project's name">
               <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
@@ -18,7 +20,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Description: </label>
+            <label class="col-4 col-form-label text-right">Description </label>
             <div class="col-8">
               <textarea [(ngModel)]="description" rows="5" class="form-control" placeholder="About project..."></textarea>
             </div>
@@ -27,7 +29,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">MethodAd: </label>
+            <label class="col-4 col-form-label text-right">MethodAd             </label>
             <div class="col-8">
               <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}" />
             </div>
@@ -36,7 +38,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">TypeAd: </label>
+            <label class="col-4 col-form-label text-right">TypeAd               </label>
             <div class="col-8">
               <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}" />
             </div>
@@ -45,7 +47,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Goal: </label>
+            <label class="col-4 col-form-label text-right">Goal              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <select [ngClass]="{'form-control': true}" [(ngModel)]="goal">
                 <option value="Introduction to product information">
@@ -80,7 +84,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Budget(USD): </label>
+            <label class="col-4 col-form-label text-right">Budget(USD)              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="budget" class="form-control" placeholder="Please enter budget">
             </div>
@@ -89,7 +95,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Channel: </label>
+            <label class="col-4 col-form-label text-right">Channel              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class=" col-8">
               <select [(ngModel)]="ChannelId" [ngClass]="{'form-control': true}" >
                 <option value="1">VTV1</option>
@@ -107,7 +115,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Time of video(sec): </label>
+            <label class="col-4 col-form-label text-right">Time of video(sec)              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="timeVideo" class="form-control" placeholder="Please enter the time of video">
             </div>
@@ -118,7 +128,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Time flame: </label>
+            <label class="col-4 col-form-label text-right">Time flame              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <select [ngClass]="{'form-control': true}" [(ngModel)]="timeFrame">
                 <option value="10:00AM-12:00PM">10:00AM-12:00PM</option>
@@ -134,7 +146,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Start Date: </label>
+            <label class="col-4 col-form-label text-right">Start Date              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <my-date-picker #startDatePicker name="startDate-input" [options]="myDatePickerOptions" class="form-control-mydatepicker"></my-date-picker>
               <div class="invalid-feedback" *ngIf="errors.startDate">{{errors.startDate}}</div>

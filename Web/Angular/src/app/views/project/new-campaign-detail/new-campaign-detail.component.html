@@ -7,7 +7,9 @@
       <div class="card-body">
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Name Campaign: </label>
+            <label class="col-4 col-form-label text-right">Name Campaign<span style="color: #ee0d0d">
+                <strong>*</strong>
+              </span></label>
             <div class="col-8">
               <input type="text" [(ngModel)]="nameCampaign" class="form-control" placeholder="Please enter the project's name">
               <div class="invalid-feedback" *ngIf="errors.name">{{errors.name}}</div>
@@ -17,7 +19,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Description: </label>
+            <label class="col-4 col-form-label text-right">Description </label>
             <div class="col-8">
               <textarea [(ngModel)]="description" rows="5" class="form-control" placeholder="About project..."></textarea>
             </div>
@@ -26,7 +28,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Method advertisesing: </label>
+            <label class="col-4 col-form-label text-right">Method advertisesing             </label>
             <div class="col-8">
               <input type="text" disabled="true" class="form-control" value="{{nameMethodAdvertising}}" />
             </div>
@@ -35,7 +37,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Type advertisesing: </label>
+            <label class="col-4 col-form-label text-right">Type advertisesing              </label>
             <div class="col-8">
               <input type="text" disabled="true" class="form-control" value="{{nameTypeAdvertising}}" />
             </div>
@@ -44,7 +46,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Goal: </label>
+            <label class="col-4 col-form-label text-right">Goal              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <select  [ngClass]="{'form-control': true}" [(ngModel)]="goal">
                 <option value="Keyword target" >Keyword target</option>
@@ -60,7 +64,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Location: </label>
+            <label class="col-4 col-form-label text-right">Location              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="location" class="form-control" placeholder="Please enter the location">
             </div>
@@ -69,7 +75,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Keywords: </label>
+            <label class="col-4 col-form-label text-right">Keywords              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="keywords" class="form-control" placeholder="Please enter the keywords">
             </div>
@@ -78,7 +86,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Budget(USD): </label>
+            <label class="col-4 col-form-label text-right">Budget(USD)              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <input type="text" [(ngModel)]="budget" class="form-control" placeholder="Please enter the type budget">
             </div>
@@ -87,7 +97,9 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Start Date: </label>
+            <label class="col-4 col-form-label text-right">Start Date              <span style="color: #ee0d0d">
+              <strong>*</strong>
+            </span> </label>
             <div class="col-8">
               <my-date-picker #startDatePicker name="startDate-input" [options]="myDatePickerOptions" class="form-control-mydatepicker"></my-date-picker>
               <div class="invalid-feedback" *ngIf="errors.startDate">{{errors.startDate}}</div>
@@ -97,7 +109,7 @@
 
         <div class="form-horizontal col-6 ">
           <div class="form-group row">
-            <label class="col-4 col-form-label text-right">Deadline: </label>
+            <label class="col-4 col-form-label text-right">Deadline               </label>
             <div class="col-8">
               <my-date-picker #deadlinePicker name="deadline-input" [options]="myDatePickerOptions" class="form-control-mydatepicker" disable="true"></my-date-picker>
               <div class="invalid-feedback" *ngIf="errors.deadline">{{errors.deadline}}</div>
