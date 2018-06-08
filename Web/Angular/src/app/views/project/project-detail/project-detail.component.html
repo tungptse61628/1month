@@ -91,6 +91,17 @@
               <h5 class="mb-3" *ngIf="foundProject.typeAdID==10 || foundProject.typeAdID==11 || foundProject.typeAdID==8">Budget: {{foundProject.budget }}</h5>
             </div>
 
+            <div class="section">
+              <!--budget-->
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==1">Channel: VTV1</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==2">Channel: VTV2</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==3">Channel: VTV3</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==6">Channel: VTV6</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==7">Channel: HTV7</h5>
+              <h5 class="mb-3" *ngIf="foundProject.typeAdID==8 && foundProject.channelID==8">Channel: HTV8</h5>
+
+            </div>
+
 
             <div class="section">
               <!--timeFrame-->
